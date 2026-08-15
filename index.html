@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Health Protocol Dashboard</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="dashboard">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">HP</span> Health Protocol</a>
+    <nav class="site-nav">
+      <a href="index.html" data-nav="dashboard">Dashboard</a>
+      <a href="profile.html" data-nav="profile">Profile</a>
+      <a href="transplant.html" data-nav="transplant">Transplant</a>
+      <a href="longevity.html" data-nav="longevity">Longevity</a>
+      <a href="medications.html" data-nav="medications">Meds</a>
+      <a href="supplements.html" data-nav="supplements">Supplements</a>
+      <a href="skincare.html" data-nav="skincare">Skincare</a>
+      <a href="haircare.html" data-nav="haircare">Hair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <header class="page-header">
+    <p class="page-kicker">Personal health hub · Updated 8 Aug 2026</p>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-lede">Command center for the Aug 18–19 FUE transplant — countdown, deadlines, and links to your protocols. Labs and interpretation live on <a href="profile.html">Profile</a>.</p>
+  </header>
+
+  <div class="hero-grid">
+    <div class="hero-card primary">
+      <div class="muted">5,500-graft FUE · Dr. Sean · Los Angeles</div>
+      <div class="countdown" id="countdown-days">—</div>
+      <div class="muted" id="countdown-label">days until surgery</div>
+      <div class="hero-meta">
+        <span>Tue–Wed 18–19 Aug 2026 · 6:45am</span>
+        <span>11669 Santa Monica Blvd</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat-label">Today</div>
+      <div class="stat-value" style="font-size:18px" id="today-date">—</div>
+      <div class="stat-sub" style="margin-top:10px">Current phase</div>
+      <div class="stat-value" style="font-size:16px;color:var(--accent-dark)" id="current-phase">—</div>
+      <div class="callout ok" style="margin-top:14px;font-size:13px">
+        <span class="ct">Rx confirmed · Dr. Sean</span>
+        Has your current Rx list — continue everything as normal. Keep Zepbound paused as you are.
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Current status</p>
+  <div class="panel profile-panel">
+    <dl class="profile-fields" style="padding:16px 20px">
+      <div class="profile-row"><dt>Pre-op labs</dt><dd>Cleared · draw 13 May 2026 · <a href="profile.html#lab-history">Latest results →</a></dd></div>
+      <div class="profile-row"><dt>Prescriptions</dt><dd>Dr. Sean confirmed — continue all Rx as normal · Zepbound stays paused · <a href="medications.html">Meds →</a></dd></div>
+      <div class="profile-row"><dt>Peri-op plan</dt><dd>Oral finasteride script · K1 Sat–Sun 16–17 Aug · Problend ~4 wk post-op · <a href="transplant.html#decisions">Decisions →</a></dd></div>
+      <div class="profile-row"><dt>Next deadline</dt><dd><strong>Mon 11 Aug</strong> — start one-week stops (fish oil, multivitamins, minoxidil/Problend last dose Mon 10 PM)</dd></div>
+      <div class="profile-row"><dt>Problend</dt><dd>Last application <strong>Mon 10 Aug PM</strong> · <a href="haircare.html">Hair care →</a></dd></div>
+      <div class="profile-row"><dt>Zepbound</dt><dd>2.5 mg weekly · paused since 1 Aug · stay paused per Dr. Sean · <a href="medications.html">Meds →</a></dd></div>
+      <div class="profile-row"><dt>Lab interpretation</dt><dd><a href="profile.html#interpretation">What looks solid · what needs improvement →</a></dd></div>
+    </dl>
+  </div>
+
+  <p class="section-title">Upcoming milestones</p>
+  <div class="timeline-strip" id="timeline-strip"></div>
+
+  <p class="section-title">Priority actions</p>
+  <div class="panel">
+    <ul class="action-list">
+      <li>
+        <span class="action-priority urgent">Mon 11 Aug</span>
+        <span><strong>Start one-week stops</strong> — fish oil, both multivitamins, minoxidil (last Problend Mon 10 PM), alcohol, ibuprofen, garlic, ginkgo, ginseng per Dr. Sean’s sheet. <a href="transplant.html#pre">Timeline →</a></span>
+      </li>
+      <li>
+        <span class="action-priority soon">Sat–Sun 16–17 Aug</span>
+        <span><strong>Vitamin K1</strong> — 1 tablet, 2–3× daily each day (2 days only, before surgery). <a href="transplant.html#decisions">Details →</a></span>
+      </li>
+      <li>
+        <span class="action-priority urgent">Mon 10 Aug PM</span>
+        <span><strong>Last Problend application</strong> before the one-week minoxidil stop (official sheet).</span>
+      </li>
+      <li>
+        <span class="action-priority soon">Before surgery</span>
+        <span><strong>Order pre-op &amp; recovery supplies</strong> — vitamin K1, compression stockings, travel pillow, baby shampoo, whey concentrate, and more. <a href="transplant.html#purchase-checklist">Purchase checklist →</a></span>
+      </li>
+      <li>
+        <span class="action-priority info">Post-op · Defy</span>
+        <span><strong>Ferritin + 25-OH vitamin D + B12/folate</strong> — not in your three panels; too late to draw, result, and act before Aug 18. Add at your next Defy visit after recovery. <a href="profile.html#missing-labs">Details →</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <p class="section-title">Explore your protocols</p>
+  <div class="card-grid">
+    <a class="nav-card" href="profile.html">
+      <div class="nav-card-icon">◉</div>
+      <h3>Physical profile</h3>
+      <p>Demographics, lab history, and interpretation (Feb–Jun 2026).</p>
+    </a>
+    <a class="nav-card" href="transplant.html">
+      <div class="nav-card-icon">✂</div>
+      <h3>Hair transplant</h3>
+      <p>Dr. Sean’s official timeline, purchase checklist, FUE approach, med reconciliation, and recovery.</p>
+    </a>
+    <a class="nav-card" href="medications.html">
+      <div class="nav-card-icon">Rx</div>
+      <h3>Medications</h3>
+      <p>Prescriptions, perioperative hold/continue rules, and interaction notes.</p>
+    </a>
+    <a class="nav-card" href="supplements.html">
+      <div class="nav-card-icon">+</div>
+      <h3>Supplements</h3>
+      <p>Daily schedule by period, cycling rules, assessments, and surgical pauses.</p>
+    </a>
+    <a class="nav-card" href="skincare.html">
+      <div class="nav-card-icon">☀</div>
+      <h3>Skincare</h3>
+      <p>Morning routine, Night A/B protocols, product verdicts, post-op face-only rules.</p>
+    </a>
+    <a class="nav-card" href="haircare.html">
+      <div class="nav-card-icon">↗</div>
+      <h3>Hair care</h3>
+      <p>Problend, shampoo, finasteride strategy, and peri-op holds.</p>
+    </a>
+    <a class="nav-card" href="longevity.html">
+      <div class="nav-card-icon">∞</div>
+      <h3>Longevity</h3>
+      <p>Experimental tier, evidence floor, and 2026–2031 research horizon forecast.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#decisions">
+      <div class="nav-card-icon">?</div>
+      <h3>Confirmed decisions</h3>
+      <p>Olmesartan timing, oral finasteride, vitamin K dates, whey, Problend and Zepbound restart plan.</p>
+    </a>
+    <a class="nav-card" href="dr-sean-fue-preop-agreement.txt">
+      <div class="nav-card-icon">📄</div>
+      <h3>Official pre-op sheet</h3>
+      <p>Plain-text copy of Dr. Sean’s FUE agreement — supersedes AI-generated plans.</p>
+    </a>
+  </div>
+
+  <div class="callout info" style="margin-top:28px">
+    <span class="ct">Bridge strategy</span>
+    At 45 with clean labs and ~$450k income / ~$1.5M net worth, your plan is to preserve optionality — optimize health and appearance now so future therapies (reprogramming, follicle multiplication, precision hormones) meet a well-maintained system. See <a href="longevity.html">Longevity</a> for the research map.
+  </div>
+</main>
+
+<footer class="site-footer">
+  Informational only — not medical advice. Dr. Sean’s written protocol supersedes this site where they disagree.
+  Prepared Aug 2026 · AI-assisted review; confirm all <span class="tag confirm">Confirm</span> items with your clinicians.
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
