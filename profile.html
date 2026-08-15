@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Physical Profile — Tom's Health App</title>
+<title>Profile — Tom's Health App</title>
 <link rel="stylesheet" href="css/site.css">
 <script>
 (function () {
@@ -32,60 +32,297 @@
   </div>
 </header>
 
-<main class="page">
-  <header class="page-header">
-    <p class="page-kicker">Personal health hub · Updated 8 Aug 2026</p>
-    <h1 class="page-title">Physical profile</h1>
-    <p class="page-lede">Demographics, care team, active treatments, and full lab history (Feb–Jun 2026). Headline metrics are on the <a href="index.html">home page</a>; interpretation is below the latest-results tables.</p>
-  </header>
+<main class="page profile-page">
+  <!-- Identity hub (Guava-inspired) -->
+  <section class="profile-hub" id="top" aria-label="Profile summary">
+    <div class="profile-identity">
+      <div class="profile-identity-top">
+        <h1 class="profile-name">Tom Rivituso</h1>
+        <div class="profile-identity-actions" aria-hidden="true">
+          <span class="profile-icon-btn" title="Edit">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </span>
+          <span class="profile-icon-btn accent" title="Settings">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>
+          </span>
+        </div>
+      </div>
+      <div class="profile-chips" role="list">
+        <span class="profile-chip" role="listitem">27 Jan 1981</span>
+        <span class="profile-chip" role="listitem">Male</span>
+        <span class="profile-chip" role="listitem">Age 45</span>
+        <span class="profile-chip" role="listitem">Good health</span>
+      </div>
+    </div>
+
+    <a class="health-score-card" href="#health-scores">
+      <div class="health-score-ring" aria-hidden="true">
+        <svg viewBox="0 0 80 80" class="ring-svg">
+          <circle class="ring-track" cx="40" cy="40" r="32" />
+          <circle class="ring-progress" cx="40" cy="40" r="32" pathLength="100" />
+        </svg>
+        <div class="ring-value">
+          <span class="ring-num">7</span>
+          <span class="ring-den">/14</span>
+        </div>
+      </div>
+      <div class="health-score-cats">
+        <div class="score-cat">
+          <div class="score-cat-label">Prevention</div>
+          <div class="score-bar"><span style="width:100%"></span></div>
+          <div class="score-cat-meta">4/4 complete</div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-label">Monitoring</div>
+          <div class="score-bar monitoring"><span style="width:67%"></span></div>
+          <div class="score-cat-meta">4/6 tracked</div>
+        </div>
+        <div class="score-cat">
+          <div class="score-cat-label">Action</div>
+          <div class="score-bar action"><span style="width:25%"></span></div>
+          <div class="score-cat-meta">1/4 in progress</div>
+        </div>
+      </div>
+      <span class="health-score-chevron" aria-hidden="true">›</span>
+    </a>
+
+    <div class="profile-insurance">
+      <div class="profile-insurance-label">Care team</div>
+      <div class="profile-insurance-rows">
+        <div class="profile-insurance-row">
+          <span>Defy Medical · Dr. J. Saya · Labcorp</span>
+        </div>
+        <div class="profile-insurance-row">
+          <span>Dr. Sean · FUE 18–19 Aug 2026</span>
+          <a href="transplant.html">Plan ›</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category cards -->
+  <section class="profile-categories" aria-label="Health categories">
+    <a class="cat-card" href="#lab-history">
+      <div class="cat-card-head">
+        <span class="cat-icon biomarkers" aria-hidden="true"></span>
+        <div>
+          <h2 class="cat-title">Biomarkers</h2>
+          <p class="cat-sub">3 draws · Feb–Jun 2026</p>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">›</span>
+      </div>
+      <div class="biomarker-grid" aria-hidden="true">
+        <div class="biomarker-cell">
+          <span class="bm-glyph heart"></span>
+          <span class="bm-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        </div>
+        <div class="biomarker-cell">
+          <span class="bm-glyph blood"></span>
+          <span class="bm-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        </div>
+        <div class="biomarker-cell">
+          <span class="bm-glyph metab"></span>
+          <span class="bm-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+        </div>
+        <div class="biomarker-cell">
+          <span class="bm-glyph lipid"></span>
+          <span class="bm-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        </div>
+        <div class="biomarker-cell">
+          <span class="bm-glyph hormone"></span>
+          <span class="bm-dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="biomarker-cell">
+          <span class="bm-glyph screen"></span>
+          <span class="bm-dots"><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="cat-card" href="medications.html">
+      <div class="cat-card-head">
+        <span class="cat-icon meds" aria-hidden="true"></span>
+        <div>
+          <h2 class="cat-title">Meds &amp; supplements</h2>
+          <p class="cat-sub">4 active Rx · Zepbound paused · daily stack</p>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">›</span>
+      </div>
+    </a>
+
+    <a class="cat-card" href="transplant.html">
+      <div class="cat-card-head">
+        <span class="cat-icon conditions" aria-hidden="true"></span>
+        <div>
+          <h2 class="cat-title">Procedures &amp; conditions</h2>
+          <p class="cat-sub">5,500-graft FUE · Aug 18–19 · pre-op active</p>
+        </div>
+        <span class="cat-chevron" aria-hidden="true">›</span>
+      </div>
+    </a>
+
+    <div class="cat-card static">
+      <div class="cat-card-head">
+        <span class="cat-icon allergies" aria-hidden="true"></span>
+        <div>
+          <h2 class="cat-title">Allergies &amp; intolerances</h2>
+          <p class="cat-sub">None recorded</p>
+        </div>
+        <span class="cat-add" aria-hidden="true">+</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Health Scores detail -->
+  <section id="health-scores" class="health-scores-section">
+    <header class="scores-header">
+      <h2 class="scores-title">Health scores</h2>
+      <p class="scores-lede">Prevention cleared for surgery. Monitoring gaps and post-op actions below.</p>
+    </header>
+
+    <div class="score-block">
+      <div class="score-block-head">
+        <h3>Prevention</h3>
+        <div class="score-seg-bar prevention" aria-hidden="true">
+          <span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span>
+        </div>
+      </div>
+      <ul class="score-list">
+        <li>
+          <a href="#lab-2026-05-13">
+            <span class="score-item-text">Medical checkup <span class="dot">·</span> last May 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Hepatitis C test <span class="dot">·</span> May 2026 · non-reactive</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Cholesterol test <span class="dot">·</span> LDL 76 · May 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Glucose test <span class="dot">·</span> 90 mg/dL · May 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="score-block">
+      <div class="score-block-head">
+        <h3>Monitoring</h3>
+        <div class="score-seg-bar monitoring" aria-hidden="true">
+          <span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg on"></span><span class="seg"></span><span class="seg"></span>
+        </div>
+      </div>
+      <ul class="score-list">
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Free testosterone <span class="dot">·</span> 9.7 pg/mL · Jun 2026</span>
+            <span class="score-status warn" title="Soft spot" aria-label="Needs attention"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Lipids <span class="dot">·</span> LDL 76 · May 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">Metabolic panel <span class="dot">·</span> May 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#lab-history">
+            <span class="score-item-text">PSA <span class="dot">·</span> 0.49 ng/mL · Feb 2026</span>
+            <span class="score-status done" title="Complete" aria-label="Complete"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#missing-labs">
+            <span class="score-item-text">Ferritin <span class="dot">·</span> not yet drawn</span>
+            <span class="score-status missing" title="Missing" aria-label="Missing"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#missing-labs">
+            <span class="score-item-text">25-OH vitamin D <span class="dot">·</span> not yet drawn</span>
+            <span class="score-status missing" title="Missing" aria-label="Missing"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="score-block">
+      <div class="score-block-head">
+        <h3>Action</h3>
+        <div class="score-seg-bar action" aria-hidden="true">
+          <span class="seg on"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+        </div>
+      </div>
+      <ul class="score-list">
+        <li>
+          <a href="transplant.html">
+            <span class="score-item-text">FUE transplant <span class="dot">·</span> 18–19 Aug 2026</span>
+            <span class="score-status active" title="In progress" aria-label="In progress"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="medications.html">
+            <span class="score-item-text">Start oral finasteride <span class="dot">·</span> when Problend stops</span>
+            <span class="score-status pending" title="Upcoming" aria-label="Upcoming"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#missing-labs">
+            <span class="score-item-text">Draw ferritin + vitamin D <span class="dot">·</span> next Defy visit</span>
+            <span class="score-status pending" title="Upcoming" aria-label="Upcoming"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+        <li>
+          <a href="#interpretation">
+            <span class="score-item-text">Defy hormone review <span class="dot">·</span> free T soft spot</span>
+            <span class="score-status pending" title="Upcoming" aria-label="Upcoming"></span>
+            <span class="score-item-chevron" aria-hidden="true">›</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <ol class="scores-footnotes">
+      <li>Factors reflect your Feb–Jun 2026 labs and peri-op plan.</li>
+      <li>Prevention is complete for surgical clearance.</li>
+      <li>Open any factor for marker detail or the related protocol.</li>
+      <li>Missing draws are post-op priorities — not pre-transplant blockers.</li>
+    </ol>
+  </section>
 
   <p class="section-title">Lab draws</p>
   <div class="panel">
     <p class="muted" style="margin:0;font-size:13px;color:var(--text-soft)">Three draws — 28 Feb (baseline), 13 May (pre-op clearance), 26 Jun (Defy hormones). Latest value per marker is in the table below; full panels by date are in <a href="#lab-archives">historical draws</a>. <a href="#missing-labs">Not yet drawn →</a></p>
   </div>
-
-  <section id="profile-data">
-    <h2>Profile data</h2>
-    <p class="lede">Health and physiology only — one field per row.</p>
-    <div class="panel profile-panel">
-      <div class="profile-group">
-        <h3>Demographics</h3>
-        <dl class="profile-fields">
-          <div class="profile-row"><dt>Date of birth</dt><dd>27 January 1981</dd></div>
-          <div class="profile-row"><dt>Age</dt><dd>45 (as of Aug 2026)</dd></div>
-          <div class="profile-row"><dt>Sex</dt><dd>Male</dd></div>
-          <div class="profile-row"><dt>General health</dt><dd>Good (self-reported)</dd></div>
-        </dl>
-      </div>
-      <div class="profile-group">
-        <h3>Care team</h3>
-        <dl class="profile-fields">
-          <div class="profile-row"><dt>Hormone optimization</dt><dd>Defy Medical · Dr. J. Saya · Labcorp</dd></div>
-          <div class="profile-row"><dt>Hair transplant</dt><dd>Dr. Sean · 18–19 Aug 2026 · <a href="transplant.html">Surgical plan →</a></dd></div>
-        </dl>
-      </div>
-      <div class="profile-group">
-        <h3>Active treatments</h3>
-        <dl class="profile-fields">
-          <div class="profile-row"><dt>Trintellix</dt><dd>20 mg nightly</dd></div>
-          <div class="profile-row"><dt>Olmesartan</dt><dd>20 mg nightly</dd></div>
-          <div class="profile-row"><dt>Rosuvastatin</dt><dd>10 mg nightly</dd></div>
-          <div class="profile-row"><dt>Zepbound</dt><dd>2.5 mg weekly · <span class="tag plain">paused since 1 Aug</span></dd></div>
-          <div class="profile-row"><dt>Oral finasteride</dt><dd>Dr. Sean script · start when Problend stops (11 Aug) · <a href="medications.html">Meds →</a></dd></div>
-          <div class="profile-row"><dt>Happy Head Problend</dt><dd>Topical scalp · nightly until 10 Aug PM · restart ~4 wk post-op · <a href="haircare.html">Hair care →</a></dd></div>
-          <div class="profile-row"><dt>Oral supplements</dt><dd>Daily stack · <a href="supplements.html">Supplements →</a></dd></div>
-          <div class="profile-row"><dt>Full Rx detail</dt><dd><a href="medications.html">Medications →</a></dd></div>
-        </dl>
-      </div>
-    </div>
-
-    <div class="callout info" style="margin-top:16px">
-      <span class="ct">Related protocols</span>
-      <a href="medications.html">Medications</a> ·
-      <a href="supplements.html">Supplements</a> ·
-      <a href="haircare.html">Hair care</a>
-    </div>
-  </section>
 
   <section id="lab-history">
     <h2>Lab history</h2>
