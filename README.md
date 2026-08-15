@@ -6,7 +6,9 @@ Open `index.html`. No build step.
 
 **Password:** `8127` (same gate as the Italy itinerary — remember-on-this-device is optional).
 
-Live: [https://trivituso81.github.io/health/](https://trivituso81.github.io/health/)
+**Open it:** [Tom's Health App](https://raw.githack.com/trivituso81/health/cursor/toms-health-app-landing-e9e4/index.html) — password `8127`
+
+For a permanent `github.io` address: repo **Settings → Pages → Deploy from a branch → `main` (or this branch) / root**.
 
 ## Pages
 
