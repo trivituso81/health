@@ -4,15 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Longevity · Health Protocol</title>
-<link rel="stylesheet" href="css/site.css">
+<title>Longevity · Tom's Health App</title>
+<link rel="stylesheet" href="css/site.css?v=20260815v">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
 </head>
 <body data-page="longevity">
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="brand"><span class="brand-mark">HP</span> Health Protocol</a>
+    <a href="index.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
     <nav class="site-nav">
-      <a href="index.html" data-nav="dashboard">Dashboard</a>
+      <a href="index.html" data-nav="home">Home</a>
       <a href="profile.html" data-nav="profile">Profile</a>
       <a href="transplant.html" data-nav="transplant">Transplant</a>
       <a href="longevity.html" data-nav="longevity">Longevity</a>
@@ -28,12 +36,13 @@
   <header class="page-header">
     <p class="page-kicker">Experimental stack · Research horizon · Updated 8 Aug 2026</p>
     <h1 class="page-title">Longevity</h1>
-    <p class="page-lede">Risk-adjusted experimental tier at 45, the evidence-only floor, and a 2026–2031 research forecast. Routine details live on <a href="supplements.html">Supplements</a>, <a href="skincare.html">Skincare</a>, and <a href="haircare.html">Hair</a>; labs and goals on <a href="profile.html">Profile</a>.</p>
+    <p class="page-lede">Risk-adjusted experimental tier at 45, a mechanism-first read on <a href="#peptides">peptides and TRT</a>, the evidence-only floor, and a 2026–2031 research forecast. Routine details live on <a href="supplements.html">Supplements</a>, <a href="skincare.html">Skincare</a>, and <a href="haircare.html">Hair</a>; labs and goals on <a href="profile.html">Profile</a>.</p>
   </header>
 
   <nav class="subnav">
     <a href="#overview">Overview</a>
     <a href="#experimental">Experimental tier</a>
+    <a href="#peptides">Peptides &amp; TRT</a>
     <a href="#core">Evidence minimum</a>
     <a href="#horizon">Horizon overview</a>
     <a href="#h-cellular">Cellular</a>
@@ -161,6 +170,115 @@
       restart Problend ~4 weeks post-op (<a href="transplant.html#decisions">decisions</a>).<br>
       <strong>Meds page:</strong> oral vs topical finasteride tradeoffs —
       <a href="medications.html">Medications</a> · <a href="haircare.html#problend">Problend breakdown</a>.
+    </div>
+  </section>
+
+  <section id="peptides">
+    <h2>Peptides &amp; TRT — judged on mechanism, not trial outcomes</h2>
+    <p class="lede">
+      Defy raised testosterone optimization and GHK-Cu, and the GLOW blend adds BPC-157 and TB-500.
+      Waiting for human outcome trials on any of these is a dead end — the trials mostly do not exist
+      and will not exist soon. So this section asks two different questions instead: does the proposed
+      pathway actually produce the thing you want, and can that molecule reach the target in the form
+      you would use it.
+    </p>
+
+    <div class="callout info">
+      <span class="ct">The two axes</span>
+      <strong>Mechanism</strong> — is there a named receptor or pathway, and is that pathway the
+      rate-limiting step for hair density or skin quality? A real pathway that is not the bottleneck
+      buys nothing.<br>
+      <strong>Viability</strong> — chemistry and sourcing. Does the molecule survive its route of
+      administration, is it stable in the vehicle it ships in, and can you get a characterized product
+      with a known purity and endotoxin profile? A perfect mechanism in an uncharacterized vial is not
+      an intervention, it is a guess.
+    </div>
+
+    <h3>Mechanism-first read on each molecule</h3>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th style="width:16%">Molecule</th><th style="width:30%">Mechanism</th><th style="width:30%">Viability</th><th style="width:24%">Verdict</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>GHK-Cu, topical</strong></td>
+          <td>Tripeptide that carries copper(II). Copper is the cofactor for lysyl oxidase, the enzyme that crosslinks collagen and elastin, and for SOD1. GHK itself shifts fibroblast gene expression toward collagen I/III and decorin and away from MMP output. Coherent remodeling pathway.</td>
+          <td>~340 Da complex, small enough to cross the stratum corneum in a decent vehicle. The catch is formulation: the copper complex is degraded by ascorbic acid and low-pH actives, so it cannot share a step with your vitamin C or an acid.</td>
+          <td><span class="tag verdict-maybe">Reasonable</span> A skin bet, not a hair bet. Nothing goes on the recipient or donor area until the scalp has fully re-epithelialized.</td>
+        </tr>
+        <tr>
+          <td><strong>GHK-Cu, injected</strong></td>
+          <td>Same tripeptide, but the delivered payload is now systemic copper.</td>
+          <td>Copper is a Fenton-reaction metal — it catalyzes hydroxyl radical formation when it is not protein-bound. There is no dose-finding work to anchor a subcutaneous dose, and no compounded product with a copper-content spec you can verify.</td>
+          <td><span class="tag verdict-skip">Skip</span> The mechanism does not improve by injecting it; only the hazard does.</td>
+        </tr>
+        <tr>
+          <td><strong>BPC-157</strong></td>
+          <td>Proposed to act through VEGFR2 and the eNOS/nitric oxide axis plus FAK-paxillin signaling — that is, angiogenesis and fibroblast migration. The pathway is real. The problem is that it is a systemic, non-selective “proliferate and vascularize” signal with no tissue targeting.</td>
+          <td>It is a peptide taken orally, which puts gastric proteolysis directly in the way of the claimed dose. FDA placed it in the bulk-substance category ineligible for 503A/503B compounding, so no legitimately compounded product exists, and WADA lists it under S0. Every available source is a research-chemical vendor.</td>
+          <td><span class="tag verdict-skip">Skip</span> Untargeted growth signaling from an uncharacterized vial is the wrong trade at 45.</td>
+        </tr>
+        <tr>
+          <td><strong>TB-500</strong></td>
+          <td>Synthetic fragment of thymosin β4 spanning the actin-binding region. Actin sequestration promotes cell migration and angiogenesis and damps inflammatory cytokines. Again real, again a blanket pro-migratory signal rather than a follicle-specific one.</td>
+          <td>No pharmacopeial product and no compounding pathway. Purity, sequence fidelity, and endotoxin are unverifiable at the point of purchase.</td>
+          <td><span class="tag verdict-skip">Skip</span> Same reasoning as BPC-157.</td>
+        </tr>
+        <tr>
+          <td><strong>Testosterone (Defy)</strong></td>
+          <td>Testosterone is the substrate 5α-reductase converts to DHT, and DHT at the androgen receptor in dermal papilla cells is what miniaturizes susceptible follicles. Raising T raises substrate for the exact pathway you are paying finasteride to block. Grafts moved from the occipital donor area are androgen-insensitive — donor dominance — so the exposure is your remaining native hair in the recipient zone, not the transplant.</td>
+          <td>Highest viability of anything on this page: a characterized pharmaceutical, a real dose-response curve, and monitoring you already have a relationship for. Free T at 9.7 pg/mL and total T at 390 ng/dL are the case for treating (<a href="profile.html#lab-2026-06-26">Jun 2026 labs</a>).</td>
+          <td><span class="tag verdict-run">Viable, sequence it</span> Close the DHT gate before you raise the substrate.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout warn" style="margin-top:20px">
+      <span class="ct">Why a three-peptide blend fails on chemistry alone</span>
+      GLOW puts GHK-Cu, BPC-157, and TB-500 in one vial. Copper is a redox-active metal, and peptides
+      with histidine and methionine residues are exactly what copper-catalyzed oxidation attacks — so
+      the blend is working against its own stability before any biology happens. Practically, a fixed
+      blend also means you cannot titrate any single component, and if you get a reaction you cannot
+      attribute it. Even if you liked all three parts, the co-formulation would be the wrong way to
+      buy them.
+    </div>
+
+    <h3>Sequencing testosterone around the transplant</h3>
+    <div class="core">
+      <h4>Order of operations</h4>
+      <ol>
+        <li>Finasteride running and stable first — the 5α-reductase gate has to be closed before you add substrate. <a href="medications.html">Meds</a></li>
+        <li>Problend restarted and tolerated, roughly four weeks post-op. <a href="haircare.html#problend">Problend</a></li>
+        <li>Then start testosterone, with a baseline PSA and hematocrit already on file. Your PSA of 0.49 is a clean starting point.</li>
+        <li>Do not start it during the shedding window. Post-op shock loss and any androgenic shedding look identical, and if both are in motion you cannot tell which one you are watching or which lever to pull.</li>
+      </ol>
+    </div>
+
+    <h3>Mechanism levers that outrank the peptides</h3>
+    <p class="lede">
+      Judged on the same two axes, these beat everything in the GLOW stack — clearer pathway, and
+      nothing to source from a research-chemical vendor.
+    </p>
+    <div class="tscroll">
+    <table>
+      <thead><tr><th style="width:24%">Lever</th><th style="width:76%">Why the mechanism is stronger</th></tr></thead>
+      <tbody>
+        <tr><td>Dutasteride instead of finasteride</td><td>Inhibits type I and type II 5α-reductase rather than type II alone, so serum DHT suppression goes from roughly 70% to roughly 90%. Acts directly on the pathway causing the loss, and it is the same decision you are already making about finasteride. Discuss with Defy or Dr. Sean.</td></tr>
+        <tr><td>Microneedling and PRP</td><td>These deliver the same pro-angiogenic, pro-migratory wound-healing signal that BPC-157 and TB-500 are sold for — but locally, at physiological composition, from your own tissue. If the mechanism you want is “growth-factor signaling at the follicle,” this is the targeted version of it. Cadence: <a href="haircare.html">Hair</a>.</td></tr>
+        <tr><td>Ferritin, 25-OH vitamin D, B12/folate</td><td>The hair matrix is among the fastest-dividing tissue you own, and iron is a cofactor for ribonucleotide reductase in DNA synthesis. A deficiency here is a hard ceiling on growth that no peptide routes around. Still <a href="profile.html#missing-labs">not drawn</a> — add at the next Defy panel.</td></tr>
+        <tr><td>Scalp photoprotection</td><td>UV drives matrix metalloproteinase activity and oxidative damage in the same dermal compartment GHK-Cu is meant to build up. Protecting a newly grafted, thinly covered scalp is upstream of every remodeling intervention.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout ok" style="margin-top:20px">
+      <span class="ct">Bottom line</span>
+      Testosterone through Defy is the one item here with both a clear mechanism and a real product
+      behind it — it just needs to come after finasteride is stable and Problend is back. Topical
+      GHK-Cu is a defensible skin experiment once the scalp has healed. BPC-157 and TB-500 fail on
+      viability rather than on ambition, and the GLOW blend fails on chemistry. The levers that
+      actually move hair quality are stronger 5α-reductase inhibition, local wound-healing signal
+      from microneedling and PRP, and correcting any nutrient deficit you have not measured yet.
     </div>
   </section>
 
@@ -381,7 +499,7 @@
       <a class="nav-card" href="supplements.html">
         <div class="nav-card-icon">+</div>
         <h3>Supplements</h3>
-        <p>Daily schedule, cycling rules, perioperative pauses, and full product assessments.</p>
+        <p>Ideal stack and restart phases.</p>
       </a>
       <a class="nav-card" href="haircare.html">
         <div class="nav-card-icon">↗</div>

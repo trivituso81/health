@@ -4,15 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Physical Profile — Health Protocol</title>
+<title>Physical Profile — Tom's Health App</title>
 <link rel="stylesheet" href="css/site.css">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
 </head>
 <body data-page="profile">
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="brand"><span class="brand-mark">HP</span> Health Protocol</a>
+    <a href="index.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
     <nav class="site-nav">
-      <a href="index.html" data-nav="dashboard">Dashboard</a>
+      <a href="index.html" data-nav="home">Home</a>
       <a href="profile.html" data-nav="profile">Profile</a>
       <a href="transplant.html" data-nav="transplant">Transplant</a>
       <a href="longevity.html" data-nav="longevity">Longevity</a>
@@ -28,7 +36,7 @@
   <header class="page-header">
     <p class="page-kicker">Personal health hub · Updated 8 Aug 2026</p>
     <h1 class="page-title">Physical profile</h1>
-    <p class="page-lede">Demographics, care team, active treatments, and full lab history (Feb–Jun 2026). Headline metrics are on the <a href="index.html">Dashboard</a>; interpretation is below the latest-results tables.</p>
+    <p class="page-lede">Demographics, care team, active treatments, and full lab history (Feb–Jun 2026). Headline metrics are on the <a href="index.html">home page</a>; interpretation is below the latest-results tables.</p>
   </header>
 
   <p class="section-title">Lab draws</p>
@@ -300,7 +308,7 @@
       <span class="ct">What needs improvement</span>
       Nothing here is a pre-op blocker — surgery clearance labs are fine. These are the gaps and soft spots worth addressing after recovery:
       <ul style="margin:10px 0 0;padding-left:20px">
-        <li style="margin-bottom:8px"><strong>Androgen axis — most actionable.</strong> Free testosterone 9.7 pg/mL (lower third of range) and total T 390 ng/dL (low-normal for 45). Not deficient, but not optimal. A Defy conversation post-op makes sense before stacking more DIY androgen-adjacent supplements (boron, black maca).</li>
+        <li style="margin-bottom:8px"><strong>Androgen axis — most actionable.</strong> Free testosterone 9.7 pg/mL (lower third of range) and total T 390 ng/dL (low-normal for 45). Not deficient, but not optimal. A Defy conversation post-op makes sense before stacking more DIY androgen-adjacent supplements (boron, black maca). Mechanism read and sequencing: <a href="longevity.html#peptides">Peptides &amp; TRT</a>.</li>
         <li style="margin-bottom:8px"><strong>Ferritin — unknown.</strong> Never drawn in any panel. Low ferritin is one of the most common fixable causes of shedding; you cannot rule it in or out. Add at next Defy draw — see <a href="#missing-labs">Not yet drawn</a>.</li>
         <li style="margin-bottom:8px"><strong>Vitamin D — dosing blind.</strong> You take D3+K2 daily without a 25-OH level. Not dangerous at typical doses, but you cannot optimize. Same next-draw add.</li>
         <li style="margin-bottom:8px"><strong>Estradiol on the low side</strong> (&lt;30 pg/mL, Feb 2026). Not a problem today, but worth rechecking if you add finasteride or pursue TRT — both can shift E2.</li>

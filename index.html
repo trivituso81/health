@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Health Protocol Dashboard</title>
+<meta name="theme-color" content="#0d7a6f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tom's Health App">
+<title>Tom's Health App</title>
 <link rel="stylesheet" href="css/site.css">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
 </head>
-<body data-page="dashboard">
+<body data-page="home">
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="brand"><span class="brand-mark">HP</span> Health Protocol</a>
+    <a href="index.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
     <nav class="site-nav">
-      <a href="index.html" data-nav="dashboard">Dashboard</a>
+      <a href="index.html" data-nav="home">Home</a>
       <a href="profile.html" data-nav="profile">Profile</a>
       <a href="transplant.html" data-nav="transplant">Transplant</a>
       <a href="longevity.html" data-nav="longevity">Longevity</a>
@@ -24,14 +35,20 @@
   </div>
 </header>
 
-<main class="page">
-  <header class="page-header">
-    <p class="page-kicker">Personal health hub · Updated 8 Aug 2026</p>
-    <h1 class="page-title">Dashboard</h1>
-    <p class="page-lede">Command center for the Aug 18–19 FUE transplant — countdown, deadlines, and links to your protocols. Labs and interpretation live on <a href="profile.html">Profile</a>.</p>
-  </header>
+<main class="page landing">
+  <section class="landing-hero" id="top">
+    <p class="landing-kicker">Personal health hub · Private</p>
+    <h1>Tom's Health App</h1>
+    <p class="landing-lede">One home for your protocols, labs, and the Aug 18–19 FUE playbook. Every page below is reachable from here.</p>
+    <div class="landing-pills">
+      <a class="landing-pill" href="#now">Today</a>
+      <a class="landing-pill" href="#protocols">Protocols</a>
+      <a class="landing-pill" href="#records">Records</a>
+      <a class="landing-pill" href="#contacts">Contacts</a>
+    </div>
+  </section>
 
-  <div class="hero-grid">
+  <div class="hero-grid" id="now">
     <div class="hero-card primary">
       <div class="muted">5,500-graft FUE · Dr. Sean · Los Angeles</div>
       <div class="countdown" id="countdown-days">—</div>
@@ -59,8 +76,8 @@
       <div class="profile-row"><dt>Pre-op labs</dt><dd>Cleared · draw 13 May 2026 · <a href="profile.html#lab-history">Latest results →</a></dd></div>
       <div class="profile-row"><dt>Prescriptions</dt><dd>Dr. Sean confirmed — continue all Rx as normal · Zepbound stays paused · <a href="medications.html">Meds →</a></dd></div>
       <div class="profile-row"><dt>Peri-op plan</dt><dd>Oral finasteride script · K1 Sat–Sun 16–17 Aug · Problend ~4 wk post-op · <a href="transplant.html#decisions">Decisions →</a></dd></div>
-      <div class="profile-row"><dt>Next deadline</dt><dd><strong>Mon 11 Aug</strong> — start one-week stops (fish oil, multivitamins, minoxidil/Problend last dose Mon 10 PM)</dd></div>
-      <div class="profile-row"><dt>Problend</dt><dd>Last application <strong>Mon 10 Aug PM</strong> · <a href="haircare.html">Hair care →</a></dd></div>
+      <div class="profile-row"><dt>This weekend</dt><dd><strong>Sat–Sun 16–17 Aug</strong> — Vitamin K1 1000 mcg, 1 tablet 2–3× daily · hydration continues (~64 oz + two 20 oz Gatorade/day)</dd></div>
+      <div class="profile-row"><dt>Problend</dt><dd>Last application <strong>Mon 10 Aug PM</strong> · one-week minoxidil stop is active · <a href="haircare.html">Hair care →</a></dd></div>
       <div class="profile-row"><dt>Zepbound</dt><dd>2.5 mg weekly · paused since 1 Aug · stay paused per Dr. Sean · <a href="medications.html">Meds →</a></dd></div>
       <div class="profile-row"><dt>Lab interpretation</dt><dd><a href="profile.html#interpretation">What looks solid · what needs improvement →</a></dd></div>
     </dl>
@@ -73,39 +90,45 @@
   <div class="panel">
     <ul class="action-list">
       <li>
-        <span class="action-priority urgent">Mon 11 Aug</span>
-        <span><strong>Start one-week stops</strong> — fish oil, both multivitamins, minoxidil (last Problend Mon 10 PM), alcohol, ibuprofen, garlic, ginkgo, ginseng per Dr. Sean’s sheet. <a href="transplant.html#pre">Timeline →</a></span>
+        <span class="action-priority urgent">Now · Fri 15 Aug</span>
+        <span><strong>Hydration protocol is on</strong> — ~64 oz fluids + two 20 oz Gatorade per day through surgery. No dental or lidocaine procedures. <a href="transplant.html#pre">Pre-op calendar →</a></span>
       </li>
       <li>
         <span class="action-priority soon">Sat–Sun 16–17 Aug</span>
         <span><strong>Vitamin K1</strong> — 1 tablet, 2–3× daily each day (2 days only, before surgery). <a href="transplant.html#decisions">Details →</a></span>
       </li>
       <li>
-        <span class="action-priority urgent">Mon 10 Aug PM</span>
-        <span><strong>Last Problend application</strong> before the one-week minoxidil stop (official sheet).</span>
+        <span class="action-priority soon">Sun 17 Aug</span>
+        <span><strong>Night-before prep</strong> — no spicy food, no heavy exercise, 12-min shower protocol, optional Benadryl 50 mg, button-front shirt ready. <a href="transplant.html#surgery">Surgery day →</a></span>
       </li>
       <li>
-        <span class="action-priority soon">Before surgery</span>
-        <span><strong>Order pre-op &amp; recovery supplies</strong> — vitamin K1, compression stockings, travel pillow, baby shampoo, whey concentrate, and more. <a href="transplant.html#purchase-checklist">Purchase checklist →</a></span>
+        <span class="action-priority info">Before Tue 18 Aug</span>
+        <span><strong>Finish recovery supplies</strong> — compression stockings, travel pillow, baby shampoo, whey concentrate. <a href="transplant.html#purchase-checklist">Purchase checklist →</a></span>
       </li>
       <li>
         <span class="action-priority info">Post-op · Defy</span>
-        <span><strong>Ferritin + 25-OH vitamin D + B12/folate</strong> — not in your three panels; too late to draw, result, and act before Aug 18. Add at your next Defy visit after recovery. <a href="profile.html#missing-labs">Details →</a></span>
+        <span><strong>Ferritin + 25-OH vitamin D + B12/folate</strong> — add at your next Defy visit after recovery. <a href="profile.html#missing-labs">Details →</a></span>
       </li>
     </ul>
   </div>
 
-  <p class="section-title">Explore your protocols</p>
+  <p class="section-title" id="protocols">Protocols</p>
+  <p class="landing-section-lede">Daily routines and the transplant playbook. Open any card — then use the top nav or the related-page cards at the bottom of each page to move around.</p>
   <div class="card-grid">
-    <a class="nav-card" href="profile.html">
-      <div class="nav-card-icon">◉</div>
-      <h3>Physical profile</h3>
-      <p>Demographics, lab history, and interpretation (Feb–Jun 2026).</p>
-    </a>
     <a class="nav-card" href="transplant.html">
       <div class="nav-card-icon">✂</div>
       <h3>Hair transplant</h3>
       <p>Dr. Sean’s official timeline, purchase checklist, FUE approach, med reconciliation, and recovery.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#decisions">
+      <div class="nav-card-icon">?</div>
+      <h3>Confirmed decisions</h3>
+      <p>Olmesartan timing, oral finasteride, vitamin K dates, whey, Problend and Zepbound restart plan.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#purchase-checklist">
+      <div class="nav-card-icon">☑</div>
+      <h3>Purchase checklist</h3>
+      <p>K1, stockings, pillow, baby shampoo, whey — checkmarks persist in this browser.</p>
     </a>
     <a class="nav-card" href="medications.html">
       <div class="nav-card-icon">Rx</div>
@@ -115,7 +138,7 @@
     <a class="nav-card" href="supplements.html">
       <div class="nav-card-icon">+</div>
       <h3>Supplements</h3>
-      <p>Daily schedule by period, cycling rules, assessments, and surgical pauses.</p>
+      <p>Ideal, pre-op, post-op, clinic OK, full — tap to switch.</p>
     </a>
     <a class="nav-card" href="skincare.html">
       <div class="nav-card-icon">☀</div>
@@ -130,18 +153,53 @@
     <a class="nav-card" href="longevity.html">
       <div class="nav-card-icon">∞</div>
       <h3>Longevity</h3>
-      <p>Experimental tier, evidence floor, and 2026–2031 research horizon forecast.</p>
+      <p>Experimental tier, peptides &amp; TRT on mechanism, evidence floor, and the 2026–2031 horizon.</p>
     </a>
-    <a class="nav-card" href="transplant.html#decisions">
-      <div class="nav-card-icon">?</div>
-      <h3>Confirmed decisions</h3>
-      <p>Olmesartan timing, oral finasteride, vitamin K dates, whey, Problend and Zepbound restart plan.</p>
+  </div>
+
+  <p class="section-title" id="records">Records &amp; source documents</p>
+  <div class="card-grid">
+    <a class="nav-card" href="profile.html">
+      <div class="nav-card-icon">◉</div>
+      <h3>Physical profile</h3>
+      <p>Demographics, lab history, and interpretation (Feb–Jun 2026).</p>
     </a>
-    <a class="nav-card" href="dr-sean-fue-preop-agreement.txt">
+    <a class="nav-card" href="profile.html#lab-history">
+      <div class="nav-card-icon">≡</div>
+      <h3>Lab history</h3>
+      <p>Latest CMP, CBC, lipids, hormones, and historical draws.</p>
+    </a>
+    <a class="nav-card" href="profile.html#interpretation">
+      <div class="nav-card-icon">◎</div>
+      <h3>Lab interpretation</h3>
+      <p>What looks solid, what needs improvement, and next Defy adds.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#official">
       <div class="nav-card-icon">📄</div>
       <h3>Official pre-op sheet</h3>
-      <p>Plain-text copy of Dr. Sean’s FUE agreement — supersedes AI-generated plans.</p>
+      <p>Dr. Sean’s FUE agreement on the transplant page — supersedes AI-generated plans.</p>
     </a>
+    <a class="nav-card" href="transplant.html#official">
+      <div class="nav-card-icon">📋</div>
+      <h3>Clinic sheet on site</h3>
+      <p>The same official instructions, formatted inside the transplant playbook.</p>
+    </a>
+    <a class="nav-card" href="https://www.youtube.com/watch?v=tpGrU3NGUSw&amp;t=107s" rel="noopener noreferrer">
+      <div class="nav-card-icon">▶</div>
+      <h3>Dr. Sean FUE video</h3>
+      <p>Hairline design, extraction, graft handling, and one-case-per-day focus.</p>
+    </a>
+  </div>
+
+  <p class="section-title" id="contacts">Contacts &amp; clinic</p>
+  <div class="panel profile-panel">
+    <dl class="profile-fields" style="padding:16px 20px">
+      <div class="profile-row"><dt>Office</dt><dd>11669 Santa Monica Blvd, first floor, LA, CA 90025 · parking behind building</dd></div>
+      <div class="profile-row"><dt>Steven Cohen</dt><dd><a href="tel:+13108666997">(310) 866-6997</a></dd></div>
+      <div class="profile-row"><dt>Dr. Sean</dt><dd><a href="sms:+13102378760">(310) 237-8760</a> · text preferred</dd></div>
+      <div class="profile-row"><dt>Front desk / follow-ups</dt><dd><a href="tel:+13103154989">(310) 315-4989</a> · after 2:30pm day after each session</dd></div>
+      <div class="profile-row"><dt>Arrive</dt><dd>6:45am both days · Uber recommended · do not drive home</dd></div>
+    </dl>
   </div>
 
   <div class="callout info" style="margin-top:28px">
