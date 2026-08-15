@@ -1077,6 +1077,12 @@ table.lab-table-compact td:first-child { width: 42%; }
 /* ---- Guava-inspired profile hub ---- */
 .profile-page { padding-top: 20px; }
 
+.profile-hub,
+.profile-categories,
+.health-scores-section {
+  max-width: 560px;
+}
+
 .profile-hub {
   display: flex;
   flex-direction: column;
