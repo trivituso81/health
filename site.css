@@ -115,6 +115,172 @@ a:hover { text-decoration: underline; }
 }
 .page-lede { color: var(--text-soft); max-width: 68ch; margin: 0; font-size: 16px; }
 
+/* ---- password gate ---- */
+html:not(.unlocked) .site-header,
+html:not(.unlocked) main,
+html:not(.unlocked) .site-footer {
+  display: none !important;
+}
+html.unlocked #auth-gate { display: none; }
+
+#auth-gate {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    linear-gradient(160deg, rgba(9, 38, 34, 0.82), rgba(13, 122, 111, 0.55)),
+    linear-gradient(135deg, #0a3d38 0%, #0d7a6f 55%, #12a594 100%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 32px 28px 28px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.auth-card p {
+  margin: 0 0 22px;
+  color: var(--text-soft);
+  font-size: 15px;
+}
+
+.auth-field { text-align: left; margin-bottom: 16px; }
+.auth-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-faint);
+}
+.auth-field input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+}
+.auth-field input[type="password"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(13, 122, 111, 0.18);
+}
+
+.auth-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--text-soft);
+  cursor: pointer;
+  user-select: none;
+}
+.auth-remember input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.auth-submit {
+  width: 100%;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0d7a6f, #12a594);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+.auth-submit:hover { opacity: 0.92; }
+.auth-submit:active { transform: scale(0.99); }
+
+.auth-error {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 14px;
+  display: none;
+}
+.auth-error.visible { display: block; }
+
+/* ---- landing ---- */
+.landing-hero {
+  margin: 0 0 28px;
+  padding: 8px 0 4px;
+}
+.landing-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.landing-hero h1 {
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+.landing-lede {
+  color: var(--text-soft);
+  max-width: 62ch;
+  margin: 0 0 18px;
+  font-size: 17px;
+}
+.landing-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.landing-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: var(--bg-card);
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+.landing-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.landing-section-lede {
+  color: var(--text-soft);
+  font-size: 14px;
+  margin: -4px 0 14px;
+  max-width: 68ch;
+}
+
 /* ---- dashboard ---- */
 .hero-grid {
   display: grid;
@@ -510,6 +676,120 @@ tbody tr:nth-child(even) { background: #fafcfb; }
   align-items: baseline;
   gap: 8px;
   margin-bottom: 10px;
+}
+
+/* ---- supplements phase UI ---- */
+.supp-page { padding-top: 20px; }
+.supp-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
+}
+.supp-phasebar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  margin: 0 -20px 4px;
+  padding: 4px 20px 12px;
+  scrollbar-width: none;
+}
+.supp-phasebar::-webkit-scrollbar { display: none; }
+.supp-phasebar button {
+  flex: 0 0 auto;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--rule-strong);
+  background: var(--bg-card);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 10px 16px;
+  min-height: 44px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+.supp-phasebar button.is-on,
+.supp-phasebar button[aria-selected="true"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+}
+.supp-phasebar button.is-now:not(.is-on) {
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+  color: var(--accent-dark);
+}
+.supp-when {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.supp-block { margin-top: 18px; }
+.supp-block.is-off,
+.supp-block[hidden] { display: none !important; }
+.supp-block h2 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.supp-block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.supp-block li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.supp-block li:last-child { border-bottom: none; }
+.supp-block li.is-off,
+.supp-block li[hidden] { display: none !important; }
+.supp-block li > div {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.supp-block li i {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-faint);
+  margin-top: 4px;
+  line-height: 1.35;
+  max-width: 42ch;
+}
+.supp-block .dose {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
 }
 
 .routine-block {

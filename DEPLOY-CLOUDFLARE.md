@@ -1,4 +1,4 @@
-# Deploy Health Protocol — Cloudflare Pages + Access (private)
+# Deploy Tom's Health App — Cloudflare Pages + Access (private)
 
 Your site stays on the internet, but **only you** (or emails you allow) can open it after login.
 
@@ -91,7 +91,7 @@ This is what keeps strangers off your data.
 2. **Access → Applications → Add an application**
 3. Choose **Self-hosted**
 4. Fill in:
-   - **Application name:** Health Protocol (private)
+   - **Application name:** Tom's Health App (private)
    - **Session duration:** 24 hours (or 7 days if you want fewer logins on phone)
    - **Subdomain:** `hp-m7k2-private` (must match your Pages project name)
    - **Domain:** `pages.dev`
@@ -117,7 +117,7 @@ This is what keeps strangers off your data.
 
 1. Safari → open your `*.pages.dev` URL (after Access login).
 2. **Share → Add to Home Screen**
-3. Name it **Health Protocol**
+3. Name it **Tom's Health App**
 
 Access session cookies usually persist for your chosen duration; you won’t need the PIN every hour.
 
