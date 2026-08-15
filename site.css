@@ -678,6 +678,112 @@ tbody tr:nth-child(even) { background: #fafcfb; }
   margin-bottom: 10px;
 }
 
+/* ---- supplements phase UI ---- */
+.supp-page { padding-top: 20px; }
+.supp-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
+}
+.supp-phasebar {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 40;
+  background: var(--bg);
+  margin: 0 -20px;
+  padding: 4px 20px 12px;
+  scrollbar-width: none;
+}
+.supp-phasebar::-webkit-scrollbar { display: none; }
+.supp-phasebar button {
+  flex: 0 0 auto;
+  appearance: none;
+  border: 1px solid var(--rule-strong);
+  background: var(--bg-card);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.supp-phasebar button[aria-selected="true"] {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+}
+.supp-phasebar button.is-now:not([aria-selected="true"]) {
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+  color: var(--accent-dark);
+}
+.supp-when {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.supp-block { margin-top: 18px; }
+.supp-block[hidden] { display: none; }
+.supp-block h2 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.supp-block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.supp-block li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.supp-block li:last-child { border-bottom: none; }
+.supp-block li[hidden] { display: none; }
+.supp-block li > div {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+.supp-block li i {
+  display: block;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  margin-top: 3px;
+}
+.supp-block .dose {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+}
+
 .routine-block {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

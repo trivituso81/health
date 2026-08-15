@@ -209,6 +209,60 @@
     window.addEventListener('scroll', updateActive, { passive: true });
   }
 
+  function currentSupplementPhase(iso) {
+    if (iso >= '2026-09-16') return 'full';
+    if (iso >= '2026-09-03') return 'rebuild';
+    if (iso >= '2026-08-19') return 'heal';
+    if (iso >= '2026-08-11') return 'preop';
+    return 'ideal';
+  }
+
+  function initSupplementPhases() {
+    var bar = document.querySelector('.supp-phasebar');
+    if (!bar) return;
+
+    var WHEN = {
+      ideal: 'Everyday stack',
+      preop: '11–18 Aug',
+      heal: '19 Aug – 2 Sep',
+      rebuild: '3–16 Sep',
+      full: '16 Sep onward'
+    };
+    var today = new Date().toISOString().slice(0, 10);
+    var nowPhase = currentSupplementPhase(today);
+    var whenEl = document.getElementById('supp-when');
+    var buttons = bar.querySelectorAll('[data-phase]');
+    var items = document.querySelectorAll('.supp-block li[data-on]');
+    var blocks = document.querySelectorAll('.supp-block[data-block]');
+
+    buttons.forEach(function (btn) {
+      if (btn.dataset.phase === nowPhase) btn.classList.add('is-now');
+    });
+
+    function show(phase) {
+      buttons.forEach(function (btn) {
+        btn.setAttribute('aria-selected', btn.dataset.phase === phase ? 'true' : 'false');
+      });
+      if (whenEl) whenEl.textContent = WHEN[phase] || '';
+      items.forEach(function (li) {
+        var on = (li.dataset.on || '').split(/\s+/);
+        li.hidden = on.indexOf(phase) === -1;
+      });
+      blocks.forEach(function (block) {
+        var visible = block.querySelector('li[data-on]:not([hidden])');
+        block.hidden = !visible;
+      });
+    }
+
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-phase]');
+      if (!btn) return;
+      show(btn.dataset.phase);
+    });
+
+    show(nowPhase);
+  }
+
   function initLabArchives() {
     var hash = location.hash;
     if (!hash || hash.indexOf('#lab-2026-') !== 0) return;
@@ -226,6 +280,7 @@
     initActiveNav();
     initResponsiveTables();
     initTransplantSubnav();
+    initSupplementPhases();
     initLabArchives();
   });
 
