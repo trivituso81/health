@@ -218,6 +218,7 @@
   }
 
   function initSupplementPhases() {
+    if (window.__suppPhases) return;
     var bar = document.querySelector('.supp-phasebar');
     if (!bar) return;
 
@@ -241,25 +242,32 @@
 
     function show(phase) {
       buttons.forEach(function (btn) {
-        btn.setAttribute('aria-selected', btn.dataset.phase === phase ? 'true' : 'false');
+        var on = btn.getAttribute('data-phase') === phase;
+        btn.classList.toggle('is-on', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
       });
       if (whenEl) whenEl.textContent = WHEN[phase] || '';
       items.forEach(function (li) {
-        var on = (li.dataset.on || '').split(/\s+/);
-        li.hidden = on.indexOf(phase) === -1;
+        var on = (li.getAttribute('data-on') || '').split(/\s+/).indexOf(phase) !== -1;
+        li.classList.toggle('is-off', !on);
+        li.hidden = !on;
       });
       blocks.forEach(function (block) {
-        var visible = block.querySelector('li[data-on]:not([hidden])');
+        var visible = block.querySelector('li[data-on]:not(.is-off)');
+        block.classList.toggle('is-off', !visible);
         block.hidden = !visible;
       });
     }
 
-    bar.addEventListener('click', function (e) {
-      var btn = e.target.closest('[data-phase]');
-      if (!btn) return;
-      show(btn.dataset.phase);
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        show(btn.getAttribute('data-phase'));
+      });
     });
 
+    window.__suppPhases = true;
     show(nowPhase);
   }
 

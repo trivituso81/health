@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Supplements — Tom's Health App</title>
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=20260815s">
 <script>
 (function () {
   var k = 'toms-health-unlocked';
@@ -148,6 +148,63 @@
 <footer class="site-footer">
   Informational only — not medical advice. Dr. Sean’s written protocol supersedes this site where they disagree.
 </footer>
-<script src="js/site.js"></script>
+<script>
+(function () {
+  if (window.__suppPhases) return;
+  var bar = document.querySelector('.supp-phasebar');
+  if (!bar) return;
+
+  var WHEN = {
+    ideal: 'Everyday stack',
+    preop: '11–18 Aug',
+    heal: '19 Aug – 2 Sep',
+    rebuild: '3–16 Sep',
+    full: '16 Sep onward'
+  };
+  var iso = new Date().toISOString().slice(0, 10);
+  var now = iso >= '2026-09-16' ? 'full'
+    : iso >= '2026-09-03' ? 'rebuild'
+    : iso >= '2026-08-19' ? 'heal'
+    : iso >= '2026-08-11' ? 'preop'
+    : 'ideal';
+
+  var buttons = [].slice.call(bar.querySelectorAll('[data-phase]'));
+  var items = [].slice.call(document.querySelectorAll('.supp-block li[data-on]'));
+  var blocks = [].slice.call(document.querySelectorAll('.supp-block[data-block]'));
+  var whenEl = document.getElementById('supp-when');
+
+  function show(phase) {
+    buttons.forEach(function (btn) {
+      var on = btn.getAttribute('data-phase') === phase;
+      btn.classList.toggle('is-on', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    if (whenEl) whenEl.textContent = WHEN[phase] || '';
+    items.forEach(function (li) {
+      var on = (li.getAttribute('data-on') || '').split(/\s+/).indexOf(phase) !== -1;
+      li.classList.toggle('is-off', !on);
+      li.hidden = !on;
+    });
+    blocks.forEach(function (block) {
+      var visible = block.querySelector('li[data-on]:not(.is-off)');
+      block.classList.toggle('is-off', !visible);
+      block.hidden = !visible;
+    });
+  }
+
+  buttons.forEach(function (btn) {
+    if (btn.getAttribute('data-phase') === now) btn.classList.add('is-now');
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      show(btn.getAttribute('data-phase'));
+    });
+  });
+
+  window.__suppPhases = true;
+  show(now);
+})();
+</script>
+<script src="js/site.js?v=20260815s"></script>
 </body>
 </html>
