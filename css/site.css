@@ -46,11 +46,13 @@ a:hover { text-decoration: underline; }
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
+  /* keeps the nav clear of the status bar when launched from the Home Screen */
+  padding-top: env(safe-area-inset-top, 0px);
 }
 .header-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
   height: var(--nav-h);
   display: flex;
   align-items: center;
@@ -96,7 +98,11 @@ a:hover { text-decoration: underline; }
 .site-nav a:hover { background: var(--bg-soft); color: var(--text); text-decoration: none; }
 .site-nav a.active { background: var(--accent-soft); color: var(--accent-dark); }
 
-.page { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 80px; }
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px max(20px, env(safe-area-inset-right)) calc(80px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left));
+}
 .page-header { margin-bottom: 28px; }
 .page-kicker {
   font-size: 11px;
@@ -129,7 +135,7 @@ html.unlocked #auth-gate { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) calc(24px + env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) calc(24px + env(safe-area-inset-left, 0px));
   background:
     linear-gradient(160deg, rgba(9, 38, 34, 0.82), rgba(13, 122, 111, 0.55)),
     linear-gradient(135deg, #0a3d38 0%, #0d7a6f 55%, #12a594 100%);
@@ -1020,7 +1026,7 @@ body[data-page="transplant"] .section-block { scroll-margin-top: calc(var(--nav-
 .site-footer {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 24px 20px 40px;
+  padding: 24px max(20px, env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left));
   border-top: 1px solid var(--rule);
   font-size: 12.5px;
   color: var(--text-faint);
