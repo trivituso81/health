@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - cursor/toms-health-app-landing-e9e4
+  workflow_dispatch:
 
 permissions:
   contents: read
