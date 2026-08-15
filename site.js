@@ -224,7 +224,7 @@
 
     var WHEN = {
       ideal: 'Everyday stack',
-      preop: '11–18 Aug',
+      preop: '11–18 Aug · K1 2–3× / day for 2 days',
       heal: '19 Aug – 2 Sep',
       rebuild: '3–16 Sep',
       full: '16 Sep onward'
