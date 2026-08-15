@@ -8,6 +8,14 @@ Open `index.html`. No build step.
 
 **Open it now:** [Tom's Health App](https://raw.githack.com/trivituso81/health/main/index.html) — serves the current `main` from a CDN, works on phones.
 
+## Add to Home Screen (iPhone / iPad)
+
+Open the site in **Safari** → Share → **Add to Home Screen**. It installs as **Tom's Health** with the teal T icon and launches full screen with no Safari chrome. Chrome on iOS can save a bookmark but cannot install a web app, so it has to be Safari.
+
+The home-screen app keeps its own storage, so the `8127` gate asks once more on first launch there.
+
+Icons are generated, not hand-drawn — run `python3 tools/make-icons.py` (needs Pillow) after editing `tools/make-icons.py` to re-render every size in `icons/`.
+
 > **This repository is public.** The `8127` gate is client-side only — anyone can read every page, lab value, and dose straight from the repo or by viewing source. If that matters, make the repo private and deploy via `DEPLOY-CLOUDFLARE.md` (Cloudflare Pages + Access), which puts real authentication in front of the site.
 
 ## Permanent github.io address
