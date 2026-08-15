@@ -1,7 +1,7 @@
 (function () {
   const SURGERY_START = new Date('2026-08-18T06:45:00-07:00');
   const MILESTONES = [
-    { date: '2026-08-08', label: 'Today — review dashboard' },
+    { date: '2026-08-08', label: 'Review home dashboard' },
     { date: '2026-08-10', label: 'Last Problend (Mon PM)' },
     { date: '2026-08-11', label: 'Start 1-week stops' },
     { date: '2026-08-15', label: 'Hydration protocol begins' },
@@ -53,6 +53,8 @@
       if (t >= '2026-08-18' && t <= '2026-08-19') phase = 'Surgery in progress';
       else if (t >= '2026-08-20' && t <= '2026-08-26') phase = 'Acute recovery (days 0–7)';
       else if (t > '2026-08-19') phase = 'Post-operative recovery';
+      else if (t >= '2026-08-16') phase = 'Vitamin K1 window';
+      else if (t >= '2026-08-15') phase = 'Hydration protocol · 3 days out';
       else if (t >= '2026-08-11') phase = 'One-week stop window active';
       phaseEl.textContent = phase;
     }

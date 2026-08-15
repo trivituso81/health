@@ -115,6 +115,62 @@ a:hover { text-decoration: underline; }
 }
 .page-lede { color: var(--text-soft); max-width: 68ch; margin: 0; font-size: 16px; }
 
+/* ---- landing ---- */
+.landing-hero {
+  margin: 0 0 28px;
+  padding: 8px 0 4px;
+}
+.landing-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.landing-hero h1 {
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+.landing-lede {
+  color: var(--text-soft);
+  max-width: 62ch;
+  margin: 0 0 18px;
+  font-size: 17px;
+}
+.landing-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.landing-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: var(--bg-card);
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+.landing-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.landing-section-lede {
+  color: var(--text-soft);
+  font-size: 14px;
+  margin: -4px 0 14px;
+  max-width: 68ch;
+}
+
 /* ---- dashboard ---- */
 .hero-grid {
   display: grid;
