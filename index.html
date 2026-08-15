@@ -9,6 +9,14 @@
 <meta name="apple-mobile-web-app-title" content="Tom's Health App">
 <title>Tom's Health App</title>
 <link rel="stylesheet" href="css/site.css">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
 </head>
 <body data-page="home">
 <header class="site-header">
@@ -166,10 +174,10 @@
       <h3>Lab interpretation</h3>
       <p>What looks solid, what needs improvement, and next Defy adds.</p>
     </a>
-    <a class="nav-card" href="dr-sean-fue-preop-agreement.txt">
+    <a class="nav-card" href="transplant.html#official">
       <div class="nav-card-icon">📄</div>
       <h3>Official pre-op sheet</h3>
-      <p>Plain-text copy of Dr. Sean’s FUE agreement — supersedes AI-generated plans.</p>
+      <p>Dr. Sean’s FUE agreement on the transplant page — supersedes AI-generated plans.</p>
     </a>
     <a class="nav-card" href="transplant.html#official">
       <div class="nav-card-icon">📋</div>

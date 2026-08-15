@@ -6,6 +6,14 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Medications — Tom's Health App</title>
 <link rel="stylesheet" href="css/site.css">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
 </head>
 <body data-page="medications">
 <header class="site-header">

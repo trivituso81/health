@@ -4,6 +4,10 @@ Private personal health hub — transplant playbook, labs, meds, supplements, sk
 
 Open `index.html`. No build step.
 
+**Password:** `8127` (same gate as the Italy itinerary — remember-on-this-device is optional).
+
+Live: [https://trivituso81.github.io/health/](https://trivituso81.github.io/health/)
+
 ## Pages
 
 | File | What it is |

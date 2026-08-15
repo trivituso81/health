@@ -1,4 +1,6 @@
 (function () {
+  const PASSWORD = '8127';
+  const AUTH_KEY = 'toms-health-unlocked';
   const SURGERY_START = new Date('2026-08-18T06:45:00-07:00');
   const MILESTONES = [
     { date: '2026-08-08', label: 'Review home dashboard' },
@@ -25,6 +27,53 @@
   function setText(id, text) {
     const el = document.getElementById(id);
     if (el) el.textContent = text;
+  }
+
+  function initAuth() {
+    if (document.documentElement.classList.contains('unlocked')) return;
+    if (document.getElementById('auth-gate')) return;
+
+    var gate = document.createElement('div');
+    gate.id = 'auth-gate';
+    gate.setAttribute('role', 'dialog');
+    gate.setAttribute('aria-labelledby', 'auth-title');
+    gate.setAttribute('aria-modal', 'true');
+    gate.innerHTML =
+      '<div class="auth-card">' +
+        '<h2 id="auth-title">Tom\'s Health App</h2>' +
+        '<p>Enter the password to open the app.</p>' +
+        '<p class="auth-error" id="auth-error" role="alert">Incorrect password. Please try again.</p>' +
+        '<form id="auth-form">' +
+          '<div class="auth-field">' +
+            '<label for="auth-password">Password</label>' +
+            '<input type="password" id="auth-password" name="password" inputmode="numeric" autocomplete="current-password" required autofocus />' +
+          '</div>' +
+          '<label class="auth-remember">' +
+            '<input type="checkbox" id="auth-remember" checked />' +
+            'Remember on this device' +
+          '</label>' +
+          '<button type="submit" class="auth-submit">Unlock</button>' +
+        '</form>' +
+      '</div>';
+    document.body.insertBefore(gate, document.body.firstChild);
+
+    var form = document.getElementById('auth-form');
+    var input = document.getElementById('auth-password');
+    var remember = document.getElementById('auth-remember');
+    var error = document.getElementById('auth-error');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (input.value === PASSWORD) {
+        sessionStorage.setItem(AUTH_KEY, '1');
+        if (remember.checked) localStorage.setItem(AUTH_KEY, '1');
+        document.documentElement.classList.add('unlocked');
+        error.classList.remove('visible');
+      } else {
+        error.classList.add('visible');
+        input.select();
+      }
+    });
   }
 
   function initDashboard() {
@@ -171,6 +220,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initAuth();
     initDashboard();
     initChecklists();
     initActiveNav();
@@ -178,4 +228,6 @@
     initTransplantSubnav();
     initLabArchives();
   });
+
+  if (document.readyState !== 'loading') initAuth();
 })();
