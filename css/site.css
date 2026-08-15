@@ -461,6 +461,9 @@ p { margin: 0 0 12px; }
 .tag.horizon-mid { color: var(--info); border-color: var(--info); }
 .tag.horizon-far { color: var(--warn); border-color: var(--warn); }
 .tag.horizon-research { color: var(--text-faint); }
+.tag.verdict-run { color: var(--ok); border-color: var(--ok); background: var(--ok-soft); }
+.tag.verdict-maybe { color: var(--info); border-color: var(--info); background: var(--info-soft); }
+.tag.verdict-skip { color: var(--danger); border-color: var(--danger); background: var(--danger-soft); }
 
 .callout {
   margin: 16px 0 0;
