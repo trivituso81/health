@@ -281,6 +281,331 @@
     }
   }
 
+  var STACK_ITEMS = {
+    trintellix: {
+      kicker: 'Prescription',
+      title: 'Trintellix (vortioxetine)',
+      dose: '20 mg · Period 3 · bedtime',
+      rx: true,
+      rows: [
+        ['Purpose', 'SSRI for mood.'],
+        ['When', 'Period 3 — right before bed.'],
+        ['Peri-op', 'Continue — confirmed with Dr. Sean.'],
+        ['Interactions', 'Antiplatelet effect — already on Dr. Sean’s list; continue as confirmed.'],
+        ['Side effects to watch', 'Nausea early on (usually settles), sexual side effects, rare serotonin syndrome if stacked with other serotonergic agents.']
+      ]
+    },
+    olmesartan: {
+      kicker: 'Prescription',
+      title: 'Olmesartan',
+      dose: '20 mg · Period 3 · bedtime',
+      rx: true,
+      rows: [
+        ['Purpose', 'Blood pressure — target systolic 120–140 on surgery days.'],
+        ['When', 'Period 3 — right before bed; also take the morning of 18 & 19 Aug.'],
+        ['Peri-op', 'Continue — confirmed with Dr. Sean, including surgery mornings.'],
+        ['Interactions', 'With daily creatine, creatinine labs can look higher than true GFR — disclose creatine at any kidney review.'],
+        ['Side effects to watch', 'Dizziness / low BP if dehydrated; rare sprue-like enteropathy with long-term use.']
+      ]
+    },
+    rosuvastatin: {
+      kicker: 'Prescription',
+      title: 'Rosuvastatin',
+      dose: '10 mg · Period 3 · bedtime',
+      rx: true,
+      rows: [
+        ['Purpose', 'LDL management — LDL 76 mg/dL (May 2026).'],
+        ['When', 'Period 3 — right before bed.'],
+        ['Peri-op', 'Continue — confirmed with Dr. Sean.'],
+        ['Interactions', 'Paired with CoQ10 in your stack (rational, evidence mixed). Avoid unexplained muscle pain — report to clinician.'],
+        ['Side effects to watch', 'Myalgia, rare myopathy; LFTs already clean on your panels.']
+      ]
+    },
+    finasteride: {
+      kicker: 'Prescription · Dr. Sean',
+      title: 'Oral finasteride',
+      dose: 'Script · start when Problend stops',
+      rx: true,
+      rows: [
+        ['Purpose', '5α-reductase block to cover DHT during the peri-op minoxidil / Problend gap.'],
+        ['When', 'Start when Problend stops (from 11 Aug) per Dr. Sean script.'],
+        ['Peri-op', 'Bridge strategy — confirmed. Continue while Problend is held; Problend restarts ~4 weeks post-op alongside oral finasteride.'],
+        ['Labs', 'PSA baseline 0.49 ng/mL (Feb 2026) — excellent before starting.'],
+        ['Side effects to watch', 'Sexual side effects in a minority; mood changes uncommon but reportable. See Hair care for strategy.']
+      ]
+    },
+    zepbound: {
+      kicker: 'Prescription · paused',
+      title: 'Zepbound (tirzepatide)',
+      dose: '2.5 mg SC weekly · paused since 1 Aug',
+      rx: true,
+      rows: [
+        ['Purpose', 'GLP-1 / GIP agonist for weight and metabolic control.'],
+        ['Status', 'Stay paused — confirmed with Dr. Sean through acute recovery.'],
+        ['Resume', 'Best-practice ~8–12 weeks post-op (~mid-Oct) — slow titration, high protein, no rapid weight loss (sheet warns rapid loss impairs graft growth).'],
+        ['Interactions', 'Coordinate restart with wound healing and protein intake; do not stack aggressive calorie cuts post-FUE.'],
+        ['Side effects to watch', 'Nausea, delayed gastric emptying, constipation; rare gallbladder issues.']
+      ]
+    },
+    problend: {
+      kicker: 'Compounded scalp Rx',
+      title: 'Happy Head Problend',
+      dose: 'Topical · Night A & B',
+      rx: true,
+      rows: [
+        ['Contents', 'Minoxidil + finasteride + tretinoin (compounded).'],
+        ['When', 'Evening scalp — both Night A and Night B blocks. See Hair care.'],
+        ['Peri-op', 'Stop minoxidil 1 week out — last dose Mon 10 Aug PM.'],
+        ['Bridge', 'Oral finasteride script covers the stop window.'],
+        ['Restart', '~4 weeks post-op (~mid-Sep) while on oral finasteride.'],
+        ['Side effects to watch', 'Scalp irritation from tretinoin/minoxidil; systemic minoxidil effects if over-applied.']
+      ]
+    },
+    'problend-hold': null,
+    'problend-restart': null,
+    nac: {
+      kicker: 'Supplement',
+      title: 'NAC powder',
+      dose: '1,200 mg · AM juice shot',
+      rows: [
+        ['Purpose', 'N-acetylcysteine — glutathione precursor; antioxidant support.'],
+        ['When', 'AM in a juice shot.'],
+        ['Peri-op', 'Held in pre-op / acute post-op phases on this schedule; back in Ideal / Clinic OK / Full.'],
+        ['Notes', 'GI upset possible on empty stomach — juice shot helps.']
+      ]
+    },
+    creatine: {
+      kicker: 'Supplement',
+      title: 'Creatine',
+      dose: '5 g · AM coffee blend',
+      rows: [
+        ['Purpose', 'Muscle, cognition, and recovery support.'],
+        ['When', 'AM in coffee blend — all phases on this schedule.'],
+        ['Interactions', 'Raises serum creatinine without necessarily harming GFR — always disclose when kidney labs are read (especially on olmesartan).'],
+        ['Peri-op', 'Continue unless a clinician directs a hold.']
+      ]
+    },
+    glycine: {
+      kicker: 'Supplement',
+      title: 'Glycine',
+      dose: '3 g+ · AM coffee blend',
+      rows: [
+        ['Purpose', 'Sleep / collagen amino-acid support; pairs with evening wind-down goals.'],
+        ['When', 'AM coffee blend on this schedule.'],
+        ['Notes', 'Well tolerated; can also be used evening if you prefer for sleep.']
+      ]
+    },
+    collagen: {
+      kicker: 'Supplement',
+      title: 'Collagen',
+      dose: '14 g · AM Greek yogurt',
+      rows: [
+        ['Purpose', 'Protein / connective tissue support around transplant recovery.'],
+        ['When', 'AM with Greek yogurt.'],
+        ['Notes', 'Food-first protein still matters more than collagen alone.']
+      ]
+    },
+    urolithin: {
+      kicker: 'Supplement · experimental',
+      title: 'Urolithin A · Timeline Mitopure',
+      dose: '1,000 mg · breakfast · Sat–Sun off',
+      rows: [
+        ['Purpose', 'Mitophagy support — longevity experiment tier.'],
+        ['When', 'Breakfast on Ideal / Full; weekend off.'],
+        ['Notes', 'See Longevity for evidence framing. Low practical interaction risk with your Rx list.']
+      ]
+    },
+    akg: {
+      kicker: 'Supplement · experimental',
+      title: 'Calcium AKG',
+      dose: '2 capsules · breakfast · Sat–Sun off',
+      rows: [
+        ['Purpose', 'Alpha-ketoglutarate — longevity stack experiment.'],
+        ['When', 'Breakfast on Ideal / Full; weekend off.'],
+        ['Notes', 'Calcium form — space from thyroid meds if any are added later (none now).']
+      ]
+    },
+    'multi-am': {
+      kicker: 'Supplement',
+      title: 'Multivitamin',
+      dose: '1 softgel · breakfast (1 of 2 daily)',
+      rows: [
+        ['Purpose', 'Broad micronutrient cover.'],
+        ['When', 'Breakfast + lunch softgels on Ideal / Clinic OK / Full.'],
+        ['Peri-op', 'One-week stop before surgery (clinic sheet) — held in Pre-op / Post-op phases here.'],
+        ['Caution', 'Avoid mega-dose biotin that wrecks lab assays.']
+      ]
+    },
+    'multi-pm': null,
+    nad: {
+      kicker: 'Supplement · experimental',
+      title: 'NAD+ Cell Regenerator (NR)',
+      dose: '1 capsule · breakfast · Sat–Sun off',
+      rows: [
+        ['Purpose', 'Nicotinamide riboside — NAD+ precursor experiment.'],
+        ['When', 'Breakfast on Ideal / Full; weekend off.'],
+        ['Notes', 'See Longevity — biomarker elevation ≠ proven clinical endpoints.']
+      ]
+    },
+    'coq10-am': {
+      kicker: 'Supplement',
+      title: 'CoQ10',
+      dose: '100 mg · 2× daily with meals',
+      rows: [
+        ['Purpose', 'Rational pairing with rosuvastatin; mitochondrial support.'],
+        ['When', 'Breakfast and lunch — most phases.'],
+        ['Evidence', 'Mixed clinical data; low downside at these doses.']
+      ]
+    },
+    'coq10-pm': null,
+    'k1-am': {
+      kicker: 'Clinic protocol',
+      title: 'Vitamin K1 (phytonadione)',
+      dose: '1,000 mcg · 2–3× daily · 2-day course only',
+      rows: [
+        ['Purpose', 'Dr. Sean pre-op clotting support — Sat–Sun 16–17 Aug.'],
+        ['When', 'Breakfast, lunch, and evening with food (1 of 3 slots).'],
+        ['Confirm', 'Confirm start timing with clinic if unsure — 2 days only, not ongoing.'],
+        ['Interactions', 'Antagonizes warfarin (you are not on warfarin). Irrelevant to your current Rx otherwise.']
+      ]
+    },
+    'k1-lunch': null,
+    'k1-eve': null,
+    'maca-am': {
+      kicker: 'Supplement',
+      title: 'Black Maca',
+      dose: '1,000 mg · 2× daily · Sat–Sun off',
+      rows: [
+        ['Purpose', 'Androgen-adjacent libido / energy experiment.'],
+        ['When', 'Breakfast and lunch on Ideal / Full.'],
+        ['Caution', 'Coordinate with Defy before stacking more androgen-adjacent agents on top of boron + soft free T.']
+      ]
+    },
+    'maca-pm': null,
+    boron: {
+      kicker: 'Supplement',
+      title: 'Boron',
+      dose: '3 mg · 2 wk on · 1 wk off',
+      rows: [
+        ['Purpose', 'SHBG modulation rationale given free T 9.7 pg/mL.'],
+        ['When', 'Breakfast on Ideal / Full; cycle 2 weeks on / 1 off.'],
+        ['Caution', 'Hair risk if free androgens rise — coordinate with Defy, not DIY-stacked aggressively.']
+      ]
+    },
+    omega: {
+      kicker: 'Supplement',
+      title: 'Omega-3 · fish oil',
+      dose: '2 softgels · lunch',
+      rows: [
+        ['Purpose', 'Triglycerides / general cardiometabolic support.'],
+        ['Peri-op', 'One-week stop before surgery (clinic sheet — bleeding risk). Held in Pre-op / Post-op until clinic OK.'],
+        ['Interactions', 'Additive bleeding risk with antiplatelet effects — reason for the surgical hold.']
+      ]
+    },
+    d3k2: {
+      kicker: 'Supplement',
+      title: 'Vitamin D3 + K2',
+      dose: '1 softgel · lunch',
+      rows: [
+        ['Purpose', 'Vitamin D repletion / maintenance with K2 cofactor.'],
+        ['Gap', 'No 25-OH vitamin D level drawn yet — dosing blind until next Defy panel.'],
+        ['When', 'Lunch — most phases.']
+      ]
+    },
+    whey: {
+      kicker: 'Recovery',
+      title: 'Naked Whey',
+      dose: 'As directed · grass-fed concentrate',
+      rows: [
+        ['Purpose', 'Protein for healing — clinic-aligned post-op add.'],
+        ['When', 'Post-op / Clinic OK / Full phases.'],
+        ['Note', 'Concentrate, not isolate — per purchase checklist.']
+      ]
+    },
+    'hh-caps': {
+      kicker: 'Clinic sheet · post-op',
+      title: 'Happy Head Hair Growth Supplements',
+      dose: '2 capsules / day with food',
+      rows: [
+        ['Purpose', 'Post-op oral hair support (biotin, collagen, keratin, saw palmetto, ashwagandha, probiotics, A & D).'],
+        ['When', 'After surgery per clinic sheet — not a substitute for Problend.'],
+        ['Caution', 'Biotin can distort lab assays — tell the lab if you are on it when blood is drawn.']
+      ]
+    }
+  };
+
+  STACK_ITEMS['problend-hold'] = STACK_ITEMS.problend;
+  STACK_ITEMS['problend-restart'] = STACK_ITEMS.problend;
+  STACK_ITEMS['multi-pm'] = STACK_ITEMS['multi-am'];
+  STACK_ITEMS['coq10-pm'] = STACK_ITEMS['coq10-am'];
+  STACK_ITEMS['k1-lunch'] = STACK_ITEMS['k1-am'];
+  STACK_ITEMS['k1-eve'] = STACK_ITEMS['k1-am'];
+  STACK_ITEMS['maca-pm'] = STACK_ITEMS['maca-am'];
+
+  function initItemSheet() {
+    var sheet = document.getElementById('item-sheet');
+    if (!sheet) return;
+
+    var titleEl = document.getElementById('sheet-title');
+    var kickerEl = document.getElementById('sheet-kicker');
+    var doseEl = document.getElementById('sheet-dose');
+    var bodyEl = document.getElementById('sheet-body');
+    var closeBtn = document.getElementById('sheet-close');
+    var backdrop = document.getElementById('sheet-backdrop');
+
+    function close() {
+      sheet.hidden = true;
+      sheet.classList.remove('is-open');
+      document.body.classList.remove('sheet-open');
+    }
+
+    function openItem(id) {
+      var item = STACK_ITEMS[id];
+      if (!item) return;
+      kickerEl.textContent = item.kicker || (item.rx ? 'Prescription' : 'Supplement');
+      kickerEl.classList.toggle('is-rx', !!item.rx);
+      titleEl.textContent = item.title;
+      doseEl.textContent = item.dose || '';
+      bodyEl.innerHTML = '<dl class="sheet-dl">' + item.rows.map(function (row) {
+        return '<div class="sheet-row"><dt>' + row[0] + '</dt><dd>' + row[1] + '</dd></div>';
+      }).join('') + '</dl>';
+      sheet.hidden = false;
+      sheet.classList.add('is-open');
+      document.body.classList.add('sheet-open');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    document.addEventListener('click', function (e) {
+      var li = e.target.closest && e.target.closest('.supp-block li[data-item]');
+      if (!li) return;
+      e.preventDefault();
+      openItem(li.getAttribute('data-item'));
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && sheet.classList.contains('is-open')) {
+        close();
+        return;
+      }
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var li = e.target.closest && e.target.closest('.supp-block li[data-item]');
+      if (!li) return;
+      e.preventDefault();
+      openItem(li.getAttribute('data-item'));
+    });
+
+    document.querySelectorAll('.supp-block li[data-item]').forEach(function (li) {
+      li.classList.add('is-tappable');
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (backdrop) backdrop.addEventListener('click', close);
+
+    if (location.hash && location.hash.indexOf('#item-') === 0) {
+      openItem(location.hash.slice(6));
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initAuth();
     initDashboard();
@@ -289,6 +614,7 @@
     initResponsiveTables();
     initTransplantSubnav();
     initSupplementPhases();
+    initItemSheet();
     initLabArchives();
   });
 

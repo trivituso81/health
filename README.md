@@ -35,8 +35,8 @@ The site then lands at `https://trivituso81.github.io/health/`. Until that switc
 | `index.html` | Home / landing — countdown, status, and links to everything |
 | `transplant.html` | FUE peri-op playbook (Dr. Sean, 18–19 Aug 2026) |
 | `profile.html` | Demographics, labs, interpretation |
-| `medications.html` | Prescriptions and peri-op hold/continue rules |
-| `supplements.html` | Oral stack — Ideal / Pre-op / Post-op / Clinic OK / Full |
+| `stack.html` | Meds & supplements — one daily stack, Rx badges, phase toggle, tap-for-detail sheets |
+| `medications.html` / `supplements.html` | Redirects to `stack.html` |
 | `skincare.html` | Face routines |
 | `haircare.html` | Scalp, Problend, shampoo |
 | `longevity.html` | Experimental tier, peptides &amp; TRT on mechanism, 2026–2031 horizon |

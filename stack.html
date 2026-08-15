@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Meds &amp; supplements — Tom's Health App</title>
+<link rel="stylesheet" href="css/site.css">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
+</head>
+<body data-page="stack">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
+    <nav class="site-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="profile.html" data-nav="profile">Profile</a>
+      <a href="transplant.html" data-nav="transplant">Transplant</a>
+      <a href="longevity.html" data-nav="longevity">Longevity</a>
+      <a href="stack.html" data-nav="stack">Stack</a>
+      <a href="skincare.html" data-nav="skincare">Skincare</a>
+      <a href="haircare.html" data-nav="haircare">Hair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page supp-page stack-page">
+  <h1 class="supp-title">Meds &amp; supplements</h1>
+  <p class="stack-lede">One daily stack. Prescriptions carry an <span class="rx-badge" aria-hidden="true">Rx</span> mark — tap any row for the full profile.</p>
+
+  <div class="callout ok stack-callout">
+    <span class="ct">Confirmed with Dr. Sean</span>
+    Continue Trintellix, olmesartan, and rosuvastatin. Keep Zepbound paused. Oral finasteride bridges the Problend stop; restart Problend ~4 weeks post-op.
+  </div>
+
+  <div class="supp-phasebar" role="tablist" aria-label="Phase">
+    <button type="button" role="tab" data-phase="ideal">Ideal</button>
+    <button type="button" role="tab" data-phase="preop">Pre-op</button>
+    <button type="button" role="tab" data-phase="heal">Post-op</button>
+    <button type="button" role="tab" data-phase="rebuild">Clinic OK</button>
+    <button type="button" role="tab" data-phase="full">Full</button>
+  </div>
+  <p class="supp-when" id="supp-when"></p>
+
+  <section class="supp-block" data-block>
+    <h2>AM</h2>
+    <ul>
+      <li data-on="ideal rebuild full" data-item="nac" tabindex="0" role="button">
+        <div>NAC powder<i>juice shot</i></div>
+        <span class="dose">1,200 mg</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="creatine" tabindex="0" role="button">
+        <div>Creatine<i>coffee blend</i></div>
+        <span class="dose">5 g</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="glycine" tabindex="0" role="button">
+        <div>Glycine<i>coffee blend</i></div>
+        <span class="dose">3 g+</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="collagen" tabindex="0" role="button">
+        <div>Collagen<i>Greek yogurt</i></div>
+        <span class="dose">14 g</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Breakfast</h2>
+    <ul>
+      <li data-on="ideal full" data-item="urolithin" tabindex="0" role="button">
+        <div>Urolithin A · Timeline Mitopure<i>Sat–Sun off</i></div>
+        <span class="dose">1,000 mg</span>
+      </li>
+      <li data-on="ideal full" data-item="akg" tabindex="0" role="button">
+        <div>Calcium AKG<i>Sat–Sun off</i></div>
+        <span class="dose">2 capsules</span>
+      </li>
+      <li data-on="ideal rebuild full" data-item="multi-am" tabindex="0" role="button">
+        <div>Multivitamin<i>1 of 2 daily softgels</i></div>
+        <span class="dose">1 softgel</span>
+      </li>
+      <li data-on="ideal full" data-item="nad" tabindex="0" role="button">
+        <div>NAD+ Cell Regenerator<i>Sat–Sun off · NR</i></div>
+        <span class="dose">1 capsule</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="coq10-am" tabindex="0" role="button">
+        <div>CoQ10<i>1 of 2 daily</i></div>
+        <span class="dose">100 mg</span>
+      </li>
+      <li data-on="preop" data-item="k1-am" tabindex="0" role="button">
+        <div>Vitamin K1 (phytonadione)<i>1 of 3 · with food · 2-day course</i></div>
+        <span class="dose">1,000 mcg</span>
+      </li>
+      <li data-on="ideal full" data-item="maca-am" tabindex="0" role="button">
+        <div>Black Maca<i>Sat–Sun off · 1 of 2 daily</i></div>
+        <span class="dose">1,000 mg</span>
+      </li>
+      <li data-on="ideal full" data-item="boron" tabindex="0" role="button">
+        <div>Boron<i>2 wk on · 1 wk off</i></div>
+        <span class="dose">3 mg</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Lunch</h2>
+    <ul>
+      <li data-on="ideal rebuild full" data-item="multi-pm" tabindex="0" role="button">
+        <div>Multivitamin<i>2 of 2 daily softgels</i></div>
+        <span class="dose">1 softgel</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="coq10-pm" tabindex="0" role="button">
+        <div>CoQ10<i>2 of 2 daily</i></div>
+        <span class="dose">100 mg</span>
+      </li>
+      <li data-on="ideal rebuild full" data-item="omega" tabindex="0" role="button">
+        <div>Omega-3 · fish oil</div>
+        <span class="dose">2 softgels</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="d3k2" tabindex="0" role="button">
+        <div>Vitamin D3 + K2</div>
+        <span class="dose">1 softgel</span>
+      </li>
+      <li data-on="preop" data-item="k1-lunch" tabindex="0" role="button">
+        <div>Vitamin K1 (phytonadione)<i>2 of 3 · with food · 2-day course</i></div>
+        <span class="dose">1,000 mcg</span>
+      </li>
+      <li data-on="ideal full" data-item="maca-pm" tabindex="0" role="button">
+        <div>Black Maca<i>Sat–Sun off · 2 of 2 daily</i></div>
+        <span class="dose">1,000 mg</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Evening</h2>
+    <ul>
+      <li data-on="preop" data-item="k1-eve" tabindex="0" role="button">
+        <div>Vitamin K1 (phytonadione)<i>3 of 3 · with food · 2-day course</i></div>
+        <span class="dose">1,000 mcg</span>
+      </li>
+      <li data-on="ideal" data-item="problend" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Happy Head Problend<i>scalp · Night A &amp; B</i></div>
+        <span class="dose">topical</span>
+      </li>
+      <li data-on="preop heal" data-item="problend-hold" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Happy Head Problend<i>held · last dose Mon 10 Aug PM</i></div>
+        <span class="dose">stopped</span>
+      </li>
+      <li data-on="rebuild full" data-item="problend-restart" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Happy Head Problend<i>restart ~4 wk post-op</i></div>
+        <span class="dose">topical</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Bedtime · Period 3</h2>
+    <ul>
+      <li data-on="ideal preop heal rebuild full" data-item="trintellix" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Trintellix (vortioxetine)<i>continue · confirmed</i></div>
+        <span class="dose">20 mg</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="olmesartan" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Olmesartan<i>incl. morning of surgery days</i></div>
+        <span class="dose">20 mg</span>
+      </li>
+      <li data-on="ideal preop heal rebuild full" data-item="rosuvastatin" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Rosuvastatin<i>continue · confirmed</i></div>
+        <span class="dose">10 mg</span>
+      </li>
+      <li data-on="preop heal rebuild full" data-item="finasteride" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Oral finasteride<i>Dr. Sean script · bridges Problend stop</i></div>
+        <span class="dose">script</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Weekly</h2>
+    <ul>
+      <li data-on="ideal preop heal rebuild full" data-item="zepbound" data-rx tabindex="0" role="button">
+        <div><span class="rx-badge">Rx</span> Zepbound (tirzepatide)<i>paused since 1 Aug · stay paused</i></div>
+        <span class="dose">2.5 mg SC</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="supp-block" data-block>
+    <h2>Add</h2>
+    <ul>
+      <li data-on="heal rebuild full" data-item="whey" tabindex="0" role="button">
+        <div>Naked Whey<i>grass-fed whey concentrate · not isolate</i></div>
+        <span class="dose">as directed</span>
+      </li>
+      <li data-on="heal rebuild full" data-item="hh-caps" tabindex="0" role="button">
+        <div>Happy Head Hair Growth Supplements<i>2 / day with food · clinic sheet: post-op · not Problend</i></div>
+        <span class="dose">2 capsules</span>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<div class="item-sheet" id="item-sheet" hidden aria-labelledby="sheet-title" role="dialog" aria-modal="true">
+  <button type="button" class="item-sheet-backdrop" id="sheet-backdrop" aria-label="Close detail"></button>
+  <div class="item-sheet-inner">
+    <header class="item-sheet-head">
+      <div class="item-sheet-kicker" id="sheet-kicker"></div>
+      <h2 id="sheet-title"></h2>
+      <p class="item-sheet-dose" id="sheet-dose"></p>
+      <button type="button" class="item-sheet-close" id="sheet-close" aria-label="Close">×</button>
+    </header>
+    <div class="item-sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  Informational only — not medical advice. Dr. Sean’s written protocol supersedes this site where they disagree.
+  Prepared Aug 2026 · AI-assisted review; confirm all <span class="tag confirm">Confirm</span> items with your clinicians.
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
