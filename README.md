@@ -18,7 +18,7 @@ For a permanent `github.io` address: repo **Settings → Pages → Deploy from a
 | `transplant.html` | FUE peri-op playbook (Dr. Sean, 18–19 Aug 2026) |
 | `profile.html` | Demographics, labs, interpretation |
 | `medications.html` | Prescriptions and peri-op hold/continue rules |
-| `supplements.html` | Oral stack — Ideal / Pre-op / 0–14d / 2–4wk / 4wk+ |
+| `supplements.html` | Oral stack — Ideal / Pre-op / Post-op / Clinic OK / Full |
 | `skincare.html` | Face routines |
 | `haircare.html` | Scalp, Problend, shampoo |
 | `longevity.html` | Experimental tier and 2026–2031 horizon |

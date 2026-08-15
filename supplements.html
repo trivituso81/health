@@ -38,9 +38,9 @@
   <div class="supp-phasebar" role="tablist" aria-label="Phase">
     <button type="button" role="tab" data-phase="ideal">Ideal</button>
     <button type="button" role="tab" data-phase="preop">Pre-op</button>
-    <button type="button" role="tab" data-phase="heal">0–14d</button>
-    <button type="button" role="tab" data-phase="rebuild">2–4wk</button>
-    <button type="button" role="tab" data-phase="full">4wk+</button>
+    <button type="button" role="tab" data-phase="heal">Post-op</button>
+    <button type="button" role="tab" data-phase="rebuild">Clinic OK</button>
+    <button type="button" role="tab" data-phase="full">Full</button>
   </div>
   <p class="supp-when" id="supp-when"></p>
 
@@ -170,10 +170,10 @@
 
   var WHEN = {
     ideal: 'Everyday stack',
-    preop: '11–18 Aug · K1 2–3× / day for 2 days',
-    heal: '19 Aug – 2 Sep',
-    rebuild: '3–16 Sep',
-    full: '16 Sep onward'
+    preop: 'Until day 1 · K1 2–3× / day for 2 days',
+    heal: 'Until scabs off + clinic restarts fish oil / multi',
+    rebuild: 'After clinic OK',
+    full: 'Full stack'
   };
   var iso = new Date().toISOString().slice(0, 10);
   var now = iso >= '2026-09-16' ? 'full'
