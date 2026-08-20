@@ -19,10 +19,11 @@ Open the site in **Safari** → Share → **Add to Home Screen**. It installs as
 | File | What it is |
 | --- | --- |
 | `index.html` | Home — brand + four surgery metrics (no copy) |
-| `schedule.html` | Clinic post-op meds/spray + personal stack ramp |
+| `schedule.html` | Clinic post-op meds/spray, personal stack, days 1–21 Harmful/Neutral/Helpful tables |
 | `progress.html` | Photo timeline: days 1–7, weeks 2–3, months 1–12 |
 | `care.html` | Dr. Sean post-op protocol (charts, wash, activity, growth) |
 | `dr-sean-post-op-instructions.pdf` | Official clinic packet (source for Care / Schedule) |
+| `post-op-supplement-analysis.pdf` | Days 1–21 stack Harmful/Neutral/Helpful analysis |
 | `progress/photos/` | Drop `day-01.jpg`, `week-02.jpg`, `month-01.jpg`, … here |
 | `health.html` | Previous Tom's Health App landing (labs, longevity hub) |
 | `transplant.html` | Full FUE peri-op playbook (linked from Care) |
