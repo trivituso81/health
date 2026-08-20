@@ -7,9 +7,9 @@
   --ink: #15231d;
   --ink-soft: #3d4f46;
   --muted: #6a7a71;
-  --line: rgba(21, 35, 29, 0.12);
-  --panel: rgba(255, 252, 248, 0.72);
-  --panel-solid: #f7f4ef;
+  --line: rgba(21, 35, 29, 0.14);
+  --panel: rgba(247, 250, 248, 0.78);
+  --panel-solid: #f3f7f4;
   --accent: #1f4d3a;
   --accent-soft: #3a6b55;
   --gold: #b8893d;
@@ -20,10 +20,11 @@
   --nav-h: 72px;
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-t: env(safe-area-inset-top, 0px);
-  --font-brand: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --font-ui: "Sora", "Avenir Next", "Segoe UI", sans-serif;
-  --radius: 18px;
-  --shadow: 0 18px 40px rgba(21, 35, 29, 0.08);
+  --font-brand: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  --font-ui: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+  --radius: 10px;
+  --shadow: 0 10px 28px rgba(21, 35, 29, 0.07);
 }
 
 *,
@@ -43,9 +44,9 @@ body {
   font-family: var(--font-ui);
   color: var(--ink);
   background:
-    radial-gradient(120% 80% at 10% -10%, #f4f7f4 0%, transparent 55%),
-    radial-gradient(90% 70% at 100% 0%, #c9d9ce 0%, transparent 50%),
-    linear-gradient(165deg, var(--bg2) 0%, var(--bg0) 45%, var(--bg1) 100%);
+    linear-gradient(180deg, rgba(31, 77, 58, 0.04), transparent 28%),
+    radial-gradient(100% 70% at 100% 0%, #c9d9ce 0%, transparent 55%),
+    linear-gradient(165deg, var(--bg2) 0%, var(--bg0) 50%, var(--bg1) 100%);
   background-attachment: fixed;
   line-height: 1.45;
   padding-bottom: calc(var(--nav-h) + var(--safe-b) + 12px);
@@ -57,9 +58,11 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(31, 77, 58, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 77, 58, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
   z-index: 0;
 }
 
@@ -110,8 +113,9 @@ html:not(.unlocked) body > *:not(#auth-gate) {
 
 #auth-gate h1 {
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 1.75rem;
+  font-weight: 600;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
   margin: 0 0 8px;
 }
 
@@ -179,11 +183,11 @@ html.unlocked #auth-gate {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
-  background: rgba(247, 244, 239, 0.88);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(243, 247, 244, 0.92);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
   border-top: 1px solid var(--line);
-  box-shadow: 0 -8px 28px rgba(21, 35, 29, 0.06);
+  box-shadow: 0 -8px 28px rgba(21, 35, 29, 0.05);
 }
 
 .bottom-nav a {
@@ -194,10 +198,11 @@ html.unlocked #auth-gate {
   gap: 4px;
   text-decoration: none;
   color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  border-radius: 14px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 8px;
   transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
@@ -222,83 +227,119 @@ html.unlocked #auth-gate {
 
 /* —— Home —— */
 .home-shell {
-  min-height: calc(100dvh - var(--nav-h) - var(--safe-b) - var(--safe-t) - 24px);
+  min-height: calc(100dvh - var(--nav-h) - var(--safe-b) - var(--safe-t) - 16px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 28px;
-  padding-block: 12px 8px;
+  justify-content: flex-start;
+  gap: 18px;
+  padding-block: 16px 4px;
 }
 
 .brand-lockup {
-  text-align: center;
-  animation: rise 0.7s ease both;
+  text-align: left;
+  animation: rise 0.55s ease both;
+  padding-top: 4px;
+}
+
+.brand-lockup .brand-kicker {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
 }
 
 .brand-lockup h1 {
   margin: 0;
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: clamp(2.35rem, 8vw, 3.4rem);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 7.2vw, 2.45rem);
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
   color: var(--ink);
+  text-transform: uppercase;
 }
 
 .brand-lockup h1 span {
-  display: block;
-  font-style: italic;
-  color: var(--accent-soft);
+  display: inline;
+  font-style: normal;
+  color: var(--accent);
 }
 
 .metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 10px;
+  flex: 1;
+  align-content: stretch;
+  min-height: 0;
 }
 
 .metric {
   position: relative;
   overflow: hidden;
-  padding: 22px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(148px, 28dvh, 220px);
+  padding: 18px 16px 16px;
   border-radius: var(--radius);
-  background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.72), rgba(243, 247, 244, 0.55));
+  border: 1px solid rgba(31, 77, 58, 0.16);
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  animation: rise 0.75s ease both;
+  animation: rise 0.65s ease both;
 }
 
-.metric:nth-child(1) { animation-delay: 0.08s; }
-.metric:nth-child(2) { animation-delay: 0.16s; }
-.metric:nth-child(3) { animation-delay: 0.24s; }
-.metric:nth-child(4) { animation-delay: 0.32s; }
+.metric:nth-child(1) { animation-delay: 0.06s; }
+.metric:nth-child(2) { animation-delay: 0.12s; }
+.metric:nth-child(3) { animation-delay: 0.18s; }
+.metric:nth-child(4) { animation-delay: 0.24s; }
 
+.metric::before,
 .metric::after {
   content: "";
   position: absolute;
-  inset: auto -20% -40% auto;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(184, 137, 61, 0.18), transparent 70%);
+  width: 12px;
+  height: 12px;
+  border-color: var(--accent-soft);
+  border-style: solid;
+  opacity: 0.55;
   pointer-events: none;
 }
 
+.metric::before {
+  top: 10px;
+  left: 10px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.metric::after {
+  right: 10px;
+  bottom: 10px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
 .metric-value {
-  font-family: var(--font-brand);
-  font-size: clamp(2rem, 7vw, 2.6rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(2.35rem, 9.5vw, 3.35rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .metric-label {
-  margin-top: 10px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -323,10 +364,11 @@ html.unlocked #auth-gate {
 .page-head h1 {
   margin: 0;
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: clamp(2rem, 6.5vw, 2.6rem);
+  font-weight: 600;
+  font-size: clamp(1.7rem, 6vw, 2.15rem);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
 }
 
 .page-head p {
@@ -357,10 +399,12 @@ html.unlocked #auth-gate {
   background: rgba(255, 252, 248, 0.55);
   color: var(--ink-soft);
   font: inherit;
-  font-size: 0.82rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   padding: 10px 14px;
-  border-radius: 999px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
@@ -477,8 +521,10 @@ html.unlocked #auth-gate {
 .progress-section h2 {
   margin: 0 0 12px;
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 1.55rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .photo-grid {
@@ -529,11 +575,12 @@ html.unlocked #auth-gate {
 
 .photo-frame .placeholder strong {
   display: block;
-  font-family: var(--font-brand);
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 500;
   color: var(--ink-soft);
   margin-bottom: 4px;
+  letter-spacing: -0.02em;
 }
 
 .photo-meta {
@@ -581,9 +628,10 @@ html.unlocked #auth-gate {
 .care-card h2 {
   margin: 0 0 8px;
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 1.35rem;
+  font-weight: 600;
+  font-size: 1.2rem;
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .care-card p {
@@ -623,13 +671,15 @@ html.unlocked #auth-gate {
 .care-jump a {
   flex: 0 0 auto;
   padding: 8px 12px;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid var(--line);
   background: rgba(255, 252, 248, 0.55);
   color: var(--ink-soft);
   text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .care-alert {
@@ -644,9 +694,9 @@ html.unlocked #auth-gate {
 
 .care-alert h2 {
   margin: 0 0 8px;
-  font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 1.85rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.65rem;
   letter-spacing: -0.02em;
 }
 
@@ -664,9 +714,10 @@ html.unlocked #auth-gate {
 .care-section-title {
   margin: 0 0 6px;
   font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 1.55rem;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .care-section-lede {
@@ -816,6 +867,19 @@ html.unlocked #auth-gate {
 
   .metrics {
     gap: 14px;
+  }
+
+  .metric {
+    min-height: clamp(180px, 32dvh, 260px);
+    padding: 22px 20px 18px;
+  }
+
+  .metric-value {
+    font-size: clamp(2.8rem, 6vw, 3.8rem);
+  }
+
+  .brand-lockup {
+    text-align: left;
   }
 }
 
