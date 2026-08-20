@@ -308,6 +308,7 @@ html.unlocked #auth-gate { display: none; }
   color: #fff;
   border: none;
 }
+.muted { color: var(--text-soft, #6b7280); font-weight: 500; }
 .hero-card.primary .muted { color: rgba(255,255,255,0.78); }
 .countdown {
   font-size: clamp(36px, 6vw, 52px);

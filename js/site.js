@@ -2,16 +2,22 @@
   const PASSWORD = '8127';
   const AUTH_KEY = 'toms-health-unlocked';
   const SURGERY_START = new Date('2026-08-18T06:45:00-07:00');
+  const SURGERY_END = '2026-08-19';
   const MILESTONES = [
-    { date: '2026-08-08', label: 'Review home dashboard' },
-    { date: '2026-08-10', label: 'Last Problend (Mon PM)' },
-    { date: '2026-08-11', label: 'Start 1-week stops' },
-    { date: '2026-08-15', label: 'Hydration protocol begins' },
     { date: '2026-08-16', label: 'Vitamin K1 · Sat–Sun' },
-    { date: '2026-09-16', label: 'Problend restart (~4 wk)' },
     { date: '2026-08-18', label: 'Surgery day 1' },
     { date: '2026-08-19', label: 'Surgery day 2' },
-  ];
+    { date: '2026-08-20', label: 'HBOT session 1 · 60 min' },
+    { date: '2026-08-22', label: 'Graft revascularization window closes' },
+    { date: '2026-09-02', label: 'Scabbing resolved (~2 wk)' },
+    { date: '2026-09-16', label: 'Problend restart (~4 wk)' },
+    { date: '2026-11-19', label: 'Regrowth begins (~mo 3)' },
+  ].sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+
+  function todayLocal() {
+    const d = new Date();
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  }
 
   function daysUntil(target) {
     const now = new Date();
@@ -77,16 +83,22 @@
   }
 
   function initDashboard() {
-    const days = daysUntil(new Date(SURGERY_START));
-    setText('countdown-days', String(Math.max(0, days)));
-    setText('countdown-label', days === 1 ? 'day until surgery' : 'days until surgery');
+    const today = todayLocal();
+    if (today > SURGERY_END) {
+      const since = -daysUntil(new Date(SURGERY_END + 'T12:00:00'));
+      setText('countdown-days', String(since));
+      setText('countdown-label', since === 1 ? 'day since surgery' : 'days since surgery');
+    } else {
+      const days = daysUntil(new Date(SURGERY_START));
+      setText('countdown-days', String(Math.max(0, days)));
+      setText('countdown-label', days === 1 ? 'day until surgery' : 'days until surgery');
+    }
     setText('today-date', new Date().toLocaleDateString(undefined, {
       weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
     }));
 
     const strip = document.getElementById('timeline-strip');
     if (strip) {
-      const today = new Date().toISOString().slice(0, 10);
       strip.innerHTML = MILESTONES.map(function (m) {
         let cls = 'timeline-item';
         if (m.date === today) cls += ' current';
@@ -97,7 +109,7 @@
 
     const phaseEl = document.getElementById('current-phase');
     if (phaseEl) {
-      const t = new Date().toISOString().slice(0, 10);
+      const t = today;
       let phase = 'Pre-operative preparation';
       if (t >= '2026-08-18' && t <= '2026-08-19') phase = 'Surgery in progress';
       else if (t >= '2026-08-20' && t <= '2026-08-26') phase = 'Acute recovery (days 0–7)';
@@ -229,7 +241,7 @@
       rebuild: 'After clinic OK',
       full: 'Full stack'
     };
-    var today = new Date().toISOString().slice(0, 10);
+    var today = todayLocal();
     var nowPhase = currentSupplementPhase(today);
     var whenEl = document.getElementById('supp-when');
     var buttons = bar.querySelectorAll('[data-phase]');
