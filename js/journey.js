@@ -80,9 +80,9 @@
 
   /* Schedule phases aligned to Dr. Sean post-op packet */
   var PHASE_COPY = {
-    acute: 'Days 0–5 — spray cadence, forehead tape/ice/massage, ACell ×3, antibiotics + prednisone. No NSAIDs until day 3. Sleep 45° nights 0–1.',
-    heal: 'Days 6–27 — finish antibiotics, cup-rinse grafts, scab softener from day 12–14, keep Problend held. Donor squeeze if prone to ingrowns.',
-    rebuild: '~4 weeks / month 1 — restart Problend (not sooner). Donor LED + 0.25 mm stamp 3×/week from day 21. Resume fish oil & multivitamins when comfortable.',
+    acute: 'Days 0–5 — spray, ACell, antibiotics + prednisone. Stack analysis: mostly helpful/neutral; only ADAM vit E + grape seed is a bleed question while on aspirin/pentox.',
+    heal: 'Days 6–27 — keep Ca-AKG continuous through day 21 (peak collagen days 8–14). Omega-3 cleared. NAC best-timed around days 4–7 reperfusion.',
+    rebuild: '~4 weeks / month 1 — restart Problend (not sooner). Donor LED + 0.25 mm stamp 3×/week from day 21.',
     full: 'Back toward baseline — full stack, Problend nightly, Zepbound only after Dr. Sean clears a slow restart. Keep whey + Happy Head capsules through month 6.'
   };
 
@@ -94,11 +94,19 @@
     return 'full';
   }
 
+  function defaultAnalysisPhase() {
+    var n = daysSinceSurgery();
+    if (n <= 3) return 'd1';
+    if (n <= 7) return 'd4';
+    if (n <= 14) return 'd8';
+    return 'd15';
+  }
+
   function initSchedule() {
     var root = document.querySelector('[data-schedule]');
     if (!root) return;
 
-    var tabs = root.querySelectorAll('[data-phase]');
+    var tabs = root.querySelectorAll('.phase-tabs[aria-label="Recovery phase"] [data-phase]');
     var note = document.getElementById('phase-note');
     var items = root.querySelectorAll('[data-on]');
     var day = daysSinceSurgery();
@@ -112,10 +120,6 @@
         var on = (li.getAttribute('data-on') || '').split(/\s+/);
         var dayAttr = li.getAttribute('data-day');
         var visible = on.indexOf(phase) !== -1;
-        if (visible && dayAttr !== null && phase === 'acute') {
-          /* In acute view, prefer highlighting today's spray row by keeping all visible */
-          visible = true;
-        }
         li.hidden = !visible;
         if (dayAttr !== null && Number(dayAttr) === day) {
           li.classList.add('is-today');
@@ -136,6 +140,30 @@
     });
 
     apply(defaultPhase());
+  }
+
+  function initAnalysis() {
+    var root = document.querySelector('[data-analysis]');
+    if (!root) return;
+    var tabs = root.querySelectorAll('[data-analysis-phase]');
+    var panels = root.querySelectorAll('[data-analysis-panel]');
+
+    function apply(phase) {
+      tabs.forEach(function (btn) {
+        btn.setAttribute('aria-selected', btn.getAttribute('data-analysis-phase') === phase ? 'true' : 'false');
+      });
+      panels.forEach(function (panel) {
+        panel.hidden = panel.getAttribute('data-analysis-panel') !== phase;
+      });
+    }
+
+    tabs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        apply(btn.getAttribute('data-analysis-phase'));
+      });
+    });
+
+    apply(defaultAnalysisPhase());
   }
 
   function initProgressPhotos() {
@@ -173,5 +201,6 @@
   if (unlocked()) document.documentElement.classList.add('unlocked');
   fillDayMetric();
   initSchedule();
+  initAnalysis();
   initProgressPhotos();
 })();

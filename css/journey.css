@@ -708,6 +708,52 @@ html.unlocked #auth-gate {
   min-width: 420px;
 }
 
+.analysis-table {
+  min-width: 720px;
+  font-size: 0.74rem;
+}
+
+.analysis-table th:nth-child(2),
+.analysis-table td:nth-child(2) {
+  background: rgba(139, 58, 47, 0.06);
+}
+
+.analysis-table th:nth-child(3),
+.analysis-table td:nth-child(3) {
+  background: rgba(106, 122, 113, 0.06);
+}
+
+.analysis-table th:nth-child(4),
+.analysis-table td:nth-child(4) {
+  background: rgba(47, 107, 79, 0.08);
+}
+
+.analysis-table td:first-child {
+  min-width: 11rem;
+  white-space: normal;
+}
+
+.td-meta {
+  display: block;
+  margin-top: 2px;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.analysis-blurb {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(31, 77, 58, 0.08);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.analysis-panel[hidden] {
+  display: none !important;
+}
+
 .care-table th,
 .care-table td {
   padding: 10px 12px;
