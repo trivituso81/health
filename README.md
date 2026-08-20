@@ -1,6 +1,6 @@
 # Tom's Hair Journey
 
-Personal post-op companion for the Aug 18–19 2026 FUE (5,500 grafts · Dr. Sean). Metrics home, med ramp schedule, progress photos, and recovery care.
+Personal post-op companion for the Aug 18–19 2026 FUE (~6,200 grafts · Dr. Sean). Metrics home, med ramp schedule, progress photos, and recovery care.
 
 Open `index.html`. No build step.
 
