@@ -68,12 +68,13 @@
     var el = document.getElementById('metric-day');
     if (!el) return;
     var n = daysSinceSurgery();
+    var label = document.getElementById('metric-day-label');
     if (n < 0) {
       el.textContent = String(Math.abs(n));
-      var label = document.getElementById('metric-day-label');
-      if (label) label.textContent = 'Days to go';
+      if (label) label.textContent = Math.abs(n) === 1 ? 'Day to go' : 'Days to go';
     } else {
       el.textContent = String(n);
+      if (label) label.textContent = n === 1 ? 'Day post-op' : 'Days post-op';
     }
   }
 
