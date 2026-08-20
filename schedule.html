@@ -30,15 +30,96 @@
 <main class="journey-main" data-schedule>
   <header class="page-head">
     <h1>Schedule</h1>
-    <p>Meds and supplements as you ramp back to normal. Phase updates with your post-op day.</p>
+    <p>Clinic post-op meds first, then your personal stack as you ramp back.</p>
   </header>
 
   <div class="phase-tabs" role="tablist" aria-label="Recovery phase">
-    <button type="button" role="tab" data-phase="heal">Post-op</button>
+    <button type="button" role="tab" data-phase="acute">Days 0–5</button>
+    <button type="button" role="tab" data-phase="heal">Days 6–27</button>
     <button type="button" role="tab" data-phase="rebuild">~4 weeks</button>
     <button type="button" role="tab" data-phase="full">Full stack</button>
   </div>
   <p class="phase-note" id="phase-note"></p>
+
+  <section class="sched-block" data-block>
+    <h2>Spray · grafts</h2>
+    <ul>
+      <li data-on="acute" data-day="0">
+        <div class="name">Mist spray<small>Day 0 · every 10 min while awake · 2am &amp; 4am if you can · refrigerate</small></div>
+        <span class="dose">10 min</span>
+      </li>
+      <li data-on="acute" data-day="1">
+        <div class="name">Mist spray<small>Day 1 · every 20 min · extra on clotting spots</small></div>
+        <span class="dose">20 min</span>
+      </li>
+      <li data-on="acute" data-day="2">
+        <div class="name">Mist spray<small>Day 2 · every 30 min</small></div>
+        <span class="dose">30 min</span>
+      </li>
+      <li data-on="acute" data-day="3">
+        <div class="name">Mist spray<small>Days 3–5 · optional hourly</small></div>
+        <span class="dose">PRN</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sched-block" data-block>
+    <h2>Clinic Rx · post-op</h2>
+    <ul>
+      <li data-on="acute heal">
+        <div class="name"><span class="badge badge-rx">Rx</span> Antibiotic<small>usually cephalexin · 8am &amp; 8pm with food until finished (~days 1–10)</small></div>
+        <span class="dose">BID</span>
+      </li>
+      <li data-on="acute">
+        <div class="name"><span class="badge badge-rx">Rx</span> Prednisone<small>morning with food · days 1–5 · finish the course</small></div>
+        <span class="dose">AM</span>
+      </li>
+      <li data-on="acute heal rebuild full">
+        <div class="name">Tylenol<small>500 mg ×2 · every 8 hr if needed · max 4,000 mg/day · no alcohol</small></div>
+        <span class="dose">PRN</span>
+      </li>
+      <li data-on="acute heal rebuild full">
+        <div class="name">Advil / ibuprofen<small>from day 3 onward · eat first · can pair with Tylenol q8h</small></div>
+        <span class="dose">PRN</span>
+      </li>
+      <li data-on="acute">
+        <div class="name"><span class="badge badge-held">Hold D1–2</span> Advil / NSAIDs<small>bleeding risk at graft sites the first 48 hours</small></div>
+        <span class="dose">no</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sched-block" data-block>
+    <h2>Donor · ACell</h2>
+    <ul>
+      <li data-on="acute">
+        <div class="name">ACell ointment<small>1 Tbsp at 8am / 12pm / 5pm · rub bottom→top into holes · re-wrap Kerlix · Vaseline ~2 hr later if one jar</small></div>
+        <span class="dose">×3 / day</span>
+      </li>
+      <li data-on="heal">
+        <div class="name">Donor cleanse<small>after ACell finished · fingertips · baby shampoo OK</small></div>
+        <span class="dose">daily</span>
+      </li>
+      <li data-on="heal">
+        <div class="name">Ingrown squeeze<small>vertical + horizontal 20 sec · twice daily if prone</small></div>
+        <span class="dose">BID</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sched-block" data-block>
+    <h2>Clinic nutrition · 6 months</h2>
+    <ul>
+      <li data-on="acute heal rebuild full">
+        <div class="name"><span class="badge badge-add">Add</span> Whey concentrate<small>Nutricost or equivalent · morning scoop</small></div>
+        <span class="dose">1 scoop</span>
+      </li>
+      <li data-on="acute heal rebuild full">
+        <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth Supplements<small>1 morning + 1 evening · not Problend</small></div>
+        <span class="dose">2 / day</span>
+      </li>
+    </ul>
+  </section>
 
   <section class="sched-block" data-block>
     <h2>AM</h2>
@@ -125,12 +206,12 @@
   <section class="sched-block" data-block>
     <h2>Evening · scalp</h2>
     <ul>
-      <li data-on="heal">
-        <div class="name"><span class="badge badge-held">Held</span> Happy Head Problend<small>last dose Mon 10 Aug PM · restart ~4 wk</small></div>
+      <li data-on="acute heal">
+        <div class="name"><span class="badge badge-held">Held</span> Happy Head Problend<small>clinic: restart no sooner than 1 month · your plan ~4 wk</small></div>
         <span class="dose">stopped</span>
       </li>
       <li data-on="rebuild full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Happy Head Problend<small>restart ~4 wk post-op · Night A &amp; B</small></div>
+        <div class="name"><span class="badge badge-rx">Rx</span> Happy Head Problend<small>restart ~4 wk · Night A &amp; B · optional 0.25 mm stamp 3×/wk after month 1</small></div>
         <span class="dose">topical</span>
       </li>
     </ul>
@@ -139,19 +220,19 @@
   <section class="sched-block" data-block>
     <h2>Bedtime</h2>
     <ul>
-      <li data-on="heal rebuild full">
+      <li data-on="acute heal rebuild full">
         <div class="name"><span class="badge badge-rx">Rx</span> Trintellix<small>continue · confirmed</small></div>
         <span class="dose">20 mg</span>
       </li>
-      <li data-on="heal rebuild full">
+      <li data-on="acute heal rebuild full">
         <div class="name"><span class="badge badge-rx">Rx</span> Olmesartan<small>continue · confirmed</small></div>
         <span class="dose">20 mg</span>
       </li>
-      <li data-on="heal rebuild full">
+      <li data-on="acute heal rebuild full">
         <div class="name"><span class="badge badge-rx">Rx</span> Rosuvastatin<small>continue · confirmed</small></div>
         <span class="dose">10 mg</span>
       </li>
-      <li data-on="heal rebuild full">
+      <li data-on="acute heal rebuild full">
         <div class="name"><span class="badge badge-rx">Rx</span> Oral finasteride<small>bridges Problend stop · keep after restart</small></div>
         <span class="dose">script</span>
       </li>
@@ -161,27 +242,17 @@
   <section class="sched-block" data-block>
     <h2>Weekly</h2>
     <ul>
-      <li data-on="heal rebuild">
-        <div class="name"><span class="badge badge-held">Paused</span> Zepbound<small>stay paused · slow restart ~8–12 wk when cleared</small></div>
+      <li data-on="acute heal rebuild">
+        <div class="name"><span class="badge badge-held">Paused</span> Zepbound<small>stay paused · no rapid weight loss (delays growth)</small></div>
         <span class="dose">held</span>
       </li>
       <li data-on="full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Zepbound<small>only after Dr. Sean clears · avoid rapid weight loss</small></div>
+        <div class="name"><span class="badge badge-rx">Rx</span> Zepbound<small>only after Dr. Sean clears · slow titration</small></div>
         <span class="dose">2.5 mg SC</span>
       </li>
-    </ul>
-  </section>
-
-  <section class="sched-block" data-block>
-    <h2>Add · recovery</h2>
-    <ul>
-      <li data-on="heal rebuild full">
-        <div class="name"><span class="badge badge-add">Add</span> Naked Whey<small>concentrate · not isolate · high protein</small></div>
-        <span class="dose">as directed</span>
-      </li>
-      <li data-on="heal rebuild full">
-        <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth Supplements<small>clinic sheet · not Problend</small></div>
-        <span class="dose">2 / day</span>
+      <li data-on="rebuild full">
+        <div class="name">Donor LED + dermastamp<small>from day 21 · 3×/week · see Care</small></div>
+        <span class="dose">3× / wk</span>
       </li>
     </ul>
   </section>

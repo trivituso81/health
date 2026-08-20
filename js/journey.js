@@ -78,15 +78,17 @@
     }
   }
 
-  /* Schedule phases: heal (acute) → rebuild (~4 wk) → full */
+  /* Schedule phases aligned to Dr. Sean post-op packet */
   var PHASE_COPY = {
-    heal: 'Now through ~week 4 — keep Problend held, stay on oral finasteride, add whey + Happy Head capsules. Zepbound stays paused.',
-    rebuild: '~4 weeks post-op (mid-Sep) — restart Problend while continuing finasteride. Resume fish oil & multivitamins when clinic agrees.',
-    full: 'Back to baseline once cleared — full stack, Problend nightly, Zepbound only after Dr. Sean okays a slow restart (~8–12 weeks).'
+    acute: 'Days 0–5 — spray cadence, forehead tape/ice/massage, ACell ×3, antibiotics + prednisone. No NSAIDs until day 3. Sleep 45° nights 0–1.',
+    heal: 'Days 6–27 — finish antibiotics, cup-rinse grafts, scab softener from day 12–14, keep Problend held. Donor squeeze if prone to ingrowns.',
+    rebuild: '~4 weeks / month 1 — restart Problend (not sooner). Donor LED + 0.25 mm stamp 3×/week from day 21. Resume fish oil & multivitamins when comfortable.',
+    full: 'Back toward baseline — full stack, Problend nightly, Zepbound only after Dr. Sean clears a slow restart. Keep whey + Happy Head capsules through month 6.'
   };
 
   function defaultPhase() {
     var n = daysSinceSurgery();
+    if (n <= 5) return 'acute';
     if (n < 28) return 'heal';
     if (n < 56) return 'rebuild';
     return 'full';
@@ -99,6 +101,7 @@
     var tabs = root.querySelectorAll('[data-phase]');
     var note = document.getElementById('phase-note');
     var items = root.querySelectorAll('[data-on]');
+    var day = daysSinceSurgery();
 
     function apply(phase) {
       tabs.forEach(function (btn) {
@@ -107,7 +110,18 @@
       if (note) note.textContent = PHASE_COPY[phase] || '';
       items.forEach(function (li) {
         var on = (li.getAttribute('data-on') || '').split(/\s+/);
-        li.hidden = on.indexOf(phase) === -1;
+        var dayAttr = li.getAttribute('data-day');
+        var visible = on.indexOf(phase) !== -1;
+        if (visible && dayAttr !== null && phase === 'acute') {
+          /* In acute view, prefer highlighting today's spray row by keeping all visible */
+          visible = true;
+        }
+        li.hidden = !visible;
+        if (dayAttr !== null && Number(dayAttr) === day) {
+          li.classList.add('is-today');
+        } else {
+          li.classList.remove('is-today');
+        }
       });
       root.querySelectorAll('[data-block]').forEach(function (block) {
         var visible = block.querySelectorAll('li:not([hidden])');
