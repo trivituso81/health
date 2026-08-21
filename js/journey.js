@@ -133,9 +133,12 @@
 
     var phaseKey = defaultPhase();
     var phaseLabel = {
-      acute: 'Acute · days 0–5',
-      heal: 'Heal · days 6–27',
-      rebuild: 'Rebuild · ~4 weeks',
+      d0: 'Day 0',
+      d1: 'Day 1',
+      d2: 'Day 2',
+      d3: 'Days 3–5',
+      d6: 'Days 6–14',
+      d15: 'Days 15–30',
       full: 'Full stack'
     }[phaseKey] || phaseKey;
 
@@ -165,19 +168,25 @@
     }).join('');
   }
 
-  /* Schedule phases aligned to Dr. Sean post-op packet */
+  /* Schedule day-range filters */
   var PHASE_COPY = {
-    acute: 'Days 0–5 — spray, ACell, antibiotics + prednisone. Stack analysis: mostly helpful/neutral; only ADAM vit E + grape seed is a bleed question while on aspirin/pentox.',
-    heal: 'Days 6–27 — keep Ca-AKG continuous through day 21 (peak collagen days 8–14). Omega-3 cleared. NAC best-timed around days 4–7 reperfusion.',
-    rebuild: '~4 weeks / month 1 — restart Problend (not sooner). Donor LED + 0.25 mm stamp 3×/week from day 21.',
-    full: 'Back toward baseline — full stack, Problend nightly, Zepbound only after Dr. Sean clears a slow restart. Keep whey + Happy Head capsules through month 6.'
+    d0: 'Procedure night — spray every 10 min, sleep at 45°, no NSAIDs, start whey + Happy Head capsules.',
+    d1: 'Spray every 20 min · prednisone + antibiotic · ACell ×3 · forehead tape/ice/massage · last night at 45°.',
+    d2: 'Spray every 30 min · Advil still held until tomorrow · first cup-rinse · ACell continues · NSAIDs still no until day 3.',
+    d3: 'Days 3–5 — optional spray · Advil OK · finish prednisone · ACell until jar empty · tape off by day 5.',
+    d6: 'Days 6–14 — finish antibiotic · donor cleanse · cup-rinse then scab softener from day 12 · Ca-AKG continuous · Problend still held.',
+    d15: 'Days 15–30 — gentle wash · donor LED/stamp from day 21 · Problend still held until ~day 28 · maca/boron can return.',
+    full: 'Baseline stack — Problend nightly, full supplements, Zepbound only after Dr. Sean clears a slow restart.'
   };
 
   function defaultPhase() {
     var n = daysSinceSurgery();
-    if (n <= 5) return 'acute';
-    if (n < 28) return 'heal';
-    if (n < 56) return 'rebuild';
+    if (n <= 0) return 'd0';
+    if (n === 1) return 'd1';
+    if (n === 2) return 'd2';
+    if (n <= 5) return 'd3';
+    if (n <= 14) return 'd6';
+    if (n <= 30) return 'd15';
     return 'full';
   }
 
@@ -195,27 +204,20 @@
 
     var tabs = root.querySelectorAll('.phase-tabs[aria-label="Recovery phase"] [data-phase]');
     var note = document.getElementById('phase-note');
-    var items = root.querySelectorAll('[data-on]');
-    var day = daysSinceSurgery();
+    var items = root.querySelectorAll('li[data-on]');
 
     function apply(phase) {
       tabs.forEach(function (btn) {
-        btn.setAttribute('aria-selected', btn.getAttribute('data-phase') === phase ? 'true' : 'false');
+        var on = btn.getAttribute('data-phase') === phase;
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
       });
       if (note) note.textContent = PHASE_COPY[phase] || '';
       items.forEach(function (li) {
-        var on = (li.getAttribute('data-on') || '').split(/\s+/);
-        var dayAttr = li.getAttribute('data-day');
-        var visible = on.indexOf(phase) !== -1;
-        li.hidden = !visible;
-        if (dayAttr !== null && Number(dayAttr) === day) {
-          li.classList.add('is-today');
-        } else {
-          li.classList.remove('is-today');
-        }
+        var on = (li.getAttribute('data-on') || '').split(/\s+/).filter(Boolean);
+        li.hidden = on.indexOf(phase) === -1;
       });
       root.querySelectorAll('[data-block]').forEach(function (block) {
-        var visible = block.querySelectorAll('li:not([hidden])');
+        var visible = block.querySelectorAll('li[data-on]:not([hidden])');
         block.hidden = visible.length === 0;
       });
     }
