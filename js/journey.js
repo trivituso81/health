@@ -78,6 +78,93 @@
     }
   }
 
+  function daysUntil(targetDay) {
+    return targetDay - daysSinceSurgery();
+  }
+
+  function formatCountdown(daysLeft) {
+    if (daysLeft < 0) return 'done';
+    if (daysLeft === 0) return 'today';
+    if (daysLeft === 1) return '1 day';
+    return daysLeft + ' days';
+  }
+
+  function todayFacts(n) {
+    var spray =
+      n <= 0 ? 'Every 10 min while awake' :
+      n === 1 ? 'Every 20 min while awake' :
+      n === 2 ? 'Every 30 min while awake' :
+      n <= 5 ? 'Optional · about hourly' :
+      'Spray window closed';
+
+    var meds =
+      n <= 2 ? 'Antibiotic BID · prednisone AM · no NSAIDs yet' :
+      n <= 5 ? 'Antibiotic BID · prednisone AM · Advil OK' :
+      n <= 10 ? 'Finish antibiotic · ACell if jar remains' :
+      n < 28 ? 'Problend still held · oral finasteride on' :
+      'Problend restart window · keep finasteride';
+
+    var wash =
+      n <= 1 ? 'No graft wash yet' :
+      n <= 11 ? 'Cup-rinse grafts · no touching' :
+      n <= 14 ? 'Scab softener · baby oil overnight' :
+      n < 31 ? 'Gentle wash · no shower pressure on grafts' :
+      'Regular showering cleared';
+
+    var scalp =
+      n < 28 ? 'Problend held · oral minoxidil ½ dose' :
+      'Problend restart eligible';
+
+    return [
+      ['Spray', spray],
+      ['Clinic Rx', meds],
+      ['Wash', wash],
+      ['Scalp', scalp]
+    ];
+  }
+
+  function fillHomeStatus() {
+    var n = daysSinceSurgery();
+    var stamp = document.getElementById('home-stamp');
+    var phaseEl = document.getElementById('home-phase');
+    var factsEl = document.getElementById('home-facts');
+    var nextEl = document.getElementById('home-next');
+    if (!factsEl || !nextEl) return;
+
+    var phaseKey = defaultPhase();
+    var phaseLabel = {
+      acute: 'Acute · days 0–5',
+      heal: 'Heal · days 6–27',
+      rebuild: 'Rebuild · ~4 weeks',
+      full: 'Full stack'
+    }[phaseKey] || phaseKey;
+
+    if (stamp) {
+      stamp.innerHTML = (n < 0 ? 'Pre-op' : 'Day ' + n) + '<br>Aug 19 start';
+    }
+    if (phaseEl) phaseEl.textContent = phaseLabel;
+
+    var facts = todayFacts(n);
+    factsEl.innerHTML = facts.map(function (row) {
+      return '<div><dt>' + row[0] + '</dt><dd>' + row[1] + '</dd></div>';
+    }).join('');
+
+    var milestones = [
+      { day: 3, label: 'Advil / NSAIDs OK' },
+      { day: 5, label: 'Forehead tape off' },
+      { day: 12, label: 'Scab softener starts' },
+      { day: 21, label: 'Donor LED + stamp' },
+      { day: 28, label: 'Problend restart' },
+      { day: 30, label: 'Month-1 photos' }
+    ];
+
+    nextEl.innerHTML = milestones.map(function (m) {
+      var left = daysUntil(m.day);
+      var cls = left < 0 ? ' class="is-done"' : '';
+      return '<li' + cls + '><span class="next-label">' + m.label + '</span><span class="next-when">' + formatCountdown(left) + '</span></li>';
+    }).join('');
+  }
+
   /* Schedule phases aligned to Dr. Sean post-op packet */
   var PHASE_COPY = {
     acute: 'Days 0–5 — spray, ACell, antibiotics + prednisone. Stack analysis: mostly helpful/neutral; only ADAM vit E + grape seed is a bleed question while on aspirin/pentox.',
@@ -200,6 +287,7 @@
   showGate();
   if (unlocked()) document.documentElement.classList.add('unlocked');
   fillDayMetric();
+  fillHomeStatus();
   initSchedule();
   initAnalysis();
   initProgressPhotos();

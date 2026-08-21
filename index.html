@@ -30,9 +30,12 @@
 </head>
 <body data-page="home">
 <main class="journey-main home-shell">
-  <div class="brand-lockup">
-    <h1>Tom's <span>Hair Journey</span></h1>
-  </div>
+  <header class="home-top">
+    <div class="brand-lockup">
+      <h1>Tom's <span>Hair Journey</span></h1>
+    </div>
+    <div class="home-stamp" id="home-stamp">—</div>
+  </header>
 
   <div class="metrics" aria-label="Surgery metrics">
     <div class="metric">
@@ -51,6 +54,27 @@
       <div class="metric-value">FUE</div>
       <div class="metric-label">Dr. Sean</div>
     </div>
+  </div>
+
+  <section class="home-panel" aria-labelledby="now-heading">
+    <div class="home-panel-head">
+      <h2 id="now-heading">Now</h2>
+      <span class="home-phase" id="home-phase">—</span>
+    </div>
+    <dl class="home-facts" id="home-facts"></dl>
+  </section>
+
+  <section class="home-panel" aria-labelledby="next-heading">
+    <div class="home-panel-head">
+      <h2 id="next-heading">Next</h2>
+    </div>
+    <ul class="home-next" id="home-next"></ul>
+  </section>
+
+  <div class="home-links">
+    <a href="schedule.html">Schedule</a>
+    <a href="care.html">Care protocol</a>
+    <a href="progress.html">Progress photos</a>
   </div>
 </main>
 
