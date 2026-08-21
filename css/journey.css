@@ -644,8 +644,33 @@ html.unlocked #auth-gate {
 }
 
 .sched-block[hidden],
+.sched-group[hidden],
+.sched-block li[hidden],
 .sched-item[hidden] {
   display: none !important;
+}
+
+.sched-group h3 {
+  margin: 0;
+  padding: 10px 16px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  border-top: 1px solid var(--line);
+  background: rgba(31, 77, 58, 0.03);
+}
+
+.sched-group:first-of-type h3 {
+  border-top: 0;
+}
+
+.sched-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
 }
 
 /* —— Progress photos —— */

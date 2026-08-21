@@ -207,18 +207,39 @@
     var items = root.querySelectorAll('li[data-on]');
 
     function apply(phase) {
+      if (!phase) return;
       tabs.forEach(function (btn) {
         var on = btn.getAttribute('data-phase') === phase;
         btn.setAttribute('aria-selected', on ? 'true' : 'false');
       });
       if (note) note.textContent = PHASE_COPY[phase] || '';
+
       items.forEach(function (li) {
-        var on = (li.getAttribute('data-on') || '').split(/\s+/).filter(Boolean);
-        li.hidden = on.indexOf(phase) === -1;
+        var tags = (li.getAttribute('data-on') || '').trim().split(/\s+/).filter(Boolean);
+        var match = tags.indexOf(phase) !== -1;
+        if (match) {
+          li.removeAttribute('hidden');
+        } else {
+          li.setAttribute('hidden', '');
+        }
       });
+
+      root.querySelectorAll('[data-group]').forEach(function (group) {
+        var visible = group.querySelectorAll('li[data-on]:not([hidden])');
+        if (visible.length) {
+          group.removeAttribute('hidden');
+        } else {
+          group.setAttribute('hidden', '');
+        }
+      });
+
       root.querySelectorAll('[data-block]').forEach(function (block) {
         var visible = block.querySelectorAll('li[data-on]:not([hidden])');
-        block.hidden = visible.length === 0;
+        if (visible.length) {
+          block.removeAttribute('hidden');
+        } else {
+          block.setAttribute('hidden', '');
+        }
       });
     }
 

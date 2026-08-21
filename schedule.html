@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/journey.css">
+<link rel="stylesheet" href="css/journey.css?v=20260821b">
 <script>
 (function () {
   var k = 'toms-health-unlocked';
@@ -30,7 +30,7 @@
 <main class="journey-main" data-schedule>
   <header class="page-head">
     <h1>Schedule</h1>
-    <p>Filter by day — morning / afternoon / evening. Analysis tables stay below.</p>
+    <p>Pick a day filter. Only matching items show, grouped by type.</p>
   </header>
 
   <div class="phase-tabs" role="tablist" aria-label="Recovery phase">
@@ -46,208 +46,262 @@
 
   <section class="sched-block" data-block>
     <h2>Morning</h2>
-    <ul>
-      <li data-on="d0">
-        <div class="name">Mist spray<small>Every 10 min while awake · refrigerate · 2am &amp; 4am if you can</small></div>
-        <span class="dose">q10 min</span>
-      </li>
-      <li data-on="d1">
-        <div class="name">Mist spray<small>Every 20 min while awake · extra on clotting spots</small></div>
-        <span class="dose">q20 min</span>
-      </li>
-      <li data-on="d2">
-        <div class="name">Mist spray<small>Every 30 min while awake</small></div>
-        <span class="dose">q30 min</span>
-      </li>
-      <li data-on="d3">
-        <div class="name">Mist spray<small>Optional · about hourly</small></div>
-        <span class="dose">PRN</span>
-      </li>
-      <li data-on="d1 d2 d3">
-        <div class="name"><span class="badge badge-rx">Rx</span> Prednisone<small>with food · finish the course</small></div>
-        <span class="dose">AM</span>
-      </li>
-      <li data-on="d1 d2 d3 d6">
-        <div class="name"><span class="badge badge-rx">Rx</span> Antibiotic<small>usually cephalexin · with food · AM dose of BID through ~day 10</small></div>
-        <span class="dose">8am</span>
-      </li>
-      <li data-on="d1 d2 d3">
-        <div class="name">ACell ointment<small>1 Tbsp · rub bottom→top into holes · re-wrap Kerlix · Vaseline ~2 hr later if one jar</small></div>
-        <span class="dose">8am</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15">
-        <div class="name"><span class="badge badge-rx">Rx</span> Oral minoxidil<small>half dose while Problend is held</small></div>
-        <span class="dose">½ dose</span>
-      </li>
-      <li data-on="d1 d2 d3 d6">
-        <div class="name"><span class="badge badge-rx">Rx</span> Aspirin + pentoxifylline<small>clinic concurrent through ~day 7 · ask office before changing</small></div>
-        <span class="dose">as directed</span>
-      </li>
-      <li data-on="d0 d1 d2">
-        <div class="name"><span class="badge badge-held">Hold</span> Advil / NSAIDs<small>bleeding risk at graft sites first 48 hours</small></div>
-        <span class="dose">no</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-add">Add</span> Whey concentrate<small>Nutricost or equivalent</small></div>
-        <span class="dose">1 scoop</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 1 of 2 · not Problend</small></div>
-        <span class="dose">1 cap</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">NAC powder<small>juice shot · strongest benefit around days 4–7</small></div>
-        <span class="dose">1,200 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Creatine<small>coffee blend</small></div>
-        <span class="dose">5 g</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Glycine<small>coffee blend · collagen substrate</small></div>
-        <span class="dose">3 g+</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Collagen + HA + vit C<small>Vital Proteins Advanced</small></div>
-        <span class="dose">14 g</span>
-      </li>
-      <li data-on="d1 d2 d3 d6 d15 full">
-        <div class="name">CoQ10<small>1 of 2 · 200 mg/day total · offsets rosuvastatin</small></div>
-        <span class="dose">100 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">ADAM multivitamin<small>NOW Foods · ask Dr. Sean about vit E + grape seed while on aspirin/pentox</small></div>
-        <span class="dose">2 softgels</span>
-      </li>
-      <li data-on="d6 d15 full">
-        <div class="name">Urolithin A · Mitopure<small>especially useful days 8–14</small></div>
-        <span class="dose">1,000 mg</span>
-      </li>
-      <li data-on="d6 d15 full">
-        <div class="name">Calcium AKG<small>run straight through days 8–21 · no weekend gap</small></div>
-        <span class="dose">1,000 mg</span>
-      </li>
-      <li data-on="d6 d15 full">
-        <div class="name">NAD+ Cell Regenerator<small>300 mg NR</small></div>
-        <span class="dose">1 capsule</span>
-      </li>
-      <li data-on="d15 full">
-        <div class="name">Black Maca<small>1 of 2 · Sat–Sun off</small></div>
-        <span class="dose">1,000 mg</span>
-      </li>
-      <li data-on="d15 full">
-        <div class="name">Boron<small>2 wk on · 1 wk off</small></div>
-        <span class="dose">3 mg</span>
-      </li>
-      <li data-on="d6 d15">
-        <div class="name">Donor cleanse<small>after ACell finished · fingertips · baby shampoo OK</small></div>
-        <span class="dose">daily</span>
-      </li>
-      <li data-on="d6 d15">
-        <div class="name">Ingrown squeeze<small>vertical + horizontal 20 sec · if prone · AM of BID</small></div>
-        <span class="dose">AM</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15">
-        <div class="name"><span class="badge badge-held">Paused</span> Zepbound<small>no rapid weight loss</small></div>
-        <span class="dose">held</span>
-      </li>
-      <li data-on="full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Zepbound<small>only after Dr. Sean clears · slow titration</small></div>
-        <span class="dose">2.5 mg SC</span>
-      </li>
-    </ul>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d0">
+          <div class="name">Mist spray<small>Every 10 min while awake · refrigerate · 2am &amp; 4am if you can</small></div>
+          <span class="dose">q10 min</span>
+        </li>
+        <li data-on="d1">
+          <div class="name">Mist spray<small>Every 20 min while awake · extra on clotting spots</small></div>
+          <span class="dose">q20 min</span>
+        </li>
+        <li data-on="d2">
+          <div class="name">Mist spray<small>Every 30 min while awake</small></div>
+          <span class="dose">q30 min</span>
+        </li>
+        <li data-on="d3">
+          <div class="name">Mist spray<small>Optional · about hourly</small></div>
+          <span class="dose">PRN</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>1 Tbsp · rub bottom→top into holes · re-wrap Kerlix · Vaseline ~2 hr later if one jar</small></div>
+          <span class="dose">8am</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Donor cleanse<small>after ACell finished · fingertips · baby shampoo OK</small></div>
+          <span class="dose">daily</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Ingrown squeeze<small>vertical + horizontal 20 sec · if prone</small></div>
+          <span class="dose">AM</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Medications</h3>
+      <ul>
+        <li data-on="d1 d2 d3">
+          <div class="name"><span class="badge badge-rx">Rx</span> Prednisone<small>with food · finish the course</small></div>
+          <span class="dose">AM</span>
+        </li>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Antibiotic<small>usually cephalexin · with food · AM dose of BID through ~day 10</small></div>
+          <span class="dose">8am</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15">
+          <div class="name"><span class="badge badge-rx">Rx</span> Oral minoxidil<small>half dose while Problend is held</small></div>
+          <span class="dose">½ dose</span>
+        </li>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Aspirin + pentoxifylline<small>clinic concurrent through ~day 7</small></div>
+          <span class="dose">as directed</span>
+        </li>
+        <li data-on="d0 d1 d2">
+          <div class="name"><span class="badge badge-held">Hold</span> Advil / NSAIDs<small>bleeding risk first 48 hours</small></div>
+          <span class="dose">no</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15">
+          <div class="name"><span class="badge badge-held">Paused</span> Zepbound<small>no rapid weight loss</small></div>
+          <span class="dose">held</span>
+        </li>
+        <li data-on="full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Zepbound<small>only after Dr. Sean clears · slow titration</small></div>
+          <span class="dose">2.5 mg SC</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Whey concentrate<small>Nutricost or equivalent</small></div>
+          <span class="dose">1 scoop</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 1 of 2 · not Problend</small></div>
+          <span class="dose">1 cap</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">NAC powder<small>juice shot · strongest benefit around days 4–7</small></div>
+          <span class="dose">1,200 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Creatine<small>coffee blend</small></div>
+          <span class="dose">5 g</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Glycine<small>coffee blend · collagen substrate</small></div>
+          <span class="dose">3 g+</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Collagen + HA + vit C<small>Vital Proteins Advanced</small></div>
+          <span class="dose">14 g</span>
+        </li>
+        <li data-on="d1 d2 d3 d6 d15 full">
+          <div class="name">CoQ10<small>1 of 2 · 200 mg/day total</small></div>
+          <span class="dose">100 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">ADAM multivitamin<small>NOW Foods · ask about vit E + grape seed while on aspirin/pentox</small></div>
+          <span class="dose">2 softgels</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">Urolithin A · Mitopure<small>especially useful days 8–14</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">Calcium AKG<small>straight through days 8–21 · no weekend gap</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">NAD+ Cell Regenerator<small>300 mg NR</small></div>
+          <span class="dose">1 capsule</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Black Maca<small>1 of 2 · Sat–Sun off</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Boron<small>2 wk on · 1 wk off</small></div>
+          <span class="dose">3 mg</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="sched-block" data-block>
     <h2>Afternoon</h2>
-    <ul>
-      <li data-on="d1 d2 d3">
-        <div class="name">ACell ointment<small>midday application · same technique as morning</small></div>
-        <span class="dose">12pm</span>
-      </li>
-      <li data-on="d2 d3 d6 d15">
-        <div class="name">Cup-rinse grafts<small>baby shampoo in clean cup · no touching grafts through day 11</small></div>
-        <span class="dose">1× / day</span>
-      </li>
-      <li data-on="d6 d15">
-        <div class="name">Scab softener<small>from day 12: baby oil overnight → shampoo + conditioner sit → gentle massage</small></div>
-        <span class="dose">as needed</span>
-      </li>
-      <li data-on="d1 d2 d3 d6 d15 full">
-        <div class="name">CoQ10<small>2 of 2</small></div>
-        <span class="dose">100 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Vitamin D3 + K2<small>1,000 IU / 45 mcg · with lunch</small></div>
-        <span class="dose">1 softgel</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Omega-3 · Thorne Super EPA<small>850 EPA / 540 DHA · cleared at this dose</small></div>
-        <span class="dose">2 softgels</span>
-      </li>
-      <li data-on="d15 full">
-        <div class="name">Black Maca<small>2 of 2 · Sat–Sun off</small></div>
-        <span class="dose">1,000 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name">Tylenol<small>500 mg ×2 · every 8 hr if needed · max 4,000 mg/day · no alcohol</small></div>
-        <span class="dose">PRN</span>
-      </li>
-      <li data-on="d3 d6 d15 full">
-        <div class="name">Advil / ibuprofen<small>from day 3 · eat first · can pair with Tylenol q8h</small></div>
-        <span class="dose">PRN</span>
-      </li>
-      <li data-on="d15 full">
-        <div class="name">Donor LED + dermastamp<small>from day 21 · 3×/week · see Care</small></div>
-        <span class="dose">3× / wk</span>
-      </li>
-    </ul>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>midday application · same technique as morning</small></div>
+          <span class="dose">12pm</span>
+        </li>
+        <li data-on="d2 d3 d6">
+          <div class="name">Cup-rinse grafts<small>baby shampoo in clean cup · no touching through day 11</small></div>
+          <span class="dose">1× / day</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Scab softener<small>from day 12: baby oil overnight → shampoo + conditioner sit → gentle massage</small></div>
+          <span class="dose">as needed</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Donor LED + dermastamp<small>from day 21 · 3×/week · see Care</small></div>
+          <span class="dose">3× / wk</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Medications</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Tylenol<small>500 mg ×2 · every 8 hr if needed · max 4,000 mg/day · no alcohol</small></div>
+          <span class="dose">PRN</span>
+        </li>
+        <li data-on="d3 d6 d15 full">
+          <div class="name">Advil / ibuprofen<small>from day 3 · eat first · can pair with Tylenol q8h</small></div>
+          <span class="dose">PRN</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d1 d2 d3 d6 d15 full">
+          <div class="name">CoQ10<small>2 of 2</small></div>
+          <span class="dose">100 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Vitamin D3 + K2<small>1,000 IU / 45 mcg · with lunch</small></div>
+          <span class="dose">1 softgel</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Omega-3 · Thorne Super EPA<small>850 EPA / 540 DHA · cleared at this dose</small></div>
+          <span class="dose">2 softgels</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Black Maca<small>2 of 2 · Sat–Sun off</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="sched-block" data-block>
     <h2>Evening</h2>
-    <ul>
-      <li data-on="d1 d2 d3">
-        <div class="name">ACell ointment<small>evening application · continue until jar empty (~4–5 days)</small></div>
-        <span class="dose">5pm</span>
-      </li>
-      <li data-on="d1 d2 d3 d6">
-        <div class="name"><span class="badge badge-rx">Rx</span> Antibiotic<small>PM dose of BID · with food</small></div>
-        <span class="dose">8pm</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 2 of 2 · not Problend</small></div>
-        <span class="dose">1 cap</span>
-      </li>
-      <li data-on="d6 d15">
-        <div class="name">Ingrown squeeze<small>PM of BID if prone</small></div>
-        <span class="dose">PM</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15">
-        <div class="name"><span class="badge badge-held">Held</span> Happy Head Problend<small>restart no sooner than ~day 28 / 1 month</small></div>
-        <span class="dose">stopped</span>
-      </li>
-      <li data-on="full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Happy Head Problend<small>Night A &amp; B · optional 0.25 mm stamp 3×/wk</small></div>
-        <span class="dose">topical</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Trintellix<small>continue · confirmed</small></div>
-        <span class="dose">20 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Olmesartan<small>continue · confirmed</small></div>
-        <span class="dose">20 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Rosuvastatin<small>continue · confirmed</small></div>
-        <span class="dose">10 mg</span>
-      </li>
-      <li data-on="d0 d1 d2 d3 d6 d15 full">
-        <div class="name"><span class="badge badge-rx">Rx</span> Oral finasteride<small>bridges Problend stop · keep after restart</small></div>
-        <span class="dose">script</span>
-      </li>
-    </ul>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>evening application · continue until jar empty (~4–5 days)</small></div>
+          <span class="dose">5pm</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Ingrown squeeze<small>PM of BID if prone</small></div>
+          <span class="dose">PM</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Hair treatments</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15">
+          <div class="name"><span class="badge badge-held">Held</span> Happy Head Problend<small>restart no sooner than ~day 28 / 1 month</small></div>
+          <span class="dose">stopped</span>
+        </li>
+        <li data-on="full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Happy Head Problend<small>Night A &amp; B · optional 0.25 mm stamp 3×/wk</small></div>
+          <span class="dose">topical</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Medications</h3>
+      <ul>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Antibiotic<small>PM dose of BID · with food</small></div>
+          <span class="dose">8pm</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Trintellix<small>continue · confirmed</small></div>
+          <span class="dose">20 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Olmesartan<small>continue · confirmed</small></div>
+          <span class="dose">20 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Rosuvastatin<small>continue · confirmed</small></div>
+          <span class="dose">10 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Oral finasteride<small>bridges Problend stop · keep after restart</small></div>
+          <span class="dose">script</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 2 of 2 · not Problend</small></div>
+          <span class="dose">1 cap</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="care-section" id="analysis" data-analysis>
@@ -673,6 +727,6 @@
   </a>
 </nav>
 
-<script src="js/journey.js"></script>
+<script src="js/journey.js?v=20260821b"></script>
 </body>
 </html>
