@@ -151,10 +151,15 @@
 
     const boxes = Array.prototype.slice.call(page.querySelectorAll('input[data-today-id]'));
 
+    // Deliberately reads the hidden attribute rather than layout: while the
+    // password gate is up, main is display:none and every row would measure
+    // as invisible.
     function updateProgress() {
       const visible = boxes.filter(function (b) {
         const li = b.closest('li');
-        return li && li.offsetParent !== null;
+        if (!li || li.hidden) return false;
+        const block = li.closest('.day-block');
+        return !(block && block.hidden);
       });
       const done = visible.filter(function (b) { return b.checked; }).length;
       const total = visible.length;

@@ -2263,6 +2263,13 @@ body.sheet-open { overflow: hidden; }
 .db-hint { font-size: 12px; color: var(--text-faint); }
 
 .day-list { list-style: none; margin: 0; padding: 0; }
+/* An author `display` rule beats the UA stylesheet's [hidden] rule, so the
+   filter needs these explicitly or hidden rows keep rendering. */
+.day-list > li[hidden],
+.off-list li[hidden],
+.next-list li[hidden],
+.day-block[hidden],
+.panel[hidden] { display: none; }
 .day-list > li {
   display: flex;
   align-items: flex-start;
