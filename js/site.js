@@ -121,106 +121,6 @@
     }
   }
 
-  function initToday() {
-    const page = document.querySelector('.today-page');
-    if (!page) return;
-
-    const today = todayLocal();
-    const dayNum = -daysUntil(new Date(SURGERY_END + 'T12:00:00'));
-
-    setText('today-daynum', dayNum >= 0 ? 'Day ' + dayNum : '—');
-    setText('today-daylabel', dayNum === 0 ? 'surgery day' : 'post-op');
-    setText('today-longdate', new Date().toLocaleDateString(undefined, {
-      weekday: 'long', month: 'long', day: 'numeric'
-    }));
-
-    let phaseName = 'Recovery';
-    if (dayNum <= 3) phaseName = 'Acute recovery · swelling window';
-    else if (dayNum <= 7) phaseName = 'Grafts securing · washing daily';
-    else if (dayNum <= 14) phaseName = 'Scabbing clearing';
-    else if (dayNum < 28) phaseName = 'Pre-restart · Problend still held';
-    else phaseName = 'Growth phase · full stack';
-    setText('today-phasename', phaseName);
-
-    // Checkbox state is scoped to the date so the list is blank again each morning.
-    const prefix = 'hp-today-';
-    const todayPrefix = prefix + today + '-';
-    Object.keys(localStorage).forEach(function (k) {
-      if (k.indexOf(prefix) === 0 && k.indexOf(todayPrefix) !== 0) localStorage.removeItem(k);
-    });
-
-    const boxes = Array.prototype.slice.call(page.querySelectorAll('input[data-today-id]'));
-
-    // Deliberately reads the hidden attribute rather than layout: while the
-    // password gate is up, main is display:none and every row would measure
-    // as invisible.
-    function updateProgress() {
-      const visible = boxes.filter(function (b) {
-        const li = b.closest('li');
-        if (!li || li.hidden) return false;
-        const block = li.closest('.day-block');
-        return !(block && block.hidden);
-      });
-      const done = visible.filter(function (b) { return b.checked; }).length;
-      const total = visible.length;
-      setText('today-progress-text', total ? done + ' of ' + total + ' done' : 'Nothing to do');
-      const fill = document.getElementById('today-progress-fill');
-      if (fill) fill.style.width = total ? Math.round((done / total) * 100) + '%' : '0%';
-    }
-
-    boxes.forEach(function (box) {
-      const key = todayPrefix + box.dataset.todayId;
-      box.checked = localStorage.getItem(key) === '1';
-      const li = box.closest('li');
-      if (li) li.classList.toggle('is-done', box.checked);
-      box.addEventListener('change', function () {
-        localStorage.setItem(key, box.checked ? '1' : '0');
-        if (li) li.classList.toggle('is-done', box.checked);
-        updateProgress();
-      });
-    });
-
-    const bar = document.getElementById('cat-bar');
-    if (bar) {
-      const empty = document.getElementById('cat-empty');
-      bar.addEventListener('click', function (e) {
-        const btn = e.target.closest('button[data-cat]');
-        if (!btn) return;
-        const cat = btn.dataset.cat;
-        bar.querySelectorAll('button[data-cat]').forEach(function (b) {
-          b.classList.toggle('is-on', b === btn);
-        });
-        let shown = 0;
-        page.querySelectorAll('li[data-cat]').forEach(function (li) {
-          const on = cat === 'all' || li.dataset.cat === cat;
-          li.hidden = !on;
-          if (on) shown++;
-        });
-        // Hide any time-of-day block left with nothing in it.
-        page.querySelectorAll('.day-block[data-block]').forEach(function (block) {
-          const any = block.querySelector('li[data-cat]:not([hidden])');
-          block.hidden = !any;
-        });
-        const offPanel = page.querySelector('.off-panel');
-        if (offPanel) {
-          const anyOff = offPanel.querySelector('li[data-cat]:not([hidden])');
-          offPanel.hidden = !anyOff;
-          const offTitle = offPanel.previousElementSibling;
-          if (offTitle && offTitle.classList.contains('section-title')) offTitle.hidden = !anyOff;
-        }
-        // Forward-looking notes are context for the whole day, not for one category.
-        ['next-title', 'next-panel'].forEach(function (id) {
-          const el = document.getElementById(id);
-          if (el) el.hidden = cat !== 'all';
-        });
-        if (empty) empty.hidden = shown > 0;
-        updateProgress();
-      });
-    }
-
-    updateProgress();
-  }
-
   function initChecklists() {
     document.querySelectorAll('.qgroup input[type=checkbox]').forEach(function (box) {
       const key = box.dataset.checkId
@@ -721,7 +621,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     initAuth();
     initDashboard();
-    initToday();
     initChecklists();
     initActiveNav();
     initResponsiveTables();

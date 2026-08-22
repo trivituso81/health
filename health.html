@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d7a6f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tom's Health">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<title>Tom's Health App — Hub</title>
+<link rel="stylesheet" href="css/site.css?v=20260822f">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
+</head>
+<body data-page="home">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="health.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
+    <nav class="site-nav">
+      <a href="health.html" data-nav="home">Home</a>
+      <a href="index.html">Hair Journey</a>
+      <a href="profile.html" data-nav="profile">Profile</a>
+      <a href="transplant.html" data-nav="transplant">Transplant</a>
+      <a href="longevity.html" data-nav="longevity">Longevity</a>
+      <a href="stack.html" data-nav="stack">Stack</a>
+      <a href="skincare.html" data-nav="skincare">Skincare</a>
+      <a href="haircare.html" data-nav="haircare">Hair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page landing">
+  <section class="landing-hero" id="top">
+    <p class="landing-kicker">Personal health hub · Private</p>
+    <h1>Tom's Health App</h1>
+    <p class="landing-lede">One home for your protocols, labs, and the Aug 18–19 FUE playbook. Every page below is reachable from here.</p>
+    <div class="landing-pills">
+      <a class="landing-pill" href="#now">Today</a>
+      <a class="landing-pill" href="#protocols">Protocols</a>
+      <a class="landing-pill" href="#records">Records</a>
+      <a class="landing-pill" href="#contacts">Contacts</a>
+    </div>
+  </section>
+
+  <div class="hero-grid" id="now">
+    <div class="hero-card primary">
+      <div class="muted">~6,200-graft FUE · Dr. Sean · Los Angeles</div>
+      <div class="countdown" id="countdown-days">—</div>
+      <div class="muted" id="countdown-label">days until surgery</div>
+      <div class="hero-meta">
+        <span>Tue–Wed 18–19 Aug 2026 · 6:45am</span>
+        <span>11669 Santa Monica Blvd</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat-label">Today</div>
+      <div class="stat-value" style="font-size:18px" id="today-date">—</div>
+      <div class="stat-sub" style="margin-top:10px">Current phase</div>
+      <div class="stat-value" style="font-size:16px;color:var(--accent-dark)" id="current-phase">—</div>
+      <div class="callout ok" style="margin-top:14px;font-size:13px">
+        <span class="ct">Rx confirmed · Dr. Sean</span>
+        Has your current Rx list — continue everything as normal. Keep Zepbound paused as you are.
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title">Current status</p>
+  <div class="panel profile-panel">
+    <dl class="profile-fields" style="padding:16px 20px">
+      <div class="profile-row"><dt>Surgery</dt><dd><strong>Complete</strong> — Tue–Wed 18–19 Aug, two-day case · <a href="transplant.html#post">Recovery plan →</a></dd></div>
+      <div class="profile-row"><dt>Latest labs</dt><dd>13 Aug 2026 pre-op panel · CMP, CBC, lipids · <a href="profile.html#lab-history">Latest results →</a></dd></div>
+      <div class="profile-row"><dt>Prescriptions</dt><dd>Dr. Sean confirmed — continue all Rx as normal · Zepbound stays paused · <a href="stack.html">Meds →</a></dd></div>
+      <div class="profile-row"><dt>Hyperbaric oxygen</dt><dd><strong>Session 1 of 3 done</strong> 20 Aug · 60 min · sessions 2–3 unscheduled · <a href="transplant.html#hbot">Why timing matters →</a></dd></div>
+      <div class="profile-row"><dt>Problend</dt><dd>Topical still held · restart <strong>~16 Sep</strong> (~4 wk post-op) · minoxidil is covered meanwhile by <strong>½ oral dose each evening</strong> per Dr. Sean · <a href="schedule.html">Schedule →</a></dd></div>
+      <div class="profile-row"><dt>Zepbound</dt><dd>tapered to 2.5 mg mid-Jul · paused since 1 Aug · stay paused per Dr. Sean, restart when cleared · <a href="stack.html">Meds →</a></dd></div>
+      <div class="profile-row"><dt>Lab interpretation</dt><dd><a href="profile.html#interpretation">What looks solid · what needs improvement →</a></dd></div>
+    </dl>
+  </div>
+
+  <p class="section-title">Upcoming milestones</p>
+  <div class="timeline-strip" id="timeline-strip"></div>
+
+  <p class="section-title">Priority actions</p>
+  <div class="panel">
+    <ul class="action-list">
+      <li>
+        <span class="action-priority urgent">Now · time-critical</span>
+        <span><strong>Book hyperbaric sessions 2 and 3 for the next two days</strong> — the grafts finish revascularizing around day 4–7, and dissolved-oxygen support only helps while they are still living on diffusion. Sessions on days 2 and 3 are worth far more than sessions on days 8 and 12. <a href="transplant.html#hbot">Mechanism &amp; timing →</a></span>
+      </li>
+      <li>
+        <span class="action-priority urgent">Days 0–3</span>
+        <span><strong>Follow the clinic post-op video exactly</strong> — washing, scab care, elevated sleep, travel pillow. Tylenol only, no ibuprofen. Finish the Keflex course. <a href="transplant.html#post">Recovery →</a></span>
+      </li>
+      <li>
+        <span class="action-priority soon">Ask at follow-up</span>
+        <span><strong>When can Zepbound restart</strong> — and confirm which paused supplements can resume now that the bleeding-risk window is closing. <a href="stack.html">Stack →</a></span>
+      </li>
+      <li>
+        <span class="action-priority info">~16 Sep · 4 weeks</span>
+        <span><strong>Restart Problend/minoxidil</strong> — no swimming, no hair dye, and minimal sun until then. <a href="haircare.html">Hair care →</a></span>
+      </li>
+      <li>
+        <span class="action-priority info">Post-op · Defy</span>
+        <span><strong>Ferritin + 25-OH vitamin D + B12/folate</strong> — add at your next Defy visit after recovery. <a href="profile.html#missing-labs">Details →</a></span>
+      </li>
+    </ul>
+  </div>
+
+  <p class="section-title" id="protocols">Protocols</p>
+  <p class="landing-section-lede">Daily routines and the transplant playbook. Open any card — then use the top nav or the related-page cards at the bottom of each page to move around.</p>
+  <div class="card-grid">
+    <a class="nav-card" href="transplant.html">
+      <div class="nav-card-icon">✂</div>
+      <h3>Hair transplant</h3>
+      <p>Dr. Sean’s official timeline, purchase checklist, FUE approach, med reconciliation, and recovery.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#decisions">
+      <div class="nav-card-icon">?</div>
+      <h3>Confirmed decisions</h3>
+      <p>Olmesartan timing, oral finasteride, vitamin K dates, whey, Problend and Zepbound restart plan.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#purchase-checklist">
+      <div class="nav-card-icon">☑</div>
+      <h3>Purchase checklist</h3>
+      <p>K1, stockings, pillow, baby shampoo, whey — checkmarks persist in this browser.</p>
+    </a>
+    <a class="nav-card" href="stack.html">
+      <div class="nav-card-icon">Rx</div>
+      <h3>Meds &amp; supplements</h3>
+      <p>One daily stack — prescriptions marked Rx, phase toggle, tap any row for details.</p>
+    </a>
+    <a class="nav-card" href="skincare.html">
+      <div class="nav-card-icon">☀</div>
+      <h3>Skincare</h3>
+      <p>Morning routine, Night A/B protocols, product verdicts, post-op face-only rules.</p>
+    </a>
+    <a class="nav-card" href="haircare.html">
+      <div class="nav-card-icon">↗</div>
+      <h3>Hair care</h3>
+      <p>Problend, shampoo, finasteride strategy, and peri-op holds.</p>
+    </a>
+    <a class="nav-card" href="longevity.html">
+      <div class="nav-card-icon">∞</div>
+      <h3>Longevity</h3>
+      <p>Experimental tier, peptides &amp; TRT on mechanism, evidence floor, and the 2026–2031 horizon.</p>
+    </a>
+  </div>
+
+  <p class="section-title" id="records">Records &amp; source documents</p>
+  <div class="card-grid">
+    <a class="nav-card" href="profile.html">
+      <div class="nav-card-icon">◉</div>
+      <h3>Physical profile</h3>
+      <p>Demographics, lab history, and interpretation (Feb–Jun 2026).</p>
+    </a>
+    <a class="nav-card" href="profile.html#lab-history">
+      <div class="nav-card-icon">≡</div>
+      <h3>Lab history</h3>
+      <p>Latest CMP, CBC, lipids, hormones, and historical draws.</p>
+    </a>
+    <a class="nav-card" href="profile.html#interpretation">
+      <div class="nav-card-icon">◎</div>
+      <h3>Lab interpretation</h3>
+      <p>What looks solid, what needs improvement, and next Defy adds.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#official">
+      <div class="nav-card-icon">📄</div>
+      <h3>Official pre-op sheet</h3>
+      <p>Dr. Sean’s FUE agreement on the transplant page — supersedes AI-generated plans.</p>
+    </a>
+    <a class="nav-card" href="transplant.html#official">
+      <div class="nav-card-icon">📋</div>
+      <h3>Clinic sheet on site</h3>
+      <p>The same official instructions, formatted inside the transplant playbook.</p>
+    </a>
+    <a class="nav-card" href="https://www.youtube.com/watch?v=tpGrU3NGUSw&amp;t=107s" rel="noopener noreferrer">
+      <div class="nav-card-icon">▶</div>
+      <h3>Dr. Sean FUE video</h3>
+      <p>Hairline design, extraction, graft handling, and one-case-per-day focus.</p>
+    </a>
+  </div>
+
+  <p class="section-title" id="contacts">Contacts &amp; clinic</p>
+  <div class="panel profile-panel">
+    <dl class="profile-fields" style="padding:16px 20px">
+      <div class="profile-row"><dt>Office</dt><dd>11669 Santa Monica Blvd, first floor, LA, CA 90025 · parking behind building</dd></div>
+      <div class="profile-row"><dt>Steven Cohen</dt><dd><a href="tel:+13108666997">(310) 866-6997</a></dd></div>
+      <div class="profile-row"><dt>Dr. Sean</dt><dd><a href="sms:+13102378760">(310) 237-8760</a> · text preferred</dd></div>
+      <div class="profile-row"><dt>Front desk / follow-ups</dt><dd><a href="tel:+13103154989">(310) 315-4989</a> · after 2:30pm day after each session</dd></div>
+      <div class="profile-row"><dt>Arrive</dt><dd>6:45am both days · Uber recommended · do not drive home</dd></div>
+    </dl>
+  </div>
+
+  <div class="callout info" style="margin-top:28px">
+    <span class="ct">Bridge strategy</span>
+    At 45 with clean labs and ~$450k income / ~$1.5M net worth, your plan is to preserve optionality — optimize health and appearance now so future therapies (reprogramming, follicle multiplication, precision hormones) meet a well-maintained system. See <a href="longevity.html">Longevity</a> for the research map.
+  </div>
+</main>
+
+<footer class="site-footer">
+  Informational only — not medical advice. Dr. Sean’s written protocol supersedes this site where they disagree.
+  Prepared Aug 2026 · AI-assisted review; confirm all <span class="tag confirm">Confirm</span> items with your clinicians.
+</footer>
+<script src="js/site.js?v=20260822f"></script>
+</body>
+</html>

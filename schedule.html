@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f4d3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hair Journey">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<title>Schedule — Tom's Hair Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/journey.css?v=20260822f">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
+</head>
+<body data-page="schedule">
+<main class="journey-main" data-schedule>
+  <header class="page-head">
+    <h1>Schedule</h1>
+    <p>Pick a day filter. Only matching items show, grouped by type.</p>
+  </header>
+
+  <div class="phase-tabs" role="tablist" aria-label="Recovery phase">
+    <button type="button" role="tab" data-phase="d0">Day 0</button>
+    <button type="button" role="tab" data-phase="d1">Day 1</button>
+    <button type="button" role="tab" data-phase="d2">Day 2</button>
+    <button type="button" role="tab" data-phase="d3">Days 3–5</button>
+    <button type="button" role="tab" data-phase="d6">Days 6–14</button>
+    <button type="button" role="tab" data-phase="d15">Days 15–30</button>
+    <button type="button" role="tab" data-phase="full">Full stack</button>
+  </div>
+  <p class="phase-note" id="phase-note"></p>
+  <p class="sched-progress" id="sched-progress"></p>
+
+  <section class="sched-block" data-block>
+    <h2>Morning</h2>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">Two-step out of bed<small>Sit at the edge a minute · drink water or juice · then stand slowly. Not necessary from day 2</small></div>
+          <span class="dose">on waking</span>
+        </li>
+        <li data-on="d0 d1">
+          <div class="name">Compression socks on<small>Blood pools in the legs after a long procedure · not necessary from day 2</small></div>
+          <span class="dose">all day</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Check forehead swelling<small>Typically appears 4–5 days out · ice 3×/day 5–10 min and massage from mid-forehead out to the temples, a few times an hour</small></div>
+          <span class="dose">on waking</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Washing</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">No graft wash yet<small>Donor bandage off midday on day 1 · washing the donor and recipient is not required</small></div>
+          <span class="dose">hold</span>
+        </li>
+        <li data-on="d2 d3 d6">
+          <div class="name">Cup-rinse grafts<small>Clean cup, lukewarm water, a little J&amp;J baby shampoo · pour over, no touching or dabbing through day 11 · air dry</small></div>
+          <span class="dose">daily or every other day</span>
+        </li>
+        <li data-on="d2 d3 d6 d15">
+          <div class="name">Wash the donor area<small>Baby shampoo, massage with fingertips · no need to scrape the ACell off · water pressure OK as long as it misses the grafts</small></div>
+          <span class="dose">daily</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Scab removal from day 12<small>Baby oil overnight → baby shampoo + conditioner lathered on 20 min → massage 5 min in circles → rinse. Repeat over several days</small></div>
+          <span class="dose">from day 12</span>
+        </li>
+        <li data-on="d15">
+          <div class="name">No shower pressure on grafts<small>First 4 weeks · shower normally neck down · not too hot, bathroom not steamy · blot or air dry, no rubbing</small></div>
+          <span class="dose">4 weeks</span>
+        </li>
+        <li data-on="full">
+          <div class="name">Regular showering<small>From day 31</small></div>
+          <span class="dose">cleared</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein-first breakfast<small>~30 g · the clinic sheet's one dietary instruction is a high-protein diet</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Food before the AM meds<small>Cephalexin and prednisone both go with food</small></div>
+          <span class="dose">first</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Dr. Sean protocol</h3>
+      <ul>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Aspirin<small>morning</small></div>
+          <span class="dose">AM</span>
+        </li>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Pentoxifylline<small>morning</small></div>
+          <span class="dose">AM</span>
+        </li>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Cephalexin<small>one tablet · with food · morning</small></div>
+          <span class="dose">AM</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name"><span class="badge badge-rx">Rx</span> Prednisone<small>full dose · with food · morning</small></div>
+          <span class="dose">AM</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d0">
+          <div class="name">Mist spray<small>Every 10 min while awake · refrigerate · 2am &amp; 4am if you can</small></div>
+          <span class="dose">q10 min</span>
+        </li>
+        <li data-on="d1">
+          <div class="name">Mist spray<small>Every 20 min while awake · extra on clotting spots</small></div>
+          <span class="dose">q20 min</span>
+        </li>
+        <li data-on="d2">
+          <div class="name">Mist spray<small>Every 30 min while awake</small></div>
+          <span class="dose">q30 min</span>
+        </li>
+        <li data-on="d3">
+          <div class="name">Mist spray<small>Optional · about hourly</small></div>
+          <span class="dose">PRN</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>1 Tbsp · rub bottom→top into holes · re-wrap Kerlix · Vaseline ~2 hr later if one jar</small></div>
+          <span class="dose">8am</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Donor cleanse<small>after ACell finished · fingertips · baby shampoo OK</small></div>
+          <span class="dose">daily</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Ingrown squeeze<small>vertical + horizontal 20 sec · if prone</small></div>
+          <span class="dose">AM</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Whey concentrate<small>Nutricost or equivalent</small></div>
+          <span class="dose">1 scoop</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 1 of 2 · not Problend</small></div>
+          <span class="dose">1 cap</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">NAC powder<small>juice shot · strongest benefit around days 4–7</small></div>
+          <span class="dose">1,200 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Creatine<small>coffee blend</small></div>
+          <span class="dose">5 g</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Glycine<small>coffee blend · collagen substrate</small></div>
+          <span class="dose">3 g+</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Collagen + HA + vit C<small>Vital Proteins Advanced</small></div>
+          <span class="dose">14 g</span>
+        </li>
+        <li data-on="d1 d2 d3 d6 d15 full">
+          <div class="name">CoQ10<small>1 of 2 · 200 mg/day total</small></div>
+          <span class="dose">100 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">ADAM multivitamin<small>NOW Foods</small></div>
+          <span class="dose">2 softgels</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">Urolithin A · Mitopure<small>especially useful days 8–14</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">Calcium AKG<small>straight through days 8–21 · no weekend gap</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d6 d15 full">
+          <div class="name">NAD+ Cell Regenerator<small>300 mg NR</small></div>
+          <span class="dose">1 capsule</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Black Maca<small>1 of 2 · Sat–Sun off</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Boron<small>2 wk on · 1 wk off</small></div>
+          <span class="dose">3 mg</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sched-block" data-block>
+    <h2>Afternoon</h2>
+
+    <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein-forward lunch<small>Whey concentrate shake if you are behind — concentrate, not isolate</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Fluids check<small>Steady water through the day · no alcohol during recovery</small></div>
+          <span class="dose">ongoing</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3">
+          <div class="name">Nap propped up, not flat<small>Applies to naps as much as to the night</small></div>
+          <span class="dose">45°</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>midday application · same technique as morning</small></div>
+          <span class="dose">12pm</span>
+        </li>
+        <li data-on="d2 d3 d6">
+          <div class="name">Cup-rinse grafts<small>baby shampoo in clean cup · no touching through day 11</small></div>
+          <span class="dose">1× / day</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Scab softener<small>from day 12: baby oil overnight → shampoo + conditioner sit → gentle massage</small></div>
+          <span class="dose">as needed</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Donor LED + dermastamp<small>from day 21 · 3×/week · see Care</small></div>
+          <span class="dose">3× / wk</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>As needed</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Tylenol<small>500 mg ×2 · every 8 hr if needed · max 4,000 mg/day · no alcohol</small></div>
+          <span class="dose">PRN</span>
+        </li>
+        <li data-on="d0 d1 d2">
+          <div class="name"><span class="badge badge-held">Hold</span> Advil / NSAIDs<small>bleeding risk first 48 hours</small></div>
+          <span class="dose">no</span>
+        </li>
+        <li data-on="d3 d6 d15 full">
+          <div class="name">Advil / ibuprofen<small>from day 3 · eat first · can pair with Tylenol q8h</small></div>
+          <span class="dose">PRN</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d1 d2 d3 d6 d15 full">
+          <div class="name">CoQ10<small>2 of 2</small></div>
+          <span class="dose">100 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Vitamin D3 + K2<small>1,000 IU / 45 mcg · with lunch</small></div>
+          <span class="dose">1 softgel</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Omega-3 · Thorne Super EPA<small>850 EPA / 540 DHA</small></div>
+          <span class="dose">2 softgels</span>
+        </li>
+        <li data-on="d15 full">
+          <div class="name">Black Maca<small>2 of 2 · Sat–Sun off</small></div>
+          <span class="dose">1,000 mg</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sched-block" data-block>
+    <h2>Evening</h2>
+
+    <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein at dinner<small>Food before the evening cephalexin</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Dr. Sean protocol</h3>
+      <ul>
+        <li data-on="d1 d2 d3 d6">
+          <div class="name"><span class="badge badge-rx">Rx</span> Cephalexin<small>one tablet · with food · evening</small></div>
+          <span class="dose">PM</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15">
+          <div class="name"><span class="badge badge-rx">Rx</span> Oral minoxidil<small>half dose · evening</small></div>
+          <span class="dose">½ dose</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Graft care</h3>
+      <ul>
+        <li data-on="d1 d2 d3">
+          <div class="name">ACell ointment<small>evening application · continue until jar empty (~4–5 days)</small></div>
+          <span class="dose">5pm</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Ingrown squeeze<small>PM of BID if prone</small></div>
+          <span class="dose">PM</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Hair treatments</h3>
+      <ul>
+        <li data-on="full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Happy Head Problend<small>Night A &amp; B · restart ~day 28+</small></div>
+          <span class="dose">topical</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Ongoing Rx</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Trintellix<small>continue · confirmed</small></div>
+          <span class="dose">20 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Olmesartan<small>continue · confirmed</small></div>
+          <span class="dose">20 mg</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Rosuvastatin<small>continue · confirmed</small></div>
+          <span class="dose">10 mg</span>
+        </li>
+        <li data-on="full">
+          <div class="name"><span class="badge badge-rx">Rx</span> Zepbound<small>only after Dr. Sean clears · slow titration</small></div>
+          <span class="dose">2.5 mg SC</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Supplements</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 2 of 2 · not Problend</small></div>
+          <span class="dose">1 cap</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">Sleep at 45°<small>Pillows behind your back, neck pillow on · day 1 is the last night at 45°</small></div>
+          <span class="dose">45°</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Forehead tape stays on<small>4 days and nights · may come off 10 min once a day to breathe, massage while it is off · tape off day 5</small></div>
+          <span class="dose">overnight</span>
+        </li>
+        <li data-on="d2 d3 d6 d15">
+          <div class="name">Sleep normally<small>45° no longer needed from day 2 · still avoid bumping your head — car doors and cabinet doors are the usual culprits</small></div>
+          <span class="dose">flat OK</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="care-section" id="analysis" data-analysis>
+    <h2 class="care-section-title">Supplement analysis · Days 1–21</h2>
+    <p class="care-section-lede">Harmful / Neutral / Helpful by recovery phase. Doses verified against labels. Concurrent: aspirin, pentoxifylline, cephalexin, prednisone (days 1–7); oral minoxidil (half dose); Trintellix 20 mg, olmesartan 20 mg, rosuvastatin 10 mg.</p>
+
+    <div class="phase-tabs" role="tablist" aria-label="Analysis phase">
+      <button type="button" role="tab" data-analysis-phase="d1" aria-selected="true">Days 1–3</button>
+      <button type="button" role="tab" data-analysis-phase="d4">Days 4–7</button>
+      <button type="button" role="tab" data-analysis-phase="d8">Days 8–14</button>
+      <button type="button" role="tab" data-analysis-phase="d15">Days 15–21</button>
+    </div>
+
+    <div class="analysis-panel" data-analysis-panel="d1">
+      <p class="analysis-blurb"><strong>Hemostasis and plasmatic imbibition.</strong> Grafts are avascular, surviving on plasma diffusion under a fibrin clot. Needs: stable clot, low edema, hypoxia tolerance. Donor: clot formation, epithelialization begins.</p>
+      <div class="table-scroll">
+        <table class="care-table analysis-table">
+          <thead>
+            <tr>
+              <th>Supplement (confirmed dose)</th>
+              <th>Harmful</th>
+              <th>Neutral</th>
+              <th>Helpful</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NAC 1,200 mg</td>
+              <td>Mild thiol antiplatelet effect. Smallest contributor on your stack.</td>
+              <td>None</td>
+              <td>Glutathione precursor. Buffers hypoxic oxidative stress in avascular grafts.</td>
+            </tr>
+            <tr>
+              <td>Creatine 5 g</td>
+              <td>None. Prior edema claim was wrong: creatine water is intracellular and muscle-localized, and oral minoxidil dwarfs it.</td>
+              <td>Primary MOA</td>
+              <td>Phosphocreatine ATP buffering in hypoxic tissue (extrapolated, no graft data).</td>
+            </tr>
+            <tr>
+              <td>Glycine 3 g</td>
+              <td>None</td>
+              <td>Glycine-receptor sleep effects</td>
+              <td>Collagen substrate. Cytoprotective in ischemia models.</td>
+            </tr>
+            <tr>
+              <td>Collagen 14 g + HA 120 mg + vit C<br><span class="td-meta">Vital Proteins Advanced</span></td>
+              <td>None</td>
+              <td>Substrate not yet rate-limiting</td>
+              <td>Amino pool for early matrix. HA supports provisional matrix hydration.</td>
+            </tr>
+            <tr>
+              <td>Urolithin A 1,000 mg<br><span class="td-meta">Mitopure, 2× label dose</span></td>
+              <td>None established</td>
+              <td>Mitophagy induction operates over weeks, not 72 hours</td>
+              <td>Mitochondrial QC in hypoxic grafts (theoretical).</td>
+            </tr>
+            <tr>
+              <td>Ca-AKG 1,000 mg<br><span class="td-meta">ProHealth, 2 × 500 mg</span></td>
+              <td>None</td>
+              <td>Whether oral AKG raises tissue AKG meaningfully is unestablished</td>
+              <td>Krebs intermediate. Modest energy substrate.</td>
+            </tr>
+            <tr>
+              <td>ADAM multi (2 softgels)<br><span class="td-meta">NOW Foods</span></td>
+              <td>Vit E 100 mg d-alpha plus grape seed 25 mg. The only real supplement bleed contributors you have.</td>
+              <td>Most B vitamins and trace minerals at repletion</td>
+              <td>Vit A 3,000 mcg offsets prednisone-impaired healing. Vit C 250 mg. Zinc 15 mg. K1 35 + K2 45 mcg support clotting.</td>
+            </tr>
+            <tr>
+              <td>CoQ10 200 mg</td>
+              <td>Antiplatelet evidence is thin and mixed. Previously overstated.</td>
+              <td>Offsets rosuvastatin CoQ10 depletion</td>
+              <td>Electron transport efficiency under hypoxia.</td>
+            </tr>
+            <tr>
+              <td>NAD+ CR + Resveratrol Elite<br><span class="td-meta">300 mg NR, 10 mg trans-res, 5 mg quercetin, fisetin</span></td>
+              <td>None. Polyphenol doses too small to matter.</td>
+              <td>NR raises NAD+ over weeks, not days</td>
+              <td>ATP and DNA repair support in stressed cells.</td>
+            </tr>
+            <tr>
+              <td>Black Maca 2,000 mg</td>
+              <td>None known</td>
+              <td>No relevant wound-healing MOA</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Boron 3 mg</td>
+              <td>Small free-T/DHT bump, now unopposed with Problend paused. Donor follicles are DHT-resistant; native recipient-area hair is not. Still trivial at 3 mg.</td>
+              <td>Main MOA</td>
+              <td>None. Anti-inflammatory effect moot vs prednisone.</td>
+            </tr>
+            <tr>
+              <td>Omega-3 850 EPA / 540 DHA<br><span class="td-meta">Thorne Super EPA, 2 gelcaps</span></td>
+              <td>None. 1,390 mg is roughly half the threshold for clinically detectable antiplatelet effect.</td>
+              <td>Main position this phase</td>
+              <td>None yet</td>
+            </tr>
+            <tr>
+              <td>D3/K2 (1,000 IU / 45 mcg)<br><span class="td-meta">NOW Foods</span></td>
+              <td>None</td>
+              <td>D3 effects are repletion-dependent, not acute</td>
+              <td>K2 supports gamma-carboxylation of clotting factors.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="analysis-panel" data-analysis-panel="d4" hidden>
+      <p class="analysis-blurb"><strong>Inosculation and revascularization.</strong> Graft vessels reconnect to recipient capillaries around day 3–5, followed by a reperfusion ROS burst. Needs: angiogenesis, oxidative buffering, infection control. Donor: re-epithelialization completes.</p>
+      <div class="table-scroll">
+        <table class="care-table analysis-table">
+          <thead>
+            <tr>
+              <th>Supplement (confirmed dose)</th>
+              <th>Harmful</th>
+              <th>Neutral</th>
+              <th>Helpful</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NAC 1,200 mg</td>
+              <td>Residual, tapering</td>
+              <td>None</td>
+              <td>Best-timed benefit of the whole stack: buffers reperfusion ROS at inosculation.</td>
+            </tr>
+            <tr>
+              <td>Creatine 5 g</td>
+              <td>None</td>
+              <td>Mostly</td>
+              <td>ATP support during metabolic reactivation.</td>
+            </tr>
+            <tr>
+              <td>Glycine 3 g</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Substrate as fibroblasts activate.</td>
+            </tr>
+            <tr>
+              <td>Collagen 14 g + HA + vit C</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Proline/hydroxyproline for granulation tissue.</td>
+            </tr>
+            <tr>
+              <td>Urolithin A 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Mitochondrial QC during the reperfusion window.</td>
+            </tr>
+            <tr>
+              <td>Ca-AKG 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Prolyl hydroxylase co-substrate as collagen synthesis initiates.</td>
+            </tr>
+            <tr>
+              <td>ADAM multi</td>
+              <td>Vit E and grape seed still contributing while aspirin and pentoxifylline continue.</td>
+              <td>Most components</td>
+              <td>Vit A, C, zinc for donor-site epithelialization. Selenium 200 mcg antioxidant.</td>
+            </tr>
+            <tr>
+              <td>CoQ10 200 mg</td>
+              <td>Negligible</td>
+              <td>Mostly</td>
+              <td>Reperfusion antioxidant plus mitochondrial support.</td>
+            </tr>
+            <tr>
+              <td>NAD+ CR + Resveratrol</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Fuels proliferating endothelium during revascularization.</td>
+            </tr>
+            <tr>
+              <td>Black Maca</td>
+              <td>None</td>
+              <td>Main MOA</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Boron 3 mg</td>
+              <td>Same trivial androgen note</td>
+              <td>Main MOA</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Omega-3</td>
+              <td>None</td>
+              <td>Weak theoretical anti-angiogenic signal, not clinically established at this dose</td>
+              <td>None yet</td>
+            </tr>
+            <tr>
+              <td>D3/K2</td>
+              <td>None</td>
+              <td>None</td>
+              <td>D3 drives cathelicidin, relevant while cephalexin is running.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="analysis-panel" data-analysis-panel="d8" hidden>
+      <p class="analysis-blurb"><strong>Proliferation.</strong> Collagen III deposition. Grafts mechanically secure by day 10–14. Shock shedding begins. Needs: collagen substrates, vitamin C, zinc, protein, resolving inflammation.</p>
+      <div class="table-scroll">
+        <table class="care-table analysis-table">
+          <thead>
+            <tr>
+              <th>Supplement (confirmed dose)</th>
+              <th>Harmful</th>
+              <th>Neutral</th>
+              <th>Helpful</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NAC 1,200 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Cysteine feeds keratin and glutathione synthesis in proliferating keratinocytes.</td>
+            </tr>
+            <tr>
+              <td>Creatine 5 g</td>
+              <td>None</td>
+              <td>Mostly</td>
+              <td>Energy for high-turnover tissue.</td>
+            </tr>
+            <tr>
+              <td>Glycine 3 g</td>
+              <td>None</td>
+              <td>None</td>
+              <td>One-third of collagen residues. Plausibly rate-relevant at this volume of synthesis.</td>
+            </tr>
+            <tr>
+              <td>Collagen 14 g + HA + vit C</td>
+              <td>None</td>
+              <td>Substrate may not be limiting if protein intake is adequate</td>
+              <td>Peak utility phase: direct substrate for collagen III.</td>
+            </tr>
+            <tr>
+              <td>Urolithin A 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Supports inflammation resolution as prednisone has ended.</td>
+            </tr>
+            <tr>
+              <td>Ca-AKG 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Peak utility: collagen hydroxylation cofactor.</td>
+            </tr>
+            <tr>
+              <td>ADAM multi</td>
+              <td>None. Aspirin and pentoxifylline finished.</td>
+              <td>Most components</td>
+              <td>Vit C 250 mg for hydroxylation. Zinc 15 mg for epithelial closure.</td>
+            </tr>
+            <tr>
+              <td>CoQ10 200 mg</td>
+              <td>None</td>
+              <td>Mostly</td>
+              <td>Mild antioxidant.</td>
+            </tr>
+            <tr>
+              <td>NAD+ CR + Resveratrol</td>
+              <td>None</td>
+              <td>None</td>
+              <td>DNA repair in rapidly dividing cells.</td>
+            </tr>
+            <tr>
+              <td>Black Maca</td>
+              <td>None</td>
+              <td>Main MOA</td>
+              <td>Weak murine hair-growth signal only.</td>
+            </tr>
+            <tr>
+              <td>Boron 3 mg</td>
+              <td>Trivial androgen note persists while Problend is paused</td>
+              <td>Main MOA</td>
+              <td>Weak matrix-signaling support.</td>
+            </tr>
+            <tr>
+              <td>Omega-3</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Resolvins and protectins actively drive inflammation resolution. Net clearly positive from here.</td>
+            </tr>
+            <tr>
+              <td>D3/K2</td>
+              <td>None</td>
+              <td>None</td>
+              <td>VDR signaling supports follicle survival into telogen.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="analysis-panel" data-analysis-panel="d15" hidden>
+      <p class="analysis-blurb"><strong>Early remodeling.</strong> Collagen III to I conversion and crosslinking. Follicles enter dormancy. Needs: copper and vitamin C for lysyl and prolyl oxidase, clean inflammation resolution.</p>
+      <div class="table-scroll">
+        <table class="care-table analysis-table">
+          <thead>
+            <tr>
+              <th>Supplement (confirmed dose)</th>
+              <th>Harmful</th>
+              <th>Neutral</th>
+              <th>Helpful</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NAC 1,200 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Keratin substrate ahead of eventual regrowth.</td>
+            </tr>
+            <tr>
+              <td>Creatine 5 g</td>
+              <td>None</td>
+              <td>Mostly</td>
+              <td>Mild energy support.</td>
+            </tr>
+            <tr>
+              <td>Glycine 3 g</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Remodeling substrate.</td>
+            </tr>
+            <tr>
+              <td>Collagen 14 g + HA + vit C</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Continued remodeling substrate.</td>
+            </tr>
+            <tr>
+              <td>Urolithin A 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Prevents smoldering low-grade inflammation.</td>
+            </tr>
+            <tr>
+              <td>Ca-AKG 1,000 mg</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Prolyl and lysyl hydroxylase cofactor for crosslinking.</td>
+            </tr>
+            <tr>
+              <td>ADAM multi</td>
+              <td>None</td>
+              <td>Most components</td>
+              <td>Copper 0.5 mg for lysyl oxidase crosslinking. Saw palmetto 160 mg is currently your only 5AR input.</td>
+            </tr>
+            <tr>
+              <td>CoQ10 200 mg</td>
+              <td>None</td>
+              <td>Mostly</td>
+              <td>Mild antioxidant.</td>
+            </tr>
+            <tr>
+              <td>NAD+ CR + Resveratrol</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Cellular maintenance.</td>
+            </tr>
+            <tr>
+              <td>Black Maca</td>
+              <td>None</td>
+              <td>Main MOA</td>
+              <td>Weak</td>
+            </tr>
+            <tr>
+              <td>Boron 3 mg</td>
+              <td>Trivial</td>
+              <td>Main MOA</td>
+              <td>Weak</td>
+            </tr>
+            <tr>
+              <td>Omega-3</td>
+              <td>None</td>
+              <td>None</td>
+              <td>Net helpful. Resolution phase.</td>
+            </tr>
+            <tr>
+              <td>D3/K2</td>
+              <td>None</td>
+              <td>None</td>
+              <td>D3 supports anagen re-entry signaling in dormant follicles.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <article class="care-card" style="margin-top:16px">
+      <div class="care-when">Synthesis</div>
+      <h2>Nothing warrants holding</h2>
+      <p>The only real supplement bleed line is ADAM’s vit E 100 mg d-alpha + grape seed 25 mg alongside aspirin, pentoxifylline, and Trintellix — one question for Dr. Sean’s office (hold-or-continue for seven days). Omega-3, resveratrol, and creatine edema concerns were cleared. Highest-leverage change: run <strong>Ca-AKG straight through days 8–21</strong> (no weekend gap).</p>
+      <p class="care-footnote" style="margin-top:10px"><a href="post-op-supplement-analysis.pdf">Full analysis PDF</a> · research summary, not medical advice — confirm with Dr. Sean.</p>
+    </article>
+  </section>
+</main>
+
+<nav class="bottom-nav" aria-label="Primary">
+  <a href="index.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z"/></svg>
+    Home
+  </a>
+  <a href="schedule.html" aria-current="page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>
+    Schedule
+  </a>
+  <a href="progress.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="m21 16-5-5-8 8"/></svg>
+    Progress
+  </a>
+  <a href="care.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+    Care
+  </a>
+</nav>
+
+<script src="js/journey.js?v=20260822f"></script>
+</body>
+</html>
