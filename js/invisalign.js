@@ -127,15 +127,88 @@
     }
   }
 
+  function photoStorageKey(key) {
+    return 'invisalign-photo-' + key;
+  }
+
+  function showPhoto(card, frame, src, label) {
+    var img = document.createElement('img');
+    img.alt = label;
+    img.src = src;
+    frame.innerHTML = '';
+    frame.appendChild(img);
+    card.classList.add('is-filled');
+  }
+
+  function compressImage(file, done) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var max = 1400;
+        var w = img.width;
+        var h = img.height;
+        if (w > max || h > max) {
+          if (w > h) {
+            h = Math.round(h * (max / w));
+            w = max;
+          } else {
+            w = Math.round(w * (max / h));
+            h = max;
+          }
+        }
+        var canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        done(canvas.toDataURL('image/jpeg', 0.82));
+      };
+      img.onerror = function () { done(reader.result); };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function bindPhotoUpload(card, frame, key, label) {
+    var input = card.querySelector('.inv-photo-upload');
+    if (!input) return;
+
+    input.addEventListener('change', function () {
+      var file = input.files && input.files[0];
+      if (!file) return;
+      compressImage(file, function (dataUrl) {
+        try {
+          localStorage.setItem(photoStorageKey(key), dataUrl);
+        } catch (e) {
+          window.alert('Photo is too large for this browser. Try a smaller image.');
+          return;
+        }
+        showPhoto(card, frame, dataUrl, label);
+      });
+      input.value = '';
+    });
+  }
+
   function initPhotos() {
     var exts = ['.jpg', '.jpeg', '.png', '.webp'];
     document.querySelectorAll('[data-inv-photo]').forEach(function (card) {
       var base = card.getAttribute('data-inv-photo');
+      var key = card.getAttribute('data-photo-key');
       var frame = card.querySelector('.inv-photo-frame');
       if (!base || !frame) return;
 
-      var stem = base.replace(/\.(jpe?g|png|webp)$/i, '');
       var label = card.getAttribute('data-label') || 'Photo';
+      bindPhotoUpload(card, frame, key, label);
+
+      if (key) {
+        var saved = localStorage.getItem(photoStorageKey(key));
+        if (saved) {
+          showPhoto(card, frame, saved, label);
+          return;
+        }
+      }
+
+      var stem = base.replace(/\.(jpe?g|png|webp)$/i, '');
       var i = 0;
 
       function tryNext() {
@@ -143,9 +216,7 @@
         var img = new Image();
         img.alt = label;
         img.onload = function () {
-          frame.innerHTML = '';
-          frame.appendChild(img);
-          card.classList.add('is-filled');
+          showPhoto(card, frame, img.src, label);
         };
         img.onerror = function () {
           i += 1;
