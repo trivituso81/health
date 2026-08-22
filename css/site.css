@@ -2314,6 +2314,22 @@ body.sheet-open { overflow: hidden; }
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
+.inv-photo-feature {
+  background: var(--bg-card);
+  border: 2px solid var(--inv-blue);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+.inv-photo-feature .inv-photo-frame { aspect-ratio: 16 / 10; }
+.inv-photo-feature .inv-photo-meta {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--text);
+  background: var(--inv-blue-soft);
+}
 .inv-photo-card {
   background: var(--bg-card);
   border: 1px solid var(--rule);

@@ -4,9 +4,9 @@ Drop files here — the page picks them up automatically (`.jpg`, `.jpeg`, `.png
 
 | Slot | Filename |
 | --- | --- |
+| Today · Aug 22 · aligner #13 | `aug-22.jpg` |
 | Before (starting smile) | `before.jpg` |
-| Mid-treatment | `mid-treatment.jpg` (optional) |
-| After Invisalign | `after-aligners.jpg` (optional) |
-| After whitening / bonding | `after-final.jpg` (optional) |
+| After Invisalign | `after-aligners.jpg` |
+| After whitening / bonding | `after-final.jpg` |
 
 No upload UI — add files in Cursor, commit, and push.
