@@ -98,11 +98,11 @@
       'Spray window closed';
 
     var meds =
-      n <= 2 ? 'Antibiotic BID · prednisone AM · no NSAIDs yet' :
-      n <= 5 ? 'Antibiotic BID · prednisone AM · Advil OK' :
-      n <= 10 ? 'Finish antibiotic · ACell if jar remains' :
-      n < 28 ? 'Problend still held · oral finasteride on' :
-      'Problend restart window · keep finasteride';
+      n <= 2 ? 'AM: aspirin · pentox · cephalexin · full prednisone · PM: cephalexin · ½ minoxidil · no NSAIDs' :
+      n <= 5 ? 'AM: aspirin · pentox · cephalexin · full prednisone · PM: cephalexin · ½ minoxidil · Advil OK' :
+      n <= 10 ? 'AM: aspirin · pentox · cephalexin · PM: cephalexin · ½ minoxidil' :
+      n < 28 ? '½ oral minoxidil evenings · Problend still held' :
+      'Problend restart window · ½ oral minoxidil evenings until cleared';
 
     var wash =
       n <= 1 ? 'No graft wash yet' :
@@ -112,7 +112,7 @@
       'Regular showering cleared';
 
     var scalp =
-      n < 28 ? 'Problend held · oral minoxidil ½ dose' :
+      n < 28 ? 'Problend held · oral minoxidil ½ dose (evening)' :
       'Problend restart eligible';
 
     return [
@@ -170,12 +170,12 @@
 
   /* Schedule day-range filters */
   var PHASE_COPY = {
-    d0: 'Procedure night — spray every 10 min, sleep at 45°, no NSAIDs, start whey + Happy Head capsules.',
-    d1: 'Spray every 20 min · prednisone + antibiotic · ACell ×3 · forehead tape/ice/massage · last night at 45°.',
-    d2: 'Spray every 30 min · Advil still held until tomorrow · first cup-rinse · ACell continues · NSAIDs still no until day 3.',
-    d3: 'Days 3–5 — optional spray · Advil OK · finish prednisone · ACell until jar empty · tape off by day 5.',
-    d6: 'Days 6–14 — finish antibiotic · donor cleanse · cup-rinse then scab softener from day 12 · Ca-AKG continuous · Problend still held.',
-    d15: 'Days 15–30 — gentle wash · donor LED/stamp from day 21 · Problend still held until ~day 28 · maca/boron can return.',
+    d0: 'Procedure night — spray every 10 min, sleep at 45°, no NSAIDs, start whey + Happy Head capsules · PM ½ oral minoxidil.',
+    d1: 'Spray every 20 min · AM: aspirin/pentox/cephalexin/full prednisone · PM: cephalexin + ½ minoxidil · ACell ×3 · forehead tape/ice/massage · last night at 45°.',
+    d2: 'Spray every 30 min · same AM/PM clinic Rx · Advil still held until tomorrow · first cup-rinse · ACell continues.',
+    d3: 'Days 3–5 — optional spray · Advil OK · finish prednisone (full AM) · keep cephalexin BID + ½ minoxidil PM · ACell until jar empty · tape off by day 5.',
+    d6: 'Days 6–14 — finish antibiotic · keep ½ minoxidil PM · donor cleanse · cup-rinse then scab softener from day 12 · Ca-AKG continuous · Problend still held.',
+    d15: 'Days 15–30 — gentle wash · donor LED/stamp from day 21 · Problend still held until ~day 28 · ½ minoxidil PM · maca/boron can return.',
     full: 'Baseline stack — Problend nightly, full supplements, Zepbound only after Dr. Sean clears a slow restart.'
   };
 
