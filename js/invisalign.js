@@ -85,7 +85,7 @@
       setText('inv-switch-label', daysLeft === 0 ? 'Switch today' : daysLeft === 1 ? 'Switch tomorrow' : 'Next switch');
       setText('inv-remaining', String(total - current.n + 1));
       setText('inv-remaining-label', 'Including this tray');
-      setText('inv-progress', Math.round(((current.n - 1) / total) * 100) + ((dayInTray / current.days) / total) * 100) + '%');
+      setText('inv-progress', Math.round(((current.n - 1) / total) * 100 + ((dayInTray / current.days) / total) * 100) + '%');
     } else {
       setText('inv-current', '—');
       setText('inv-current-label', 'Not started');
@@ -158,9 +158,15 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     fillStatus();
     renderSchedule();
     initPhotos();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
