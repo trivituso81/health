@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0d7a6f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tom's Health">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+<title>Today — Tom's Health App</title>
+<link rel="stylesheet" href="css/site.css?v=20260822a">
+<script>
+(function () {
+  var k = 'toms-health-unlocked';
+  if (localStorage.getItem(k) === '1' || sessionStorage.getItem(k) === '1') {
+    document.documentElement.classList.add('unlocked');
+  }
+})();
+</script>
+</head>
+<body data-page="today">
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">T</span> Tom's Health App</a>
+    <nav class="site-nav">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="today.html" data-nav="today">Today</a>
+      <a href="profile.html" data-nav="profile">Profile</a>
+      <a href="transplant.html" data-nav="transplant">Transplant</a>
+      <a href="longevity.html" data-nav="longevity">Longevity</a>
+      <a href="stack.html" data-nav="stack">Stack</a>
+      <a href="skincare.html" data-nav="skincare">Skincare</a>
+      <a href="haircare.html" data-nav="haircare">Hair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page today-page">
+
+  <div class="today-hero">
+    <div class="today-hero-main">
+      <div class="today-daynum" id="today-daynum">—</div>
+      <div class="today-daylabel" id="today-daylabel">post-op</div>
+    </div>
+    <div class="today-hero-meta">
+      <div class="today-date" id="today-longdate">—</div>
+      <div class="today-phase" id="today-phasename">—</div>
+      <div class="today-progress"><span id="today-progress-text">0 of 0 done</span>
+        <div class="today-progress-track"><div class="today-progress-fill" id="today-progress-fill"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cat-bar" id="cat-bar" role="tablist" aria-label="Filter by category">
+    <button type="button" role="tab" data-cat="all" class="is-on">Everything</button>
+    <button type="button" role="tab" data-cat="sleep">Sleep</button>
+    <button type="button" role="tab" data-cat="scalp">Scalp</button>
+    <button type="button" role="tab" data-cat="meds">Meds</button>
+    <button type="button" role="tab" data-cat="supps">Supplements</button>
+    <button type="button" role="tab" data-cat="meals">Meals</button>
+    <button type="button" role="tab" data-cat="move">Activity</button>
+  </div>
+  <p class="cat-empty" id="cat-empty" hidden>Nothing in that category today.</p>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">On waking</span><span class="db-hint">before coffee</span></div>
+    <ul class="day-list">
+      <li data-cat="sleep">
+        <label><input type="checkbox" data-today-id="wake-slow">
+          <span class="ti"><strong>Sit up slowly, head stays high</strong><i>Swelling drains overnight — going from flat to upright fast is what makes it pool.</i></span>
+        </label>
+        <span class="cat-chip cat-sleep">Sleep</span>
+      </li>
+      <li data-cat="scalp">
+        <label><input type="checkbox" data-today-id="wake-swelling">
+          <span class="ti"><strong>Look at the swelling</strong><i>Forehead and around the eyes peaks day 2–4, then drops fast. Expected, not a complication.</i></span>
+        </label>
+        <span class="cat-chip cat-scalp">Scalp</span>
+      </li>
+      <li data-cat="scalp">
+        <label><input type="checkbox" data-today-id="wake-wash">
+          <span class="ti"><strong>Wash — follow the clinic video</strong><i>J&amp;J Baby Shampoo, no fingernails, no rubbing, pat dry. The video's schedule and technique override this page. <span class="tag confirm">Confirm</span></i></span>
+        </label>
+        <span class="cat-chip cat-scalp">Scalp</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="wake-keflex">
+          <span class="ti"><strong>Keflex — first dose</strong><i>Follow the interval printed on the bottle, and finish the whole course even once you feel fine. <span class="tag confirm">Confirm</span></i></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="meals">
+        <label><input type="checkbox" data-today-id="wake-water">
+          <span class="ti"><strong>Large glass of water</strong><i>Before the coffee, not after it.</i></span>
+        </label>
+        <span class="cat-chip cat-meals">Meals</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">Breakfast</span><span class="db-hint">with food</span></div>
+    <ul class="day-list">
+      <li data-cat="meals">
+        <label><input type="checkbox" data-today-id="bf-protein">
+          <span class="ti"><strong>Protein first — aim ~30 g</strong><i>The clinic sheet's one dietary instruction is a high-protein diet. This is the highest-leverage food decision of your day.</i></span>
+        </label>
+        <span class="cat-chip cat-meals">Meals</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="bf-coffee">
+          <span class="ti"><strong>Coffee blend — creatine 5 g + glycine 3 g</strong><i>Stirred into the coffee as usual.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="bf-collagen">
+          <span class="ti"><strong>Collagen 14 g in Greek yogurt</strong></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="bf-coq10">
+          <span class="ti"><strong>CoQ10 100 mg</strong><i>1 of 2 today.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="bf-hh">
+          <span class="ti"><strong>Happy Head hair supplement</strong><i>1 of 2 capsules, with food. This is the oral supplement, not the Problend topical.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">Midday</span><span class="db-hint">lunch</span></div>
+    <ul class="day-list">
+      <li data-cat="meals">
+        <label><input type="checkbox" data-today-id="mid-lunch">
+          <span class="ti"><strong>Protein-forward lunch</strong><i>Whey concentrate shake if you are behind — concentrate, not isolate, per the sheet.</i></span>
+        </label>
+        <span class="cat-chip cat-meals">Meals</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="mid-coq10">
+          <span class="ti"><strong>CoQ10 100 mg</strong><i>2 of 2.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="mid-d3k2">
+          <span class="ti"><strong>Vitamin D3 + K2</strong><i>1 softgel.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="supps">
+        <label><input type="checkbox" data-today-id="mid-hh">
+          <span class="ti"><strong>Happy Head hair supplement</strong><i>2 of 2 capsules, with food.</i></span>
+        </label>
+        <span class="cat-chip cat-supps">Supps</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="mid-keflex">
+          <span class="ti"><strong>Keflex — if the interval lands here</strong></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="move">
+        <label><input type="checkbox" data-today-id="mid-walk">
+          <span class="ti"><strong>Walk — out of the heat</strong><i>Walking only at this stage. Nothing that flushes your face or sweats the scalp. <a href="transplant.html#exercise">Full ramp →</a></i></span>
+        </label>
+        <span class="cat-chip cat-move">Move</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">Afternoon</span></div>
+    <ul class="day-list">
+      <li data-cat="scalp">
+        <label><input type="checkbox" data-today-id="pm-hbot">
+          <span class="ti"><strong>Hyperbaric session, if booked</strong><i>Sessions 2 and 3 are worth much more inside the day 4–7 revascularization window than after it. <a href="transplant.html#hbot">Why →</a></i></span>
+        </label>
+        <span class="cat-chip cat-scalp">Scalp</span>
+      </li>
+      <li data-cat="sleep">
+        <label><input type="checkbox" data-today-id="pm-rest">
+          <span class="ti"><strong>Rest propped up, not flat</strong><i>Applies to naps as much as to the night.</i></span>
+        </label>
+        <span class="cat-chip cat-sleep">Sleep</span>
+      </li>
+      <li data-cat="meals">
+        <label><input type="checkbox" data-today-id="pm-fluids">
+          <span class="ti"><strong>Fluids check</strong><i>Whey shake here too if the day's protein is short.</i></span>
+        </label>
+        <span class="cat-chip cat-meals">Meals</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="pm-tylenol">
+          <span class="ti"><strong>Tylenol if sore</strong><i>As needed, not scheduled. No ibuprofen, Advil, Motrin, or aspirin.</i></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">Dinner</span></div>
+    <ul class="day-list">
+      <li data-cat="meals">
+        <label><input type="checkbox" data-today-id="dn-protein">
+          <span class="ti"><strong>Protein again</strong><i>No alcohol during recovery.</i></span>
+        </label>
+        <span class="cat-chip cat-meals">Meals</span>
+      </li>
+      <li data-cat="scalp">
+        <label><input type="checkbox" data-today-id="dn-wash">
+          <span class="ti"><strong>Second wash, if the video schedules one</strong><i>Frequency comes from the clinic video, not from here. <span class="tag confirm">Confirm</span></i></span>
+        </label>
+        <span class="cat-chip cat-scalp">Scalp</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="dn-keflex">
+          <span class="ti"><strong>Keflex</strong><i>Per the bottle's interval.</i></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="day-block" data-block>
+    <div class="db-head"><span class="db-when">Bedtime</span><span class="db-hint">all four together</span></div>
+    <ul class="day-list">
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="bed-trintellix">
+          <span class="ti"><strong>Trintellix 20 mg</strong><i>Confirmed with Dr. Sean — continue.</i></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="bed-olmesartan">
+          <span class="ti"><strong>Olmesartan 20 mg</strong></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="bed-rosuvastatin">
+          <span class="ti"><strong>Rosuvastatin 10 mg</strong></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="meds">
+        <label><input type="checkbox" data-today-id="bed-finasteride">
+          <span class="ti"><strong>Oral finasteride</strong><i>Dr. Sean's script. This is what covers you while Problend is stopped — the one thing that actually protects your native hair.</i></span>
+        </label>
+        <span class="cat-chip cat-meds">Meds</span>
+      </li>
+      <li data-cat="sleep">
+        <label><input type="checkbox" data-today-id="bed-elevate">
+          <span class="ti"><strong>Travel pillow, head elevated</strong><i>Button-front shirt laid out, so nothing goes over your head in the morning.</i></span>
+        </label>
+        <span class="cat-chip cat-sleep">Sleep</span>
+      </li>
+    </ul>
+  </section>
+
+  <p class="section-title">Not today</p>
+  <div class="panel off-panel">
+    <ul class="off-list">
+      <li data-cat="scalp"><strong>Problend / minoxidil</strong><span>Held. Restart ~16 Sep, about 4 weeks post-op.</span></li>
+      <li data-cat="meds"><strong>Zepbound</strong><span>Paused since 1 Aug. Ask at your follow-up when it can restart.</span></li>
+      <li data-cat="meds"><strong>Ibuprofen, Advil, Motrin, aspirin</strong><span>Tylenol instead.</span></li>
+      <li data-cat="meals"><strong>Alcohol</strong><span>Off through recovery.</span></li>
+      <li data-cat="move"><strong>Swimming, hair dye, sauna, steam</strong><span>4 weeks. Minimize sun.</span></li>
+      <li data-cat="supps"><strong>Fish oil, multivitamin, NAC, and the rest of the longevity stack</strong><span>Still held from the bleeding-risk stop. Resume when the clinic clears it. <a href="stack.html">Stack →</a></span></li>
+    </ul>
+  </div>
+
+  <p class="section-title" id="next-title">What changes next</p>
+  <div class="panel" id="next-panel">
+    <ul class="next-list">
+      <li><span class="next-when">Day 4–7</span><span>Revascularization finishes. Hyperbaric sessions stop being worth rearranging your week for, and light cardio becomes reasonable.</span></li>
+      <li><span class="next-when">~2 weeks</span><span>Scabbing resolved. Shirts over the head become safe again.</span></li>
+      <li><span class="next-when">~4 weeks · 16 Sep</span><span>Problend restarts. Swimming, dye, and full training clear. <a href="haircare.html">Hair care →</a></span></li>
+      <li><span class="next-when">Months 2–3</span><span>Shock loss and the quiet stretch — the part where people panic. <a href="transplant.html#expect">Growth curve →</a></span></li>
+    </ul>
+  </div>
+
+  <p class="today-foot">
+    Boxes clear themselves every morning. The clinic's post-op video outruns this page wherever they disagree —
+    this is a running order, not medical instruction. <a href="transplant.html#post">Full recovery detail →</a>
+  </p>
+
+</main>
+
+<footer class="site-footer">
+  Informational only — not medical advice. Dr. Sean’s written protocol supersedes this site where they disagree.
+  Prepared Aug 2026 · AI-assisted review; confirm all <span class="tag confirm">Confirm</span> items with your clinicians.
+</footer>
+
+<script src="js/site.js?v=20260822a"></script>
+</body>
+</html>
