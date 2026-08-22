@@ -198,6 +198,64 @@
     return 'd15';
   }
 
+  function localDayStamp() {
+    var d = new Date();
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  }
+
+  /* Ticks are scoped to the calendar date so the list is blank again each
+     morning; yesterday's keys are dropped on load. */
+  function initScheduleTicks(root) {
+    var stamp = localDayStamp();
+    var prefix = 'hp-sched-';
+    var todayPrefix = prefix + stamp + '-';
+
+    try {
+      Object.keys(localStorage).forEach(function (k) {
+        if (k.indexOf(prefix) === 0 && k.indexOf(todayPrefix) !== 0) localStorage.removeItem(k);
+      });
+    } catch (e) { /* private mode */ }
+
+    var counter = document.getElementById('sched-progress');
+
+    root.querySelectorAll('li[data-on]').forEach(function (li, i) {
+      if (li.querySelector('.tick')) return;
+      var name = li.querySelector('.name');
+      if (!name) return;
+
+      var label = (name.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 48);
+      var key = todayPrefix + i + '-' + label;
+
+      var box = document.createElement('input');
+      box.type = 'checkbox';
+      box.className = 'tick';
+      box.setAttribute('aria-label', 'Mark done: ' + label);
+      try { box.checked = localStorage.getItem(key) === '1'; } catch (e) { box.checked = false; }
+      li.classList.toggle('is-done', box.checked);
+
+      box.addEventListener('change', function () {
+        try { localStorage.setItem(key, box.checked ? '1' : '0'); } catch (e) { /* ignore */ }
+        li.classList.toggle('is-done', box.checked);
+        updateCount();
+      });
+
+      li.insertBefore(box, li.firstChild);
+    });
+
+    function updateCount() {
+      if (!counter) return;
+      var shown = root.querySelectorAll('li[data-on]:not([hidden])');
+      var done = 0;
+      shown.forEach(function (li) {
+        var b = li.querySelector('.tick');
+        if (b && b.checked) done++;
+      });
+      counter.textContent = shown.length ? done + ' of ' + shown.length + ' done today' : '';
+    }
+
+    return updateCount;
+  }
+
   function initSchedule() {
     var root = document.querySelector('[data-schedule]');
     if (!root) return;
@@ -205,6 +263,7 @@
     var tabs = root.querySelectorAll('.phase-tabs[aria-label="Recovery phase"] [data-phase]');
     var note = document.getElementById('phase-note');
     var items = root.querySelectorAll('li[data-on]');
+    var updateCount = initScheduleTicks(root);
 
     function apply(phase) {
       if (!phase) return;
@@ -241,6 +300,8 @@
           block.setAttribute('hidden', '');
         }
       });
+
+      if (updateCount) updateCount();
     }
 
     tabs.forEach(function (btn) {

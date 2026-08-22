@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/journey.css?v=20260821e">
+<link rel="stylesheet" href="css/journey.css?v=20260822f">
 <script>
 (function () {
   var k = 'toms-health-unlocked';
@@ -43,9 +43,72 @@
     <button type="button" role="tab" data-phase="full">Full stack</button>
   </div>
   <p class="phase-note" id="phase-note"></p>
+  <p class="sched-progress" id="sched-progress"></p>
 
   <section class="sched-block" data-block>
     <h2>Morning</h2>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">Two-step out of bed<small>Sit at the edge a minute · drink water or juice · then stand slowly. Not necessary from day 2</small></div>
+          <span class="dose">on waking</span>
+        </li>
+        <li data-on="d0 d1">
+          <div class="name">Compression socks on<small>Blood pools in the legs after a long procedure · not necessary from day 2</small></div>
+          <span class="dose">all day</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Check forehead swelling<small>Typically appears 4–5 days out · ice 3×/day 5–10 min and massage from mid-forehead out to the temples, a few times an hour</small></div>
+          <span class="dose">on waking</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Washing</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">No graft wash yet<small>Donor bandage off midday on day 1 · washing the donor and recipient is not required</small></div>
+          <span class="dose">hold</span>
+        </li>
+        <li data-on="d2 d3 d6">
+          <div class="name">Cup-rinse grafts<small>Clean cup, lukewarm water, a little J&amp;J baby shampoo · pour over, no touching or dabbing through day 11 · air dry</small></div>
+          <span class="dose">daily or every other day</span>
+        </li>
+        <li data-on="d2 d3 d6 d15">
+          <div class="name">Wash the donor area<small>Baby shampoo, massage with fingertips · no need to scrape the ACell off · water pressure OK as long as it misses the grafts</small></div>
+          <span class="dose">daily</span>
+        </li>
+        <li data-on="d6 d15">
+          <div class="name">Scab removal from day 12<small>Baby oil overnight → baby shampoo + conditioner lathered on 20 min → massage 5 min in circles → rinse. Repeat over several days</small></div>
+          <span class="dose">from day 12</span>
+        </li>
+        <li data-on="d15">
+          <div class="name">No shower pressure on grafts<small>First 4 weeks · shower normally neck down · not too hot, bathroom not steamy · blot or air dry, no rubbing</small></div>
+          <span class="dose">4 weeks</span>
+        </li>
+        <li data-on="full">
+          <div class="name">Regular showering<small>From day 31</small></div>
+          <span class="dose">cleared</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein-first breakfast<small>~30 g · the clinic sheet's one dietary instruction is a high-protein diet</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Food before the AM meds<small>Cephalexin and prednisone both go with food</small></div>
+          <span class="dose">first</span>
+        </li>
+      </ul>
+    </div>
 
     <div class="sched-group" data-group>
       <h3>Dr. Sean protocol</h3>
@@ -166,6 +229,30 @@
     <h2>Afternoon</h2>
 
     <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein-forward lunch<small>Whey concentrate shake if you are behind — concentrate, not isolate</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Fluids check<small>Steady water through the day · no alcohol during recovery</small></div>
+          <span class="dose">ongoing</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3">
+          <div class="name">Nap propped up, not flat<small>Applies to naps as much as to the night</small></div>
+          <span class="dose">45°</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
       <h3>Graft care</h3>
       <ul>
         <li data-on="d1 d2 d3">
@@ -230,6 +317,16 @@
 
   <section class="sched-block" data-block>
     <h2>Evening</h2>
+
+    <div class="sched-group" data-group>
+      <h3>Meals &amp; hydration</h3>
+      <ul>
+        <li data-on="d0 d1 d2 d3 d6 d15 full">
+          <div class="name">Protein at dinner<small>Food before the evening cephalexin</small></div>
+          <span class="dose">~30 g</span>
+        </li>
+      </ul>
+    </div>
 
     <div class="sched-group" data-group>
       <h3>Dr. Sean protocol</h3>
@@ -297,6 +394,24 @@
         <li data-on="d0 d1 d2 d3 d6 d15 full">
           <div class="name"><span class="badge badge-add">Add</span> Happy Head Hair Growth<small>capsule 2 of 2 · not Problend</small></div>
           <span class="dose">1 cap</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sched-group" data-group>
+      <h3>Sleep &amp; position</h3>
+      <ul>
+        <li data-on="d0 d1">
+          <div class="name">Sleep at 45°<small>Pillows behind your back, neck pillow on · day 1 is the last night at 45°</small></div>
+          <span class="dose">45°</span>
+        </li>
+        <li data-on="d1 d2 d3">
+          <div class="name">Forehead tape stays on<small>4 days and nights · may come off 10 min once a day to breathe, massage while it is off · tape off day 5</small></div>
+          <span class="dose">overnight</span>
+        </li>
+        <li data-on="d2 d3 d6 d15">
+          <div class="name">Sleep normally<small>45° no longer needed from day 2 · still avoid bumping your head — car doors and cabinet doors are the usual culprits</small></div>
+          <span class="dose">flat OK</span>
         </li>
       </ul>
     </div>
@@ -725,6 +840,6 @@
   </a>
 </nav>
 
-<script src="js/journey.js?v=20260821e"></script>
+<script src="js/journey.js?v=20260822f"></script>
 </body>
 </html>

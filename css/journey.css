@@ -1040,3 +1040,28 @@ html.unlocked #auth-gate {
     transition: none !important;
   }
 }
+
+/* Daily tick-off — checkboxes injected by journey.js */
+.sched-progress {
+  margin: -12px 0 18px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sched-block li .tick {
+  flex: 0 0 auto;
+  width: 21px;
+  height: 21px;
+  margin: 1px 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.sched-block li .name { flex: 1 1 auto; min-width: 0; }
+
+.sched-block li.is-done .name { color: var(--muted); text-decoration: line-through; }
+.sched-block li.is-done .name small { text-decoration: none; }
+.sched-block li.is-done .dose { opacity: 0.5; }
