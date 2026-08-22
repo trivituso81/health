@@ -2166,3 +2166,191 @@ body.sheet-open { overflow: hidden; }
   .item-sheet.is-open .item-sheet-inner { animation: none; }
 }
 
+/* ---- Invisalign page ---- */
+.invisalign-page { --inv-blue: #1565c0; --inv-blue-soft: #e3f2fd; }
+
+.inv-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 760px) { .inv-hero { grid-template-columns: 1fr; } }
+
+.inv-hero-main {
+  background: linear-gradient(135deg, #1565c0 0%, #1976d2 55%, #0d47a1 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  box-shadow: var(--shadow);
+}
+.inv-hero-kicker {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  font-weight: 700;
+}
+.inv-hero-num {
+  font-size: clamp(48px, 10vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 6px 0 8px;
+}
+.inv-hero-sub { font-size: 14px; opacity: 0.9; }
+
+.inv-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.inv-metric {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.inv-metric-value {
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--inv-blue);
+}
+.inv-metric-label {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.inv-schedule {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--inv-blue-soft);
+}
+.inv-step {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  margin: 0 0 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+.inv-step::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-radius: 50%;
+  background: var(--rule-strong);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+.inv-step.past { opacity: 0.55; }
+.inv-step.current {
+  border-color: var(--inv-blue);
+  background: var(--inv-blue-soft);
+}
+.inv-step.current::before {
+  background: var(--inv-blue);
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--inv-blue-soft);
+}
+.inv-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--bg-soft);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text-soft);
+}
+.inv-step.current .inv-step-num {
+  background: var(--inv-blue);
+  color: #fff;
+}
+.inv-step-title { font-weight: 700; font-size: 14px; }
+.inv-step-dates { font-size: 13px; color: var(--text-soft); margin-top: 2px; }
+.inv-step-days {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.inv-after-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+@media (max-width: 720px) { .inv-after-grid { grid-template-columns: 1fr; } }
+.inv-after-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+.inv-after-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--inv-blue);
+}
+.inv-after-card p { margin: 0 0 10px; color: var(--text-soft); font-size: 14px; }
+.inv-after-card ul { margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14px; }
+
+.inv-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.inv-photo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.inv-photo-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--bg-inset);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.inv-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.inv-photo-placeholder {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 13px;
+  padding: 12px;
+}
+.inv-photo-placeholder strong {
+  display: block;
+  font-size: 15px;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+.inv-photo-meta {
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text-soft);
+}
+.inv-photo-card.is-filled .inv-photo-placeholder { display: none; }
+

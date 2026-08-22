@@ -25,7 +25,8 @@ Open the site in **Safari** → Share → **Add to Home Screen**. It installs as
 | `dr-sean-post-op-instructions.pdf` | Official clinic packet (source for Care / Schedule) |
 | `post-op-supplement-analysis.pdf` | Days 1–21 stack Harmful/Neutral/Helpful analysis |
 | `progress/photos/` | Drop `day-01.jpg`, `week-02.jpg`, `month-01.jpg`, … here |
-| `health.html` | Previous Tom's Health App landing (labs, longevity hub) |
+| `invisalign.html` | Invisalign journey — 22-tray schedule, photos, post-treatment plan (Dr. Asaro) |
+| `health.html` | Tom's Health App landing (labs, longevity hub) |
 | `transplant.html` | Full FUE peri-op playbook (linked from Care) |
 | `stack.html` / `profile.html` / … | Legacy health pages still available by URL |
 
