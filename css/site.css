@@ -2199,6 +2199,25 @@ body.sheet-open { overflow: hidden; }
   margin: 6px 0 8px;
 }
 .inv-hero-sub { font-size: 14px; opacity: 0.9; }
+.inv-hero-days {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.inv-hero-days-value {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.inv-hero-days-label {
+  font-size: 13px;
+  opacity: 0.88;
+  font-weight: 600;
+}
 
 .inv-metrics {
   display: grid;

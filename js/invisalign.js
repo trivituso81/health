@@ -63,6 +63,26 @@
     if (el) el.textContent = text;
   }
 
+  function daysSoFar(today) {
+    var start = ALIGNERS[0].start;
+    var end = ALIGNERS[ALIGNERS.length - 1].end;
+    if (today < start) return 0;
+    var last = today < end ? today : end;
+    return daysBetween(start, last) + 1;
+  }
+
+  function fillDays(today) {
+    var n = daysSoFar(today);
+    var startLabel = formatShort(ALIGNERS[0].start);
+    var label = n === 0
+      ? 'Starts ' + startLabel
+      : (n === 1 ? 'Day in Invisalign so far' : 'Days in Invisalign so far');
+    setText('inv-days', n === 0 ? '0' : String(n));
+    setText('inv-days-label', label);
+    setText('inv-days-metric', n === 0 ? '0' : String(n));
+    setText('inv-days-metric-label', n === 0 ? 'Not started' : 'Days so far · since ' + startLabel);
+  }
+
   function fillStatus() {
     var today = todayLocal();
     var current = currentAligner(today);
@@ -97,6 +117,7 @@
     }
 
     setText('inv-finish', formatLong(ALIGNERS[ALIGNERS.length - 1].end));
+    fillDays(today);
   }
 
   function renderSchedule() {
